@@ -22,7 +22,7 @@ export function Header() {
           <span className="grid size-8 place-items-center rounded-[var(--radius-sm)] border border-[var(--color-border-active)] text-[var(--color-accent-primary)]">
             S
           </span>
-          Semen
+          SemAntony
         </Link>
         <nav
           aria-label="Main navigation"
