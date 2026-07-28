@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SemAntony Portfolio
 
-## Getting Started
+Personal engineering portfolio built with Next.js, React, TypeScript, Vite,
+vinext, and Cloudflare Workers.
 
-First, run the development server:
+## Requirements
+
+- Node.js 22.13 or newer
+- npm 11.3.0
+
+## Local development
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Before committing, run the complete local verification:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run check
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Production deployment
 
-## Learn More
+The production application is configured as the Cloudflare Worker
+`semantony-portfolio` with `semantony.com` as its Custom Domain.
 
-To learn more about Next.js, take a look at the following resources:
+GitHub Actions performs the following on pull requests:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. installs dependencies from `package-lock.json`;
+2. runs TypeScript checks, ESLint, and Vitest;
+3. creates a production build.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+A push to `main` performs the same checks and then deploys the verified build
+to Cloudflare Workers. Pull requests never deploy and do not receive production
+credentials.
 
-## Deploy on Vercel
+### One-time GitHub setup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Create an empty GitHub repository without a generated README, license, or
+`.gitignore`. Before the first push, open
+**Settings → Secrets and variables → Actions** in that repository and create
+these repository secrets:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `CLOUDFLARE_ACCOUNT_ID`
+- `CLOUDFLARE_API_TOKEN`
+
+Create the API token in Cloudflare with the **Edit Cloudflare Workers**
+template and scope it only to the account and `semantony.com` zone used by this
+project. Never commit either value to the repository.
+
+Then connect this local repository:
+
+```bash
+git remote add origin git@github.com:<github-account>/sem-portfolio.git
+git push -u origin main
+```
+
+That first push to `main` will deploy the Worker and attach the Custom Domain
+declared in `wrangler.jsonc`. Before pushing, confirm that replacing any
+existing origin for `semantony.com` is intentional.
+
+### Manual fallback
+
+Authenticate locally without sharing Cloudflare credentials:
+
+```bash
+npx wrangler login
+npx wrangler whoami
+npm run deploy
+```
+
+For a configuration-only rehearsal that neither builds nor deploys:
+
+```bash
+npm run deploy:dry-run
+```
+
+## Deployment ownership
+
+- `wrangler.jsonc` is the source of truth for the Worker and domain routing.
+- `.github/workflows/cloudflare-production.yml` is the source of truth for
+  verification and production delivery.
+- GitHub Secrets are the only place for CI credentials.
+- Cloudflare automatically manages DNS and TLS for the configured Custom
+  Domain.
