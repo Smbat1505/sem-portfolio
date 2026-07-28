@@ -1,0 +1,15 @@
+:root {
+  --palette-graphite-950: #111312;
+  --palette-graphite-900: #181c1a;
+  --palette-graphite-850: #202622;
+  --palette-graphite-800: #26302a;
+  --palette-graphite-700: #303832;
+  --palette-graphite-600: #5c6b61;
+  --palette-warm-50: #f4f1ea;
+  --palette-muted-400: #a8aea7;
+  --palette-muted-600: #727a73;
+  --palette-teal-300: #7dd3b0;
+  --palette-teal-700: #2e5c4c;
+  --palette-amber-300: #e3b86b;
+  --palette-coral-300: #e07a6f;
+}

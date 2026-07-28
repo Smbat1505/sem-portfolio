@@ -1,0 +1,21 @@
+:root {
+  --color-bg: var(--palette-graphite-950);
+  --color-bg-elevated: var(--palette-graphite-900);
+  --color-surface: var(--palette-graphite-850);
+  --color-surface-hover: var(--palette-graphite-800);
+  --color-border: var(--palette-graphite-700);
+  --color-border-active: var(--palette-graphite-600);
+  --color-text-primary: var(--palette-warm-50);
+  --color-text-secondary: var(--palette-muted-400);
+  --color-text-muted: var(--palette-muted-600);
+  --color-accent-primary: var(--palette-teal-300);
+  --color-accent-soft: var(--palette-teal-700);
+  --color-accent-warm: var(--palette-amber-300);
+  --color-critical: var(--palette-coral-300);
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --shadow-card: 0 18px 50px rgb(0 0 0 / 22%);
+  --layout-page-max: 1480px;
+  --layout-page-padding: clamp(1.25rem, 4vw, 4.5rem);
+}

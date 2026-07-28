@@ -1,0 +1,81 @@
+import type { Project } from "./project.model";
+
+export const projects: Project[] = [
+  {
+    id: "operations-console",
+    slug: "operations-console",
+    title: "Operations Console",
+    summary: "Internal monitoring interface for triage, incident clarity, and operational workflows.",
+    role: "Frontend Engineer",
+    stack: ["React", "TypeScript", "Next.js"],
+    impact: "Made operational workflows easier to scan and repeat",
+    category: "product-ui",
+    capabilities: ["product-delivery", "ui-engineering", "performance"],
+  },
+  {
+    id: "social-platform",
+    slug: "social-platform",
+    title: "Social Platform",
+    summary: "Production-minded social experience with resilient UI states and typed interaction flows.",
+    role: "Frontend Engineer",
+    stack: ["React", "TypeScript", "RTK Query"],
+    impact: "Improved interaction confidence and feedback loops",
+    category: "architecture",
+    capabilities: ["frontend-architecture", "api-contracts", "testing-ci"],
+  },
+  {
+    id: "admin-console",
+    slug: "admin-console",
+    title: "Admin Console",
+    summary: "Dense admin product surface with reliable tables, filters, and status-driven decisions.",
+    role: "Frontend Engineer",
+    stack: ["React", "TypeScript", "Radix UI"],
+    impact: "Faster admin workflows with safer UI states",
+    category: "product-ui",
+    capabilities: ["ui-engineering", "frontend-architecture", "accessibility"],
+  },
+  {
+    id: "automation-tool",
+    slug: "automation-tool",
+    title: "Automation Tool",
+    summary: "Workflow automation interface for repetitive delivery and review tasks.",
+    role: "Product-minded Frontend Engineer",
+    stack: ["TypeScript", "Node.js", "CI"],
+    impact: "Less manual work and clearer release flow",
+    category: "automation",
+    capabilities: ["automation", "testing-ci", "product-delivery"],
+  },
+  {
+    id: "oauth-flow",
+    slug: "oauth-flow",
+    title: "OAuth Flow",
+    summary: "Auth experience review and callback-scope hardening around social sign-in flows.",
+    role: "Frontend Engineer",
+    stack: ["Next.js", "TypeScript", "OpenAPI"],
+    impact: "Reduced auth ambiguity and integration risk",
+    category: "testing-ci",
+    capabilities: ["api-contracts", "testing-ci", "frontend-architecture"],
+  },
+  {
+    id: "ui-kit-scroll-area",
+    slug: "ui-kit-scroll-area",
+    title: "UI Kit Scroll Area",
+    summary: "Library-level scroll behavior improvement for layout stability and responsive admin pages.",
+    role: "Frontend/UI Engineer",
+    stack: ["React", "Radix UI", "TypeScript"],
+    impact: "Improved layout stability across product pages",
+    category: "architecture",
+    capabilities: ["frontend-architecture", "accessibility", "ui-engineering"],
+  },
+];
+export const projectFilters = [
+  { id: "all", label: "All" },
+  { id: "product-ui", label: "Product UI" },
+  { id: "architecture", label: "Architecture" },
+  { id: "testing-ci", label: "Testing & CI" },
+  { id: "automation", label: "Automation" },
+  { id: "performance", label: "Performance" },
+] as const;
+export function filterProjects(category: string) {
+  return category === "all" ? projects : projects.filter((project) => project.category === category);
+}
