@@ -1,7 +1,7 @@
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { CapabilitiesPage } from "@/src/screens/capabilities";
 import { createStaticPageMetadata } from "@/src/shared/config/seo";
-import { isLocale } from "@/src/shared/i18n";
+import { defaultLocale, isLocale, withLocalePath } from "@/src/shared/i18n";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -16,6 +16,10 @@ export default async function Page({ params }: PageProps) {
 
   if (!isLocale(locale)) {
     notFound();
+  }
+
+  if (locale === defaultLocale) {
+    permanentRedirect(withLocalePath("/capabilities", locale));
   }
 
   return <CapabilitiesPage locale={locale} />;

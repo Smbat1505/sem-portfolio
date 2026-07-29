@@ -7,6 +7,7 @@ import {
   getLocalizedContent,
   locales,
   type Locale,
+  withLocalePath,
 } from "../i18n";
 
 export const siteUrl = new URL("https://semantony.com");
@@ -30,7 +31,7 @@ function normalizePath(pathname: string) {
 }
 
 export function getLocalizedPath(locale: Locale, pathname: string) {
-  return `/${locale}${normalizePath(pathname)}`;
+  return withLocalePath(normalizePath(pathname) || "/", locale);
 }
 
 export function getAbsoluteUrl(pathname: string) {

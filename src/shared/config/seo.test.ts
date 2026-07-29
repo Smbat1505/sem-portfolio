@@ -9,9 +9,9 @@ describe("SEO configuration", () => {
     expect(metadata.alternates).toEqual({
       canonical: "https://semantony.com/ru/projects",
       languages: {
-        en: "https://semantony.com/en/projects",
+        en: "https://semantony.com/projects",
         ru: "https://semantony.com/ru/projects",
-        "x-default": "https://semantony.com/en/projects",
+        "x-default": "https://semantony.com/projects",
       },
     });
   });
@@ -23,8 +23,9 @@ describe("SEO configuration", () => {
 
     expect(sitemap).toHaveLength(expectedPageCount);
     expect(new Set(urls)).toHaveLength(expectedPageCount);
-    expect(urls).toContain("https://semantony.com/en");
+    expect(urls).toContain("https://semantony.com/");
     expect(urls).toContain("https://semantony.com/ru/projects/operations-console");
+    expect(urls.some((url) => new URL(url).pathname.startsWith("/en"))).toBe(false);
   });
 
   it("allows public crawling and advertises the sitemap", () => {
@@ -38,7 +39,7 @@ describe("SEO configuration", () => {
     });
   });
 
-  it("uses English as the x-default language alternate", () => {
-    expect(getLanguageAlternates("/contact")["x-default"]).toBe("https://semantony.com/en/contact");
+  it("uses unprefixed English as the x-default language alternate", () => {
+    expect(getLanguageAlternates("/contact")["x-default"]).toBe("https://semantony.com/contact");
   });
 });
