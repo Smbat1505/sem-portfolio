@@ -72,7 +72,6 @@ export function ContactPage({ locale = defaultLocale }: { locale?: Locale }) {
                 />
               </div>
               <h3 className="mt-5 font-semibold text-[var(--color-text-primary)]">{link.label}</h3>
-              <p className="mt-1 text-sm text-[var(--color-text-secondary)]">{link.value}</p>
             </a>
           );
         })}
