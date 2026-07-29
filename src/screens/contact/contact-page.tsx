@@ -1,5 +1,5 @@
 import { ArrowRight, Download, Mail } from "lucide-react";
-import { contactLinks } from "@/src/entities/contact";
+import { contactLinks, primaryEmail } from "@/src/entities/contact";
 import { defaultLocale, getDictionary, type Locale, withLocalePath } from "@/src/shared/i18n";
 import {
   Button,
@@ -31,7 +31,7 @@ export function ContactPage({ locale = defaultLocale }: { locale?: Locale }) {
             description={dictionary.contact.description}
           />
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Button href="mailto:hello@semen.dev" variant="primary">
+            <Button href={primaryEmail.href} variant="primary">
               <Icon icon={Mail} /> {dictionary.common.emailMe}
             </Button>
             <Button href={withLocalePath("/resume", locale)}>
