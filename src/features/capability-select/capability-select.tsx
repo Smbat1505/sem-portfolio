@@ -81,7 +81,7 @@ export function CapabilitySelect({ locale = defaultLocale }: { locale?: Locale }
     <div className="grid gap-5 lg:grid-cols-[1.25fr_0.95fr]">
       <Card className="relative min-h-[640px] overflow-hidden p-5 sm:p-6 lg:min-h-[700px]">
         <div className="absolute inset-0 opacity-35 [background-image:radial-gradient(var(--color-border)_1px,transparent_1px)] [background-size:18px_18px]" />
-        <div className="absolute inset-x-14 top-20 h-64 rounded-full bg-[radial-gradient(circle,rgb(125_211_176_/_0.12),transparent_70%)] blur-2xl" />
+        <div className="absolute inset-x-14 top-20 h-64 rounded-full bg-[radial-gradient(circle,var(--color-accent-tint),transparent_70%)] blur-2xl" />
         <div className="relative z-10 flex items-center justify-between gap-4">
           <p className="font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-accent-primary)]">
             {content.capabilitiesPage.graph.interactiveEyebrow}
@@ -139,7 +139,7 @@ export function CapabilitySelect({ locale = defaultLocale }: { locale?: Locale }
                 key={capability.id}
                 type="button"
                 onClick={() => setSelectedId(capability.id)}
-                className="absolute left-[var(--node-x-mobile)] top-[var(--node-y-mobile)] w-[8.8rem] -translate-x-1/2 -translate-y-1/2 rounded-[var(--radius-md)] border bg-[rgb(17_19_18_/_0.88)] p-3 text-left shadow-[var(--shadow-card)] backdrop-blur transition-[border-color,background,transform] hover:border-[var(--color-accent-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-primary)] sm:left-[var(--node-x)] sm:top-[var(--node-y)] sm:w-[min(14.5rem,42vw)] sm:p-4"
+                className="absolute left-[var(--node-x-mobile)] top-[var(--node-y-mobile)] w-[8.8rem] -translate-x-1/2 -translate-y-1/2 rounded-[var(--radius-md)] border bg-[var(--color-panel-glass)] p-3 text-left shadow-[var(--shadow-card)] backdrop-blur transition-[border-color,background,transform] hover:border-[var(--color-accent-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-primary)] sm:left-[var(--node-x)] sm:top-[var(--node-y)] sm:w-[min(14.5rem,42vw)] sm:p-4"
                 style={
                   {
                     "--node-x": position.x + "%",
@@ -147,7 +147,7 @@ export function CapabilitySelect({ locale = defaultLocale }: { locale?: Locale }
                     "--node-x-mobile": mobilePosition.x + "%",
                     "--node-y-mobile": mobilePosition.y + "%",
                     borderColor: active ? "var(--color-accent-primary)" : "var(--color-border)",
-                    background: active ? "rgb(125 211 176 / 0.11)" : undefined,
+                    background: active ? "var(--color-accent-tint)" : undefined,
                   } as CSSProperties
                 }
                 aria-pressed={active}
@@ -165,7 +165,7 @@ export function CapabilitySelect({ locale = defaultLocale }: { locale?: Locale }
       </Card>
 
       <Card className="p-7">
-        <div className="grid size-20 place-items-center rounded-full border border-[var(--color-border-active)] bg-[rgb(125_211_176_/_0.1)] text-[var(--color-accent-primary)]">
+        <div className="grid size-20 place-items-center rounded-full border border-[var(--color-border-active)] bg-[var(--color-accent-tint)] text-[var(--color-accent-primary)]">
           <Icon icon={selectedIcon} className="size-8" />
         </div>
         <p className="mt-8 font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-accent-primary)]">

@@ -19,8 +19,8 @@ export function ProjectCard({
       className="group block rounded-[var(--radius-md)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent-primary)]"
     >
       <Card className="h-full overflow-hidden transition-[border-color,transform] duration-200 group-hover:-translate-y-1 group-hover:border-[var(--color-border-active)]">
-        <div className="h-36 border-b border-(--color-border) bg-[linear-gradient(135deg,rgb(125_211_176/0.14),rgb(227_184_107/0.08)),radial-gradient(circle_at_20%_20%,rgb(255_255_255/0.12),transparent_24%)] p-4">
-          <div className="h-full rounded-sm border border-[rgb(255_255_255/0.08)] bg-[rgb(17_19_18/0.55)]" />
+        <div className="h-36 border-b border-(--color-border) bg-[image:var(--color-project-preview)] p-4">
+          <div className="h-full rounded-sm border border-[var(--color-subtle-border)] bg-[var(--color-project-preview-inner)]" />
         </div>
         <div className="p-5">
           <h3 className="text-xl font-semibold text-[var(--color-text-primary)]">{project.title}</h3>

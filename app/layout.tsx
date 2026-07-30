@@ -9,6 +9,23 @@ import "./globals.css";
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
+const themeInitializationScript = `
+(function () {
+  try {
+    var key = "sem-portfolio:theme";
+    var stored = localStorage.getItem(key);
+    var preference = stored === "light" || stored === "dark" || stored === "system" ? stored : "system";
+    var resolved = preference === "system"
+      ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+      : preference;
+    var root = document.documentElement;
+    root.dataset.theme = resolved;
+    root.dataset.themePreference = preference;
+    root.style.colorScheme = resolved;
+  } catch (error) {}
+})();
+`;
+
 export const metadata: Metadata = {
   metadataBase: siteUrl,
   applicationName: "SemAntony Portfolio",
@@ -34,7 +51,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={geistSans.variable + " " + geistMono.variable + " h-full antialiased"}>
+    <html
+      lang="en"
+      data-theme="dark"
+      data-theme-preference="system"
+      suppressHydrationWarning
+      className={geistSans.variable + " " + geistMono.variable + " h-full antialiased"}
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitializationScript }} />
+      </head>
       <body>
         <AppProviders>
           <Header />

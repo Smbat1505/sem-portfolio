@@ -35,7 +35,7 @@ export function ResumePage({ locale = defaultLocale }: { locale?: Locale }) {
         <Card className="relative overflow-hidden p-8">
           <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(var(--color-border)_1px,transparent_1px)] [background-size:18px_18px]" />
           <div className="relative z-10">
-            <div className="grid size-16 place-items-center rounded-[var(--radius-md)] border border-[var(--color-border-active)] bg-[rgb(125_211_176_/_0.1)] text-[var(--color-accent-primary)]">
+            <div className="grid size-16 place-items-center rounded-[var(--radius-md)] border border-[var(--color-border-active)] bg-[var(--color-accent-tint)] text-[var(--color-accent-primary)]">
               <Icon icon={FileText} className="size-7" />
             </div>
             <dl className="mt-8 space-y-5">
@@ -179,7 +179,7 @@ export function ResumePage({ locale = defaultLocale }: { locale?: Locale }) {
           </Card>
 
           <Card className="mt-5 p-7">
-            <div className="grid size-12 place-items-center rounded-[var(--radius-md)] border border-[var(--color-border-active)] bg-[rgb(125_211_176_/_0.1)] text-[var(--color-accent-primary)]">
+            <div className="grid size-12 place-items-center rounded-[var(--radius-md)] border border-[var(--color-border-active)] bg-[var(--color-accent-tint)] text-[var(--color-accent-primary)]">
               <Icon icon={Route} />
             </div>
             <h2 className="mt-5 text-xl font-semibold text-[var(--color-text-primary)]">{resume.workingModelTitle}</h2>
@@ -200,7 +200,7 @@ export function ResumePage({ locale = defaultLocale }: { locale?: Locale }) {
 
       <section className="mt-14 grid gap-5 lg:grid-cols-[0.8fr_1.2fr]">
         <Card className="p-7">
-          <div className="grid size-12 place-items-center rounded-[var(--radius-md)] border border-[var(--color-border-active)] bg-[rgb(125_211_176_/_0.1)] text-[var(--color-accent-primary)]">
+          <div className="grid size-12 place-items-center rounded-[var(--radius-md)] border border-[var(--color-border-active)] bg-[var(--color-accent-tint)] text-[var(--color-accent-primary)]">
             <Icon icon={Layers3} />
           </div>
           <h2 className="mt-5 text-2xl font-semibold text-[var(--color-text-primary)]">{resume.pdfReadyTitle}</h2>

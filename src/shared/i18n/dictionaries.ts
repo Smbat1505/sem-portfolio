@@ -12,6 +12,17 @@ export const dictionaries = {
       en: "EN",
       ru: "RU",
     },
+    preferences: {
+      openMenu: "Open menu",
+      closeMenu: "Close menu",
+      mainNavigation: "Main navigation",
+      mobileMenu: "Mobile navigation",
+      language: "Language",
+      theme: "Theme",
+      system: "System",
+      light: "Light",
+      dark: "Dark",
+    },
     common: {
       viewCaseStudies: "View case studies",
       viewResume: "View resume",
@@ -240,6 +251,17 @@ export const dictionaries = {
     locale: {
       en: "EN",
       ru: "RU",
+    },
+    preferences: {
+      openMenu: "Открыть меню",
+      closeMenu: "Закрыть меню",
+      mainNavigation: "Основная навигация",
+      mobileMenu: "Мобильная навигация",
+      language: "Язык",
+      theme: "Тема",
+      system: "Система",
+      light: "Светлая",
+      dark: "Тёмная",
     },
     common: {
       viewCaseStudies: "Смотреть кейсы",

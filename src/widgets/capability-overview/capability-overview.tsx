@@ -40,7 +40,7 @@ export function CapabilityOverview({ capabilities, locale }: { capabilities: Cap
         {core.map((capability, index) => (
           <li
             key={capability.id}
-            className="relative z-10 rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[rgb(17_19_18_/_0.84)] p-4"
+            className="relative z-10 rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-panel-glass)] p-4"
           >
             <span className="grid size-10 place-items-center rounded-full border border-[var(--color-border-active)] bg-[var(--color-bg-elevated)] font-mono text-xs text-[var(--color-accent-primary)]">
               {String(index + 1).padStart(2, "0")}
@@ -57,7 +57,7 @@ export function CapabilityOverview({ capabilities, locale }: { capabilities: Cap
         </p>
         <div className="flex flex-wrap gap-2">
           {supporting.map((capability) => (
-            <Tag key={capability.id} className="bg-[rgb(125_211_176_/_0.06)]">
+            <Tag key={capability.id} className="bg-[var(--color-accent-ghost)]">
               {capability.title}
             </Tag>
           ))}

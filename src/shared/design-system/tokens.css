@@ -1,4 +1,5 @@
 :root {
+  color-scheme: dark;
   --color-bg: var(--palette-graphite-950);
   --color-bg-elevated: var(--palette-graphite-900);
   --color-surface: var(--palette-graphite-850);
@@ -12,10 +13,74 @@
   --color-accent-soft: var(--palette-teal-700);
   --color-accent-warm: var(--palette-amber-300);
   --color-critical: var(--palette-coral-300);
+  --color-header: rgb(17 19 18 / 88%);
+  --color-menu-panel: rgb(17 19 18 / 98%);
+  --color-backdrop: rgb(4 6 5 / 62%);
+  --color-control-track: rgb(255 255 255 / 3%);
+  --color-control-hover: rgb(255 255 255 / 5%);
+  --color-control-active: rgb(125 211 176 / 13%);
+  --color-accent-tint: rgb(125 211 176 / 12%);
+  --color-accent-ghost: rgb(125 211 176 / 6%);
+  --color-accent-border: rgb(125 211 176 / 30%);
+  --color-subtle-fill: rgb(255 255 255 / 4%);
+  --color-subtle-border: rgb(255 255 255 / 8%);
+  --color-grid-line: rgb(255 255 255 / 2.5%);
+  --color-panel-glass: rgb(17 19 18 / 88%);
+  --color-panel-deep: rgb(12 14 13 / 90%);
+  --color-panel-overlay: rgb(7 9 8 / 62%);
+  --color-page-glow-primary: rgb(125 211 176 / 8%);
+  --color-page-glow-secondary: rgb(227 184 107 / 7%);
+  --color-project-preview:
+    linear-gradient(135deg, rgb(125 211 176 / 14%), rgb(227 184 107 / 8%)),
+    radial-gradient(circle at 20% 20%, rgb(255 255 255 / 12%), transparent 24%);
+  --color-project-preview-inner: rgb(17 19 18 / 55%);
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
   --shadow-card: 0 18px 50px rgb(0 0 0 / 22%);
+  --shadow-control: 0 5px 16px rgb(0 0 0 / 16%);
+  --shadow-menu: 0 26px 60px rgb(0 0 0 / 32%);
   --layout-page-max: 1480px;
   --layout-page-padding: clamp(1.25rem, 4vw, 4.5rem);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: var(--palette-paper-50);
+  --color-bg-elevated: #f6f3ec;
+  --color-surface: var(--palette-paper-100);
+  --color-surface-hover: #e9e6dd;
+  --color-border: var(--palette-paper-200);
+  --color-border-active: #a8b0aa;
+  --color-text-primary: var(--palette-ink-950);
+  --color-text-secondary: var(--palette-ink-700);
+  --color-text-muted: var(--palette-ink-500);
+  --color-accent-primary: var(--palette-teal-650);
+  --color-accent-soft: var(--palette-teal-100);
+  --color-accent-warm: #9a6a21;
+  --color-critical: var(--palette-coral-600);
+  --color-header: rgb(250 248 242 / 90%);
+  --color-menu-panel: rgb(250 248 242 / 98%);
+  --color-backdrop: rgb(24 33 28 / 26%);
+  --color-control-track: rgb(24 33 28 / 4%);
+  --color-control-hover: rgb(24 33 28 / 6%);
+  --color-control-active: rgb(38 120 91 / 13%);
+  --color-accent-tint: rgb(38 120 91 / 11%);
+  --color-accent-ghost: rgb(38 120 91 / 6%);
+  --color-accent-border: rgb(38 120 91 / 28%);
+  --color-subtle-fill: rgb(24 33 28 / 4%);
+  --color-subtle-border: rgb(24 33 28 / 9%);
+  --color-grid-line: rgb(24 33 28 / 4%);
+  --color-panel-glass: rgb(250 248 242 / 90%);
+  --color-panel-deep: rgb(241 238 230 / 94%);
+  --color-panel-overlay: rgb(250 248 242 / 76%);
+  --color-page-glow-primary: rgb(38 120 91 / 8%);
+  --color-page-glow-secondary: rgb(154 106 33 / 7%);
+  --color-project-preview:
+    linear-gradient(135deg, rgb(38 120 91 / 13%), rgb(154 106 33 / 9%)),
+    radial-gradient(circle at 20% 20%, rgb(255 255 255 / 55%), transparent 28%);
+  --color-project-preview-inner: rgb(250 248 242 / 58%);
+  --shadow-card: 0 18px 50px rgb(53 61 56 / 12%);
+  --shadow-control: 0 5px 16px rgb(53 61 56 / 10%);
+  --shadow-menu: 0 26px 60px rgb(53 61 56 / 18%);
 }

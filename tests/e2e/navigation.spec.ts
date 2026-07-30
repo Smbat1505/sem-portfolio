@@ -7,11 +7,11 @@ test("portfolio navigation and core interactions work", async ({ page }) => {
   await page.getByRole("button", { name: "Automation" }).click();
   await expect(page.getByRole("heading", { name: "Automation Tool" })).toBeVisible();
   await page.getByRole("link", { name: /Automation Tool/i }).click();
-  await expect(page).toHaveURL(/\/en\/projects\/automation-tool$/);
+  await expect(page).toHaveURL(/\/projects\/automation-tool$/);
   await expect(page.getByRole("heading", { name: "Automation Tool" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Technical decisions" })).toBeVisible();
   await page.getByRole("link", { name: /Back to projects/i }).click();
-  await expect(page).toHaveURL(/\/en\/projects$/);
+  await expect(page).toHaveURL(/\/projects$/);
   await page.getByRole("link", { name: "Capabilities", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Capabilities", exact: true })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Core capabilities work as one system" })).toBeVisible();
@@ -40,5 +40,33 @@ test("portfolio navigation and core interactions work", async ({ page }) => {
     page.getByText("React- и TypeScript-интерфейсы, командная практика, продуктовое мышление и дисциплина delivery."),
   ).toBeVisible();
   await page.getByRole("link", { name: "EN", exact: true }).click();
-  await expect(page).toHaveURL(/\/en\/resume$/);
+  await expect(page).toHaveURL(/\/resume$/);
+});
+
+test("mobile menu, locale, and theme controls are touch-friendly and persistent", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+
+  const menuButton = page.getByRole("button", { name: "Open menu" });
+  await expect(menuButton).toBeVisible();
+  await expect(menuButton).toHaveAttribute("aria-expanded", "false");
+
+  await menuButton.click();
+  await expect(page.getByRole("dialog", { name: "Mobile navigation" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Projects", exact: true })).toBeVisible();
+  await expect(page.getByRole("group", { name: "Language" })).toBeVisible();
+
+  const lightTheme = page.getByRole("radio", { name: "Light" });
+  await expect(lightTheme).toBeVisible();
+  await lightTheme.click();
+  await expect(lightTheme).toHaveAttribute("aria-checked", "true");
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+
+  await page.reload();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+
+  await page.getByRole("button", { name: "Open menu" }).click();
+  await page.getByRole("link", { name: "RU", exact: true }).click();
+  await expect(page).toHaveURL(/\/ru$/);
+  await expect(page.getByRole("dialog", { name: "Мобильная навигация" })).toHaveCount(0);
 });

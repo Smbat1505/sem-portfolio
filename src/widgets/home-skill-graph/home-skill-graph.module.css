@@ -8,9 +8,9 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background:
-    radial-gradient(circle at 50% 36%, rgb(125 211 176 / 14%), transparent 30%),
-    linear-gradient(rgb(255 255 255 / 2.5%) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(255 255 255 / 2.5%) 1px, transparent 1px), var(--color-bg-elevated);
+    radial-gradient(circle at 50% 36%, var(--color-accent-tint), transparent 30%),
+    linear-gradient(var(--color-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px), var(--color-bg-elevated);
   background-size:
     auto,
     3rem 3rem,
@@ -26,7 +26,7 @@
   width: 13rem;
   height: 13rem;
   border-radius: 50%;
-  background: rgb(125 211 176 / 8%);
+  background: var(--color-accent-tint);
   content: "";
   filter: blur(4rem);
   pointer-events: none;
@@ -80,7 +80,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  border: 1px solid rgb(255 255 255 / 13%);
+  border: 1px solid var(--color-subtle-border);
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
@@ -94,14 +94,14 @@
 .orbitInner {
   width: 42%;
   height: 42%;
-  border-color: rgb(125 211 176 / 32%);
+  border-color: var(--color-accent-border);
 }
 
 .connection {
   position: absolute;
   z-index: 0;
   height: 1px;
-  background: rgb(255 255 255 / 12%);
+  background: var(--color-subtle-border);
   opacity: 0.6;
   transform-origin: left center;
   transition:
@@ -111,8 +111,8 @@
 }
 
 .connectionActive {
-  background: rgb(125 211 176 / 72%);
-  box-shadow: 0 0 0.75rem rgb(125 211 176 / 42%);
+  background: var(--color-accent-primary);
+  box-shadow: 0 0 0.75rem var(--color-accent-border);
   opacity: 1;
 }
 
@@ -125,12 +125,12 @@
   place-content: center;
   gap: 0.35rem;
   padding: 0.8rem;
-  border: 1px solid rgb(125 211 176 / 52%);
+  border: 1px solid var(--color-accent-border);
   border-radius: 50%;
-  background: rgb(125 211 176 / 10%);
+  background: var(--color-accent-tint);
   box-shadow:
-    0 0 0 0.65rem rgb(125 211 176 / 3.5%),
-    0 0 3rem rgb(125 211 176 / 15%);
+    0 0 0 0.65rem var(--color-accent-ghost),
+    0 0 3rem var(--color-accent-tint);
   text-align: center;
   transform: translate(-50%, -50%);
 }
@@ -164,7 +164,7 @@
   min-height: 2.55rem;
   border: 1px solid var(--color-border);
   border-radius: 999px;
-  background: rgb(12 14 13 / 90%);
+  background: var(--color-panel-deep);
   color: var(--color-text-secondary);
   cursor: pointer;
   font: inherit;
@@ -188,13 +188,13 @@
 }
 
 .node:focus-visible {
-  box-shadow: 0 0 0 3px rgb(125 211 176 / 20%);
+  box-shadow: 0 0 0 3px var(--color-accent-border);
 }
 
 .nodeActive {
   border-color: var(--color-accent-primary);
   background: var(--color-accent-primary);
-  box-shadow: 0 0 1.5rem rgb(125 211 176 / 18%);
+  box-shadow: 0 0 1.5rem var(--color-accent-border);
   color: var(--color-bg);
 }
 
@@ -224,7 +224,7 @@
   padding: 1rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  background: rgb(7 9 8 / 62%);
+  background: var(--color-panel-overlay);
   backdrop-filter: blur(1rem);
 }
 
@@ -339,7 +339,7 @@
     border: 1px solid var(--color-border);
     border-radius: var(--radius-sm);
     padding: 0.55rem;
-    background: rgb(12 14 13 / 88%);
+    background: var(--color-panel-deep);
     color: var(--color-text-secondary);
     font: inherit;
     font-size: 0.66rem;
@@ -349,7 +349,7 @@
   .clusterTabs button[aria-pressed="true"],
   .clusterNodes button[aria-pressed="true"] {
     border-color: var(--color-accent-primary);
-    background: rgb(125 211 176 / 12%);
+    background: var(--color-accent-tint);
     color: var(--color-text-primary);
   }
 

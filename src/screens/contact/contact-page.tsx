@@ -63,7 +63,7 @@ export function ContactPage({ locale = defaultLocale }: { locale?: Locale }) {
               className="group rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-6 transition-colors hover:border-[var(--color-accent-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-primary)]"
             >
               <div className="flex items-center justify-between gap-4">
-                <div className="grid size-12 place-items-center rounded-[var(--radius-md)] bg-[rgb(125_211_176_/_0.12)] text-[var(--color-accent-primary)]">
+                <div className="grid size-12 place-items-center rounded-[var(--radius-md)] bg-[var(--color-accent-tint)] text-[var(--color-accent-primary)]">
                   <Icon icon={IconComponent} />
                 </div>
                 <Icon
