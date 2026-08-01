@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   min-width: 0;
-  min-height: 43rem;
+  min-height: clamp(34rem, calc(100svh - 12rem), 40rem);
   flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--color-border);
@@ -72,48 +72,41 @@
 
 .canvas {
   position: relative;
-  width: min(100%, 33rem);
+  width: min(100%, 33rem, calc(100svh - 22rem));
   aspect-ratio: 1;
 }
 
-.orbit {
+.corona {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.sunRay {
+  --ray-angle: 0deg;
+  --ray-glow: 5px;
+  --ray-length: 1.6rem;
+  --ray-opacity: 0.2;
+  --ray-width: 1.2px;
+
   position: absolute;
   top: 50%;
   left: 50%;
-  border: 1px solid var(--color-subtle-border);
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-}
-
-.orbitOuter {
-  width: 76%;
-  height: 76%;
-}
-
-.orbitInner {
-  width: 42%;
-  height: 42%;
-  border-color: var(--color-accent-border);
-}
-
-.connection {
-  position: absolute;
-  z-index: 0;
-  height: 1px;
-  background: var(--color-subtle-border);
-  opacity: 0.6;
-  transform-origin: left center;
+  width: var(--ray-length);
+  height: var(--ray-width);
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-accent-primary), transparent 92%);
+  box-shadow: 0 0 var(--ray-glow) var(--color-accent-border);
+  opacity: var(--ray-opacity);
+  transform: rotate(var(--ray-angle)) translateX(4.2rem) translateY(-50%);
+  transform-origin: 0 50%;
   transition:
-    background 220ms ease,
-    box-shadow 220ms ease,
-    opacity 220ms ease;
-}
-
-.connectionActive {
-  background: var(--color-accent-primary);
-  box-shadow: 0 0 0.75rem var(--color-accent-border);
-  opacity: 1;
+    width 150ms linear,
+    height 150ms linear,
+    box-shadow 150ms linear,
+    opacity 150ms linear;
+  will-change: width, height, transform, opacity;
 }
 
 .center {
@@ -127,21 +120,26 @@
   padding: 0.8rem;
   border: 1px solid var(--color-accent-border);
   border-radius: 50%;
-  background: var(--color-accent-tint);
+  background: radial-gradient(circle at 50% 50%, var(--color-accent-tint), var(--color-panel-deep) 78%);
   box-shadow:
     0 0 0 0.65rem var(--color-accent-ghost),
-    0 0 3rem var(--color-accent-tint);
+    0 0 3.4rem var(--color-accent-tint);
+  isolation: isolate;
   text-align: center;
   transform: translate(-50%, -50%);
 }
 
 .center strong {
+  position: relative;
+  z-index: 1;
   color: var(--color-accent-primary);
   font-size: 0.74rem;
   line-height: 1.1;
 }
 
 .center span {
+  position: relative;
+  z-index: 1;
   color: var(--color-text-muted);
   font-size: 0.53rem;
   line-height: 1.25;
@@ -161,9 +159,13 @@
 }
 
 .node {
-  min-height: 2.55rem;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-wrap: balance;
   border: 1px solid var(--color-border);
-  border-radius: 999px;
+  border-radius: 50%;
   background: var(--color-panel-deep);
   color: var(--color-text-secondary);
   cursor: pointer;
@@ -184,7 +186,7 @@
   border-color: var(--color-accent-primary);
   color: var(--color-text-primary);
   outline: none;
-  transform: translateY(-0.15rem);
+  transform: scale(1.045);
 }
 
 .node:focus-visible {
@@ -199,14 +201,17 @@
 }
 
 .nodeDomain {
-  width: 7.8rem;
-  min-height: 3rem;
-  padding: 0.65rem 0.85rem;
+  width: 5.7rem;
+  height: 5.7rem;
+  padding: 0.7rem;
+  font-size: 0.59rem;
 }
 
 .nodeSkill {
-  width: 6.4rem;
-  padding: 0.55rem 0.7rem;
+  width: 5.1rem;
+  height: 5.1rem;
+  padding: 0.62rem;
+  font-size: 0.56rem;
 }
 
 .mobileGraph {
@@ -216,10 +221,6 @@
 .detail {
   position: relative;
   z-index: 4;
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 1.15rem;
-  min-height: 10rem;
   margin: 0 1.25rem 1.25rem;
   padding: 1rem;
   border: 1px solid var(--color-border);
@@ -228,10 +229,71 @@
   backdrop-filter: blur(1rem);
 }
 
+.detailStack {
+  display: grid;
+  min-height: 9rem;
+}
+
+.detailPanel {
+  visibility: hidden;
+  display: grid;
+  grid-area: 1 / 1;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 1.15rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+}
+
+.detailPanelActive {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .detailMeta {
   display: flex;
   align-items: center;
   gap: 0.65rem;
+}
+
+.detailIdle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  text-align: left;
+}
+
+.detailIdle > span {
+  width: 0.65rem;
+  height: 0.65rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--color-accent-primary);
+  box-shadow: 0 0 1.1rem var(--color-accent-primary);
+  animation: idleSignal 2200ms ease-in-out infinite;
+}
+
+.detailIdle h2 {
+  margin-top: 0;
+}
+
+.detailIdle p {
+  max-width: 34rem;
+}
+
+@keyframes idleSignal {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
 }
 
 .detailMeta > span {
@@ -287,11 +349,11 @@
 
 @media (max-width: 1279px) {
   .shell {
-    min-height: 40rem;
+    min-height: min(40rem, calc(100svh - 8rem));
   }
 
   .canvas {
-    width: min(100%, 31rem);
+    width: min(100%, 31rem, calc(100svh - 20rem));
   }
 }
 
@@ -331,6 +393,7 @@
 
   .clusterNodes {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 3.1rem;
   }
 
   .clusterTabs button,
@@ -359,19 +422,36 @@
     outline-offset: 2px;
   }
 
-  .detail {
+  .detailPanel {
     grid-template-columns: 1fr;
-    min-height: 0;
+  }
+
+  .detailStack {
+    min-height: 16.5rem;
+  }
+
+  .detail {
     margin: 0 1rem 1rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .detailIdle > span {
+    animation: none;
+  }
+
+  .detailPanel {
+    transition: none;
+  }
+
+  .sunRay {
+    transition: none;
+  }
+
   .node {
     transition: none;
   }
 
-  .connection,
   .nodePosition {
     transition: none;
   }
