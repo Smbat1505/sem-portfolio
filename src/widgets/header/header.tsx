@@ -70,7 +70,7 @@ export function Header() {
 
   return (
     <>
-      <header className={styles.header}>
+      <header lang={currentLocale} className={styles.header}>
         <div className="mx-auto flex min-h-[4.75rem] max-w-[var(--layout-page-max)] items-center justify-between gap-5 px-[var(--layout-page-padding)]">
           <Link
             href={homeHref}

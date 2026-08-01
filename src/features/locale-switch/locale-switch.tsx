@@ -14,6 +14,8 @@ export function LocaleSwitch({ compact = false, onSelect }: { compact?: boolean;
   const dictionary = getDictionary(currentLocale);
 
   useEffect(() => {
+    document.documentElement.lang = currentLocale;
+
     const storedScroll = window.sessionStorage.getItem(scrollStorageKey);
     if (!storedScroll) return;
 
@@ -21,7 +23,7 @@ export function LocaleSwitch({ compact = false, onSelect }: { compact?: boolean;
     window.requestAnimationFrame(() => {
       window.scrollTo({ top: Number(storedScroll), behavior: "instant" });
     });
-  }, [pathname]);
+  }, [currentLocale, pathname]);
 
   return (
     <div

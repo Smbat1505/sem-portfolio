@@ -565,7 +565,7 @@ const localizedContent = {
       {
         id: "product-thinking",
         title: "Product Thinking",
-        description: "Фокус на outcomes, а не на outputs, с привязкой к реальным потребностям пользователей.",
+        description: "Focus on outcomes rather than outputs, tied to real user needs.",
       },
       {
         id: "ship-confidence",
@@ -584,10 +584,10 @@ const localizedContent = {
     ],
   },
   ru: {
-    footer: "Сначала async. Четкий объем задачи, быстрая обратная связь, доведенный до результата delivery.",
+    footer: "Сначала асинхронно. Чёткий объём задачи, быстрая обратная связь и доведение работы до результата.",
     projectsPage: {
       title: "Избранные продуктовые проекты",
-      description: "Подборка интерфейсов, систем и delivery-улучшений с понятным продуктовым контекстом.",
+      description: "Подборка интерфейсов, систем и улучшений процесса поставки с понятным продуктовым контекстом.",
       proofTitle: "Сигналы надежности",
       stats: [
         { value: "2019", label: "Начало пути" },
@@ -627,19 +627,19 @@ const localizedContent = {
     },
     projectFilters: [
       { id: "all", label: "Все" },
-      { id: "product-ui", label: "Product UI" },
+      { id: "product-ui", label: "Продуктовый UI" },
       { id: "architecture", label: "Архитектура" },
-      { id: "testing-ci", label: "Testing & CI" },
+      { id: "testing-ci", label: "Тестирование и CI" },
       { id: "automation", label: "Автоматизация" },
-      { id: "performance", label: "Performance" },
+      { id: "performance", label: "Производительность" },
     ],
     projects: [
       {
         id: "operations-console",
         slug: "operations-console",
         title: "Operations Console",
-        summary: "Внутренний мониторинговый интерфейс для triage, ясности инцидентов и операционных процессов.",
-        role: "Frontend Engineer",
+        summary: "Внутренний мониторинговый интерфейс для разбора инцидентов и управления операционными процессами.",
+        role: "Frontend-инженер",
         stack: ["React", "TypeScript", "Next.js"],
         impact: "Сделал операционные сценарии понятнее и последовательнее",
         category: "product-ui",
@@ -651,7 +651,7 @@ const localizedContent = {
         title: "Social Platform",
         summary:
           "Социальный продуктовый интерфейс с устойчивыми UI-состояниями и типизированными сценариями взаимодействия.",
-        role: "Frontend Engineer",
+        role: "Frontend-инженер",
         stack: ["React", "TypeScript", "RTK Query"],
         impact: "Повысил уверенность в интеракциях и улучшил циклы обратной связи",
         category: "architecture",
@@ -661,10 +661,10 @@ const localizedContent = {
         id: "admin-console",
         slug: "admin-console",
         title: "Admin Console",
-        summary: "Плотный admin-интерфейс с надежными таблицами, фильтрами и решениями на основе статусов.",
-        role: "Frontend Engineer",
+        summary: "Плотный административный интерфейс с надёжными таблицами, фильтрами и решениями на основе статусов.",
+        role: "Frontend-инженер",
         stack: ["React", "TypeScript", "Radix UI"],
-        impact: "Ускорил admin-процессы и сделал UI-состояния безопаснее",
+        impact: "Ускорил административные процессы и сделал UI-состояния безопаснее",
         category: "product-ui",
         capabilities: ["ui-engineering", "frontend-architecture", "accessibility"],
       },
@@ -672,8 +672,8 @@ const localizedContent = {
         id: "automation-tool",
         slug: "automation-tool",
         title: "Automation Tool",
-        summary: "Интерфейс автоматизации процессов для повторяющихся delivery- и review-задач.",
-        role: "Product-minded Frontend Engineer",
+        summary: "Интерфейс автоматизации повторяющихся задач поставки и ревью.",
+        role: "Frontend-инженер с продуктовым мышлением",
         stack: ["TypeScript", "Node.js", "CI"],
         impact: "Меньше ручной работы и понятнее процесс релиза",
         category: "automation",
@@ -683,10 +683,10 @@ const localizedContent = {
         id: "oauth-flow",
         slug: "oauth-flow",
         title: "OAuth Flow",
-        summary: "Аудит auth-сценария и усиление callback scope вокруг social sign-in.",
-        role: "Frontend Engineer",
+        summary: "Аудит сценария авторизации и уточнение области обработки callback для входа через социальные сети.",
+        role: "Frontend-инженер",
         stack: ["Next.js", "TypeScript", "OpenAPI"],
-        impact: "Снизил неоднозначность auth-flow и интеграционные риски",
+        impact: "Снизил неоднозначность сценария авторизации и интеграционные риски",
         category: "testing-ci",
         capabilities: ["api-contracts", "testing-ci", "frontend-architecture"],
       },
@@ -694,10 +694,11 @@ const localizedContent = {
         id: "ui-kit-scroll-area",
         slug: "ui-kit-scroll-area",
         title: "UI Kit Scroll Area",
-        summary: "Улучшение scroll behavior на уровне библиотеки для стабильности layout и responsive admin-страниц.",
-        role: "Frontend/UI Engineer",
+        summary:
+          "Улучшение прокрутки на уровне библиотеки для стабильной компоновки адаптивных административных страниц.",
+        role: "Frontend/UI-инженер",
         stack: ["React", "Radix UI", "TypeScript"],
-        impact: "Улучшил стабильность layout на продуктовых страницах",
+        impact: "Улучшил стабильность компоновки продуктовых страниц",
         category: "architecture",
         capabilities: ["frontend-architecture", "accessibility", "ui-engineering"],
       },
@@ -712,7 +713,7 @@ const localizedContent = {
       capabilities: "Навыки",
       decisions: "Технические решения",
       proof: "Доказательства",
-      nextStepTitle: "Нужен такой frontend ownership?",
+      nextStepTitle: "Нужен такой уровень ответственности за frontend?",
       nextStepDescription:
         "Самые сильные разговоры о портфолио начинаются с конкретной продуктовой проблемы, а не с общей презентации.",
       contact: "Связаться",
@@ -721,13 +722,13 @@ const localizedContent = {
       {
         slug: "operations-console",
         title: "Operations Console",
-        eyebrow: "Кейс / Operations UI",
+        eyebrow: "Кейс / Операционный UI",
         summary:
-          "Внутренний мониторинговый интерфейс для triage, ясности инцидентов и снижения трения в операционных процессах.",
-        role: "Frontend Engineer",
+          "Внутренний мониторинговый интерфейс для разбора инцидентов и снижения трения в операционных процессах.",
+        role: "Frontend-инженер",
         stack: ["React", "TypeScript", "Next.js"],
         impact: "Сделал операционные сценарии понятнее и последовательнее",
-        timeline: "Internal operations delivery",
+        timeline: "Поставка внутреннего операционного продукта",
         capabilities: ["Product Delivery", "UI Engineering", "Performance"],
         sections: {
           problem: {
@@ -736,37 +737,37 @@ const localizedContent = {
           },
           constraints: {
             title: "Ограничения",
-            body: "Интерфейс должен был оставаться плотным, responsive и надежным, при этом показывать status-heavy информацию так, чтобы поддерживать повторяющийся triage.",
+            body: "Интерфейс должен был оставаться плотным, адаптивным и надёжным, при этом показывать насыщенную статусами информацию так, чтобы поддерживать повторяющийся разбор инцидентов.",
           },
           solution: {
             title: "Решение",
-            body: "UI строился вокруг ясной иерархии, стабильного языка статусов, компактных карточек и предсказуемой навигации между monitoring context и action context.",
+            body: "UI строился вокруг ясной иерархии, стабильного языка статусов, компактных карточек и предсказуемой навигации между контекстом мониторинга и контекстом действий.",
           },
           outcome: {
             title: "Результат",
-            body: "Операционный flow стало проще сканировать, трения стало меньше, а контекст инцидентов стал понятнее для повторяющейся работы.",
+            body: "Операционный сценарий стало проще просматривать, трения стало меньше, а контекст инцидентов стал понятнее для повторяющейся работы.",
           },
         },
         decisions: [
           {
-            title: "Signal-first hierarchy",
+            title: "Иерархия от главного сигнала",
             description:
-              "Сначала показывать статус, severity и следующее действие, а уже потом вторичную метаинформацию.",
+              "Сначала показывать статус, критичность и следующее действие, а уже потом вторичную метаинформацию.",
           },
           {
-            title: "Stable scan patterns",
+            title: "Стабильные паттерны просмотра",
             description:
-              "Держать повторяющиеся layout-регионы предсказуемыми, чтобы пользователь быстрее считывал экран.",
+              "Держать повторяющиеся области компоновки предсказуемыми, чтобы пользователь быстрее считывал экран.",
           },
           {
-            title: "Performance-aware rendering",
+            title: "Рендеринг с учётом производительности",
             description:
               "Не перегружать визуально поверхности, к которым пользователь возвращается в напряженном контексте.",
           },
         ],
         proof: [
-          "Операционное трение выбрано как главный product outcome.",
-          "Плотность UI сбалансирована со scan clarity.",
+          "Операционное трение выбрано главным продуктовым результатом.",
+          "Плотность UI сбалансирована с ясностью просмотра.",
           "Кейс связан с Product Delivery, UI Engineering и Performance.",
         ],
       },
@@ -776,7 +777,7 @@ const localizedContent = {
         eyebrow: "Кейс / Frontend Architecture",
         summary:
           "Социальный продуктовый интерфейс с устойчивыми UI-состояниями, типизированными сценариями взаимодействия и дисциплиной API-границ.",
-        role: "Frontend Engineer",
+        role: "Frontend-инженер",
         stack: ["React", "TypeScript", "RTK Query"],
         impact: "Повысил уверенность в интеракциях и улучшил циклы обратной связи",
         timeline: "Продуктовая итерация",
@@ -784,15 +785,15 @@ const localizedContent = {
         sections: {
           problem: {
             title: "Проблема",
-            body: "Социальные интерфейсы несут много неявного состояния: optimistic реакции, переходы профиля, комментарии, auth-adjacent сценарии и изменения backend-контрактов. Без ясных границ даже небольшая интеракция может создавать скрытые регрессии.",
+            body: "Социальные интерфейсы несут много неявного состояния: оптимистичные реакции, переходы профиля, комментарии, сценарии авторизации и изменения backend-контрактов. Без ясных границ даже небольшая интеракция может создавать скрытые регрессии.",
           },
           constraints: {
             title: "Ограничения",
-            body: "UI должен был оставаться отзывчивым и при этом учитывать поведение API, loading states, failure states и ожидания на уровне routes. Реализация также должна была оставаться читаемой для будущих продуктовых изменений.",
+            body: "UI должен был оставаться отзывчивым и при этом учитывать поведение API, состояния загрузки и ошибок, а также ожидания на уровне маршрутов. Реализация также должна была оставаться читаемой для будущих продуктовых изменений.",
           },
           solution: {
             title: "Решение",
-            body: "Работа строилась вокруг typed data boundaries, предсказуемого async state, явных UI-состояний и проверяемых interaction flows. Поведение продукта привязывалось к конкретным проверкам, а не к ручной уверенности.",
+            body: "Работа строилась вокруг типизированных границ данных, предсказуемого асинхронного состояния, явных UI-состояний и проверяемых сценариев взаимодействия. Поведение продукта привязывалось к конкретным проверкам, а не к субъективной уверенности.",
           },
           outcome: {
             title: "Результат",
@@ -801,46 +802,46 @@ const localizedContent = {
         },
         decisions: [
           {
-            title: "Typed interaction boundaries",
+            title: "Типизированные границы взаимодействия",
             description:
-              "Держать адаптацию API-ответов рядом с data edge, чтобы компоненты рендерили предсказуемые продуктовые состояния.",
+              "Держать адаптацию API-ответов рядом с границей получения данных, чтобы компоненты отображали предсказуемые продуктовые состояния.",
           },
           {
-            title: "State-first UI review",
+            title: "Ревью UI через состояния",
             description:
-              "Рассматривать loading, empty, success, optimistic и failure пути как поведение продукта, а не как оформление.",
+              "Рассматривать состояния загрузки, пустого результата, успеха, оптимистичного обновления и ошибки как поведение продукта, а не как оформление.",
           },
           {
-            title: "Regression-aware checks",
+            title: "Проверки с учётом регрессий",
             description:
-              "Использовать сфокусированные тесты и smoke flows вокруг рискованных интеракций до завершения работы.",
+              "Использовать сфокусированные тесты и дымовые сценарии вокруг рискованных интеракций до завершения работы.",
           },
         ],
         proof: [
-          "Typed RTK Query usage для API-driven UI flows.",
-          "Явная работа с interaction confidence и feedback loops.",
+          "Типизированное использование RTK Query для UI-сценариев на основе API.",
+          "Явная работа с надёжностью взаимодействий и циклами обратной связи.",
           "Архитектурные решения напрямую связаны с Testing & CI и API Contracts.",
         ],
       },
       {
         slug: "admin-console",
         title: "Admin Console",
-        eyebrow: "Кейс / Product UI",
+        eyebrow: "Кейс / Продуктовый UI",
         summary:
-          "Плотная admin-поверхность вокруг таблиц, фильтров, решений по статусам и предсказуемой повторяющейся работы.",
-        role: "Frontend Engineer",
+          "Плотная административная поверхность вокруг таблиц, фильтров, решений по статусам и предсказуемой повторяющейся работы.",
+        role: "Frontend-инженер",
         stack: ["React", "TypeScript", "Radix UI"],
-        impact: "Ускорил admin-процессы и сделал UI-состояния безопаснее",
-        timeline: "Internal product delivery",
+        impact: "Ускорил административные процессы и сделал UI-состояния безопаснее",
+        timeline: "Поставка внутреннего продукта",
         capabilities: ["UI Engineering", "Frontend Architecture", "Accessibility"],
         sections: {
           problem: {
             title: "Проблема",
-            body: "Операционным пользователям нужно быстро сканировать, сравнивать, фильтровать и повторять действия. Даже визуально приятный admin screen не работает, если статусы, affordances и ошибки не считываются сразу.",
+            body: "Операционным пользователям нужно быстро просматривать, сравнивать, фильтровать и повторять действия. Даже визуально приятный административный экран не работает, если статусы, возможные действия и ошибки не считываются сразу.",
           },
           constraints: {
             title: "Ограничения",
-            body: "Интерфейс должен был поддерживать плотную информацию без визуального шума. Accessibility, keyboard flow, поведение таблиц и responsive layout должны были оставаться стабильными.",
+            body: "Интерфейс должен был поддерживать плотную информацию без визуального шума. Доступность, клавиатурная навигация, поведение таблиц и адаптивная компоновка должны были оставаться стабильными.",
           },
           solution: {
             title: "Решение",
@@ -848,78 +849,79 @@ const localizedContent = {
           },
           outcome: {
             title: "Результат",
-            body: "Admin-процессы стало проще сканировать и повторять, а UI-состояния стали безопаснее для будущих изменений.",
+            body: "Административные процессы стало проще просматривать и повторять, а UI-состояния стали безопаснее для будущих изменений.",
           },
         },
         decisions: [
           {
-            title: "Dense but calm layout",
+            title: "Плотная, но спокойная компоновка",
             description:
               "Использовать сдержанную визуальную иерархию, чтобы повторяющаяся операционная работа читалась быстро.",
           },
           {
-            title: "Accessible primitives",
+            title: "Доступные примитивы",
             description:
-              "Опирался на Radix UI patterns для focus behavior, keyboard interactions и консистентных состояний.",
+              "Опирался на паттерны Radix UI для управления фокусом, клавиатурных взаимодействий и согласованных состояний.",
           },
           {
-            title: "Reusable state patterns",
-            description: "Держать фильтры, status labels и action states предсказуемыми во всей admin-поверхности.",
+            title: "Переиспользуемые паттерны состояний",
+            description:
+              "Держать фильтры, подписи статусов и состояния действий предсказуемыми во всей административной поверхности.",
           },
         ],
         proof: [
           "Надежная поверхность таблиц и фильтров.",
-          "Status-driven UI decisions вместо декоративных карточек.",
-          "Прямая связь с UI Engineering и Accessibility capabilities.",
+          "Решения UI на основе статусов вместо декоративных карточек.",
+          "Прямая связь с компетенциями UI Engineering и Accessibility.",
         ],
       },
       {
         slug: "automation-tool",
         title: "Automation Tool",
-        eyebrow: "Кейс / Automation",
-        summary: "Интерфейс автоматизации процессов для повторяющихся delivery- и review-задач.",
-        role: "Product-minded Frontend Engineer",
+        eyebrow: "Кейс / Автоматизация",
+        summary: "Интерфейс автоматизации повторяющихся задач поставки и ревью.",
+        role: "Frontend-инженер с продуктовым мышлением",
         stack: ["TypeScript", "Node.js", "CI"],
         impact: "Меньше ручной работы и понятнее процесс релиза",
-        timeline: "Developer workflow improvement",
+        timeline: "Улучшение рабочего процесса разработчика",
         capabilities: ["Automation", "Testing & CI", "Product Delivery"],
         sections: {
           problem: {
             title: "Проблема",
-            body: "Повторяющиеся review и delivery задачи замедляют feedback loops, когда каждый шаг зависит от ручных проверок и разбросанного контекста.",
+            body: "Повторяющиеся задачи ревью и поставки замедляют циклы обратной связи, когда каждый шаг зависит от ручных проверок и разбросанного контекста.",
           },
           constraints: {
             title: "Ограничения",
-            body: "Flow должен был оставаться понятным, повторяемым и совместимым с существующими CI и review ожиданиями.",
+            body: "Сценарий должен был оставаться понятным, повторяемым и совместимым с существующими ожиданиями от CI и ревью.",
           },
           solution: {
             title: "Решение",
-            body: "Повторяющаяся работа была оформлена как понятный интерфейс с видимыми шагами, outputs и review signals.",
+            body: "Повторяющаяся работа была оформлена как понятный интерфейс с видимыми шагами, результатами и сигналами для ревью.",
           },
           outcome: {
             title: "Результат",
-            body: "Ручной работы стало меньше, а release flow стало проще объяснять, повторять и ревьюить.",
+            body: "Ручной работы стало меньше, а процесс релиза стало проще объяснять, повторять и проверять.",
           },
         },
         decisions: [
           {
-            title: "Make the process visible",
+            title: "Сделать процесс видимым",
             description:
-              "Показывать повторяющиеся workflow steps как явные UI-состояния, а не как скрытое знание команды.",
+              "Показывать повторяющиеся шаги рабочего процесса как явные UI-состояния, а не как скрытое знание команды.",
           },
           {
-            title: "Keep checks close to delivery",
-            description: "Связывать automation output с review signals, которым команда уже доверяет.",
+            title: "Держать проверки рядом с поставкой",
+            description: "Связывать результат автоматизации с сигналами ревью, которым команда уже доверяет.",
           },
           {
-            title: "Optimize for repeatability",
+            title: "Оптимизировать повторяемость",
             description:
-              "Выбирать понятные повторяемые пути вместо one-off scripts, которые понимает только один человек.",
+              "Выбирать понятные повторяемые пути вместо одноразовых скриптов, которые понимает только один человек.",
           },
         ],
         proof: [
-          "Delivery и review steps стали видимыми.",
-          "CI-adjacent signals связаны с product workflow.",
+          "Шаги поставки и ревью стали видимыми.",
+          "Сигналы рядом с CI связаны с продуктовым процессом.",
           "Кейс связан с Automation и Testing & CI.",
         ],
       },
@@ -927,99 +929,102 @@ const localizedContent = {
         slug: "oauth-flow",
         title: "OAuth Flow",
         eyebrow: "Кейс / API Contracts",
-        summary: "Аудит auth-сценария и усиление callback scope вокруг social sign-in.",
-        role: "Frontend Engineer",
+        summary: "Аудит сценария авторизации и уточнение области обработки callback для входа через социальные сети.",
+        role: "Frontend-инженер",
         stack: ["Next.js", "TypeScript", "OpenAPI"],
-        impact: "Снизил неоднозначность auth-flow и интеграционные риски",
-        timeline: "Auth flow review",
+        impact: "Снизил неоднозначность сценария авторизации и интеграционные риски",
+        timeline: "Ревью сценария авторизации",
         capabilities: ["API Contracts", "Testing & CI", "Frontend Architecture"],
         sections: {
           problem: {
             title: "Проблема",
-            body: "Auth flows становятся рискованными, когда callback handling слишком широкий, ownership route неясен или frontend assumptions расходятся с backend behavior.",
+            body: "Сценарии авторизации становятся рискованными, когда обработка callback слишком широка, ответственный маршрут неясен или предположения frontend расходятся с поведением backend.",
           },
           constraints: {
             title: "Ограничения",
-            body: "Review должен был сохранить существующий app routing, но сделать auth boundary более явной и проще проверяемой.",
+            body: "Ревью должно было сохранить существующую маршрутизацию приложения, но сделать границу авторизации более явной и простой для проверки.",
           },
           solution: {
             title: "Решение",
-            body: "Работа была сфокусирована на сужении callback scope, уточнении auth route ownership и привязке frontend behavior к API expectations.",
+            body: "Работа была сфокусирована на сужении области callback, уточнении ответственности маршрута авторизации и привязке поведения frontend к ожиданиям API.",
           },
           outcome: {
             title: "Результат",
-            body: "Неоднозначность auth-flow снизилась, а integration risk стало проще увидеть до релиза изменений.",
+            body: "Неоднозначность сценария авторизации снизилась, а интеграционные риски стало проще увидеть до релиза изменений.",
           },
         },
         decisions: [
           {
-            title: "Scope callback handling",
+            title: "Ограничить обработку callback",
             description:
-              "Не делать глобальных предположений, если sensitive auth callback принадлежит конкретному route.",
+              "Не делать глобальных предположений, если чувствительный callback авторизации принадлежит конкретному маршруту.",
           },
           {
-            title: "Make API drift visible",
+            title: "Сделать расхождения API видимыми",
             description:
-              "Использовать typed contracts и OpenAPI context, чтобы снизить скрытый frontend/backend mismatch.",
+              "Использовать типизированные контракты и контекст OpenAPI, чтобы снизить скрытые расхождения между frontend и backend.",
           },
           {
-            title: "Review failure states",
-            description: "Рассматривать invalid, repeated и unexpected auth states как product behavior.",
+            title: "Проверять состояния ошибок",
+            description:
+              "Рассматривать недействительные, повторные и неожиданные состояния авторизации как поведение продукта.",
           },
         ],
         proof: [
-          "Auth callback scope проверен как route-level risk.",
-          "OpenAPI и TypeScript держат contract assumptions явными.",
+          "Область callback авторизации проверена как риск на уровне маршрута.",
+          "OpenAPI и TypeScript сохраняют предположения о контрактах явными.",
           "Кейс связан с API Contracts и Frontend Architecture.",
         ],
       },
       {
         slug: "ui-kit-scroll-area",
         title: "UI Kit Scroll Area",
-        eyebrow: "Кейс / UI Platform",
+        eyebrow: "Кейс / UI-платформа",
         summary:
-          "Улучшение scroll behavior, стабильности layout и responsive admin-поверхностей на уровне библиотеки без переписывания продуктовых экранов.",
-        role: "Frontend/UI Engineer",
+          "Улучшение прокрутки, стабильности компоновки и адаптивных административных поверхностей на уровне библиотеки без переписывания продуктовых экранов.",
+        role: "Frontend/UI-инженер",
         stack: ["React", "Radix UI", "TypeScript"],
-        impact: "Улучшил стабильность layout на продуктовых страницах",
-        timeline: "Design-system adjacent fix",
+        impact: "Улучшил стабильность компоновки продуктовых страниц",
+        timeline: "Исправление на границе дизайн-системы",
         capabilities: ["Frontend Architecture", "Accessibility", "UI Engineering"],
         sections: {
           problem: {
             title: "Проблема",
-            body: "Проблемы со scroll behavior проявлялись на продуктовых страницах, но устойчивое решение находилось ниже, в shared UI abstraction. Page-level CSS оставил бы тот же риск на других экранах.",
+            body: "Проблемы с прокруткой проявлялись на продуктовых страницах, но устойчивое решение находилось ниже — в общей UI-абстракции. CSS на уровне страницы оставил бы тот же риск на других экранах.",
           },
           constraints: {
             title: "Ограничения",
-            body: "Исправление должно было сохранить существующее использование и сделать axis behavior явным, стабильным и понятным на responsive layouts.",
+            body: "Исправление должно было сохранить существующее использование и сделать поведение осей явным, стабильным и понятным в адаптивной компоновке.",
           },
           solution: {
             title: "Решение",
-            body: "Shared scroll primitive был усилен вокруг более ясного orientation behavior и layout boundaries, чтобы consuming pages оставались сфокусированы на продуктовой композиции.",
+            body: "Общий примитив прокрутки был усилен более ясным поведением ориентации и границами компоновки, чтобы использующие его страницы оставались сфокусированы на продуктовой композиции.",
           },
           outcome: {
             title: "Результат",
-            body: "Responsive admin-страницы получили более стабильный layout через библиотечное улучшение, а не через повторяющиеся локальные патчи.",
+            body: "Адаптивные административные страницы получили более стабильную компоновку через библиотечное улучшение, а не через повторяющиеся локальные исправления.",
           },
         },
         decisions: [
           {
-            title: "Fix the owning abstraction",
-            description: "Перенести устойчивое scroll behavior в shared primitive вместо патчинга отдельных страниц.",
+            title: "Исправить ответственную абстракцию",
+            description:
+              "Перенести устойчивое поведение прокрутки в общий примитив вместо исправления отдельных страниц.",
           },
           {
-            title: "Preserve migration safety",
+            title: "Сохранить безопасность миграции",
             description:
               "Сохранить стабильное использование компонента, чтобы продуктовые экраны не требовали широкого переписывания.",
           },
           {
-            title: "Verify responsive behavior",
-            description: "Проверять narrow и desktop layouts, где scroll и overflow bugs обычно расходятся.",
+            title: "Проверить адаптивное поведение",
+            description:
+              "Проверять узкую и desktop-компоновку, где ошибки прокрутки и переполнения обычно проявляются по-разному.",
           },
         ],
         proof: [
-          "Shared UI primitive улучшен на library boundary.",
-          "Responsive layout stability решена без product rewrites.",
+          "Общий UI-примитив улучшен на границе библиотеки.",
+          "Стабильность адаптивной компоновки улучшена без переписывания продуктовых экранов.",
           "Поддерживает контролируемую будущую миграцию на дизайн-систему.",
         ],
       },
@@ -1028,7 +1033,7 @@ const localizedContent = {
       {
         id: "product-delivery",
         title: "Product Delivery",
-        description: "Delivery полного цикла: от продуктовой идеи до готового интерфейса.",
+        description: "Поставка полного цикла: от продуктовой идеи до готового интерфейса.",
         evidence:
           "Помогает доводить работу до результата через ясный объем задачи, циклы обратной связи и измеримые результаты.",
         relatedProjects: ["Social Platform", "Admin Console"],
@@ -1037,7 +1042,7 @@ const localizedContent = {
       {
         id: "frontend-architecture",
         title: "Frontend Architecture",
-        description: "Typed boundaries, переиспользуемые паттерны и предсказуемый поток данных.",
+        description: "Типизированные границы, переиспользуемые паттерны и предсказуемый поток данных.",
         evidence: "Задает масштабируемую структуру и UI-границы, устойчивые к регрессиям.",
         relatedProjects: ["Social Platform", "UI Kit Scroll Area"],
         type: "core",
@@ -1045,7 +1050,7 @@ const localizedContent = {
       {
         id: "ui-engineering",
         title: "UI Engineering",
-        description: "Accessible и responsive интерфейсы с консистентными состояниями.",
+        description: "Доступные и адаптивные интерфейсы с согласованными состояниями.",
         evidence: "Строит поддерживаемые UI-поверхности и контракты компонентов.",
         relatedProjects: ["Admin Console", "UI Kit Scroll Area"],
         type: "core",
@@ -1053,39 +1058,39 @@ const localizedContent = {
       {
         id: "api-contracts",
         title: "API Contracts",
-        description: "Стабильная client integration через типизированные и явные контракты.",
-        evidence: "Делает API drift видимым и адаптирует данные ответа на границах системы.",
+        description: "Стабильная клиентская интеграция через типизированные и явные контракты.",
+        evidence: "Делает расхождения API видимыми и адаптирует данные ответа на границах системы.",
         relatedProjects: ["OAuth Flow", "Social Platform"],
         type: "core",
       },
       {
         id: "testing-ci",
         title: "Testing & CI",
-        description: "Автоматические проверки, которые защищают поведение продукта и процесс delivery.",
-        evidence: "Покрывает критические сценарии через unit-, smoke- и build-проверки.",
+        description: "Автоматические проверки, которые защищают поведение продукта и процесс поставки.",
+        evidence: "Покрывает критические сценарии модульными, дымовыми и сборочными проверками.",
         relatedProjects: ["Automation Tool", "Social Platform"],
         type: "core",
       },
       {
         id: "performance",
         title: "Performance",
-        description: "Решения по rendering и interaction, которые сохраняют продуктовые поверхности быстрыми.",
-        evidence: "Балансирует качество UX с runtime и build-ограничениями.",
+        description: "Решения по рендерингу и взаимодействию, которые сохраняют продуктовые поверхности быстрыми.",
+        evidence: "Балансирует качество UX с ограничениями runtime и сборки.",
         relatedProjects: ["Operations Console", "Admin Console"],
         type: "supporting",
       },
       {
         id: "accessibility",
         title: "Accessibility",
-        description: "Keyboard, focus, semantic и contrast-aware UI implementation.",
-        evidence: "Использует accessible primitives и явные состояния взаимодействия.",
+        description: "Реализация UI с учётом клавиатуры, фокуса, семантики и контраста.",
+        evidence: "Использует доступные примитивы и явные состояния взаимодействия.",
         relatedProjects: ["UI Kit Scroll Area", "Admin Console"],
         type: "supporting",
       },
       {
         id: "automation",
         title: "Automation",
-        description: "Developer tooling и автоматизация delivery для повторяющихся процессов.",
+        description: "Инструменты разработчика и автоматизация поставки для повторяющихся процессов.",
         evidence: "Превращает ручной процесс в повторяемые проверки и циклы обратной связи.",
         relatedProjects: ["Automation Tool"],
         type: "supporting",
@@ -1094,33 +1099,36 @@ const localizedContent = {
     proofSignals: [
       {
         id: "typed-systems",
-        title: "Typed Systems",
-        description: "TypeScript-first архитектура для более безопасного и масштабируемого кода.",
+        title: "Типизированные системы",
+        description: "Архитектура на основе TypeScript для более безопасного и масштабируемого кода.",
       },
       {
         id: "resilient",
-        title: "Resilient by Default",
-        description: "Defensive patterns, graceful states и устойчивость к сбоям.",
+        title: "Надёжность по умолчанию",
+        description: "Защитные паттерны, корректные состояния и устойчивость к сбоям.",
       },
       {
         id: "product-thinking",
-        title: "Product Thinking",
+        title: "Продуктовое мышление",
         description:
           "Фокус на результатах, а не на объеме сделанного, с привязкой к реальным потребностям пользователей.",
       },
       {
         id: "ship-confidence",
-        title: "Ship with Confidence",
+        title: "Уверенная поставка",
         description: "Проверено, задокументировано и готово к production.",
       },
     ],
     sidebarProofSignals: [
-      { title: "Typed contracts", description: "Type safety на границах сервисов и schema validation." },
-      { title: "Optimistic UI", description: "Responsive-интерфейсы с rollback и фоновой синхронизацией." },
-      { title: "CI gates", description: "Качество поддерживается через automated tests, linting и policy checks." },
+      { title: "Типизированные контракты", description: "Типобезопасность на границах сервисов и проверка схем." },
+      { title: "Оптимистичный UI", description: "Отзывчивые интерфейсы с откатом и фоновой синхронизацией." },
       {
-        title: "Runtime verification",
-        description: "Критические сценарии защищены smoke checks и структурированными доказательствами.",
+        title: "Контрольные точки CI",
+        description: "Качество поддерживается автоматическими тестами, линтингом и проверками политик.",
+      },
+      {
+        title: "Проверка в runtime",
+        description: "Критические сценарии защищены дымовыми проверками и структурированными доказательствами.",
       },
     ],
   },

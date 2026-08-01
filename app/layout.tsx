@@ -6,12 +6,15 @@ import { Footer } from "@/src/widgets/footer";
 import { Header } from "@/src/widgets/header";
 import "./globals.css";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin", "cyrillic"] });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin", "cyrillic"] });
 
-const themeInitializationScript = `
+const documentInitializationScript = `
 (function () {
   try {
+    var firstSegment = window.location.pathname.split("/").filter(Boolean)[0];
+    document.documentElement.lang = firstSegment === "ru" ? "ru" : "en";
+
     var key = "sem-portfolio:theme";
     var stored = localStorage.getItem(key);
     var preference = stored === "light" || stored === "dark" || stored === "system" ? stored : "system";
@@ -59,7 +62,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       className={geistSans.variable + " " + geistMono.variable + " h-full antialiased"}
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitializationScript }} />
+        <script dangerouslySetInnerHTML={{ __html: documentInitializationScript }} />
       </head>
       <body>
         <AppProviders>

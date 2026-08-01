@@ -1,26 +1,11 @@
 import type { Capability } from "@/src/entities/capability";
-import type { Locale } from "@/src/shared/i18n";
+import { getDictionary, type Locale } from "@/src/shared/i18n";
 import { Card, Tag } from "@/src/shared/ui";
-
-const labels = {
-  en: {
-    eyebrow: "Delivery path",
-    title: "Core capabilities work as one system",
-    description: "The sequence stays readable here; project evidence below shows where each capability was applied.",
-    supporting: "Supporting layer",
-  },
-  ru: {
-    eyebrow: "Путь delivery",
-    title: "Ключевые навыки работают как одна система",
-    description: "Здесь — понятная последовательность, ниже — проектные доказательства применения каждого навыка.",
-    supporting: "Поддерживающий слой",
-  },
-} satisfies Record<Locale, Record<string, string>>;
 
 export function CapabilityOverview({ capabilities, locale }: { capabilities: Capability[]; locale: Locale }) {
   const core = capabilities.filter((capability) => capability.type === "core");
   const supporting = capabilities.filter((capability) => capability.type === "supporting");
-  const copy = labels[locale];
+  const copy = getDictionary(locale).capabilityOverview;
 
   return (
     <Card className="overflow-hidden p-5 sm:p-7">
