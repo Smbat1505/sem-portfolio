@@ -54,7 +54,7 @@ export type CaseStudyPageContent = {
   contact: string;
 };
 
-const localizedContent = {
+export const localizedContent = {
   en: {
     footer: "Prefer async first. Clear scope, fast feedback, shipped outcomes.",
     projectsPage: {
