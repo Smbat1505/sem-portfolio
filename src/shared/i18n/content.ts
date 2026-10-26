@@ -129,6 +129,10 @@ export const localizedContent = {
         impact: "Delivered frontend features across posts, profiles, auth, notifications, subscriptions, and messaging",
         category: "architecture",
         capabilities: ["frontend-architecture", "api-contracts", "testing-ci"],
+        preview: {
+          src: "/projects/ictroot-social-platform.webp",
+          alt: "ICTROOT messenger with a dialogue containing voice messages and delivery status",
+        },
       },
       {
         id: "admin-console",
@@ -141,6 +145,10 @@ export const localizedContent = {
         impact: "Delivered user moderation and a searchable realtime posts view for admins",
         category: "product-ui",
         capabilities: ["ui-engineering", "frontend-architecture", "api-contracts"],
+        preview: {
+          src: "/projects/ictroot-super-admin.webp",
+          alt: "ICTROOT Super Admin posts list with search and moderation actions",
+        },
       },
       {
         id: "automation-tool",
@@ -254,6 +262,10 @@ export const localizedContent = {
         timeline: "Team project, 2025–2026",
         capabilities: ["Frontend Architecture", "API Contracts", "Testing & CI"],
         repositoryUrl: "https://github.com/ictroot70/Ict",
+        preview: {
+          src: "/projects/ictroot-social-platform.webp",
+          alt: "ICTROOT messenger with a dialogue containing voice messages and delivery status",
+        },
         sections: {
           problem: {
             title: "Problem",
@@ -316,6 +328,10 @@ export const localizedContent = {
         timeline: "Sprint delivery, 2026",
         capabilities: ["UI Engineering", "Frontend Architecture", "API Contracts"],
         repositoryUrl: "https://github.com/ictroot70/super-admin-ictroot",
+        preview: {
+          src: "/projects/ictroot-super-admin.webp",
+          alt: "ICTROOT Super Admin posts list with search and moderation actions",
+        },
         sections: {
           problem: {
             title: "Problem",
@@ -675,6 +691,10 @@ export const localizedContent = {
         impact: "Реализовал frontend-функции для постов, профилей, авторизации, уведомлений, подписок и мессенджера",
         category: "architecture",
         capabilities: ["frontend-architecture", "api-contracts", "testing-ci"],
+        preview: {
+          src: "/projects/ictroot-social-platform.webp",
+          alt: "Мессенджер ICTROOT: диалог с голосовыми сообщениями и статусами доставки",
+        },
       },
       {
         id: "admin-console",
@@ -687,6 +707,10 @@ export const localizedContent = {
         impact: "Реализовал модерацию пользователей и realtime-список постов с поиском для администраторов",
         category: "product-ui",
         capabilities: ["ui-engineering", "frontend-architecture", "api-contracts"],
+        preview: {
+          src: "/projects/ictroot-super-admin.webp",
+          alt: "Список постов ICTROOT Super Admin с поиском и действиями модерации",
+        },
       },
       {
         id: "automation-tool",
@@ -804,6 +828,10 @@ export const localizedContent = {
         timeline: "Командный проект, 2025–2026",
         capabilities: ["Frontend Architecture", "API Contracts", "Testing & CI"],
         repositoryUrl: "https://github.com/ictroot70/Ict",
+        preview: {
+          src: "/projects/ictroot-social-platform.webp",
+          alt: "Мессенджер ICTROOT: диалог с голосовыми сообщениями и статусами доставки",
+        },
         sections: {
           problem: {
             title: "Проблема",
@@ -866,6 +894,10 @@ export const localizedContent = {
         timeline: "Спринтовая поставка, 2026",
         capabilities: ["UI Engineering", "Frontend Architecture", "API Contracts"],
         repositoryUrl: "https://github.com/ictroot70/super-admin-ictroot",
+        preview: {
+          src: "/projects/ictroot-super-admin.webp",
+          alt: "Список постов ICTROOT Super Admin с поиском и действиями модерации",
+        },
         sections: {
           problem: {
             title: "Проблема",
