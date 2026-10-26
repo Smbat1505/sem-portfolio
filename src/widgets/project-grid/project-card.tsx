@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { Project } from "@/src/entities/project";
@@ -19,8 +20,20 @@ export function ProjectCard({
       className="group block rounded-[var(--radius-md)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent-primary)]"
     >
       <Card className="h-full overflow-hidden transition-[border-color,transform] duration-200 group-hover:-translate-y-1 group-hover:border-[var(--color-border-active)]">
-        <div className="h-36 border-b border-(--color-border) bg-[image:var(--color-project-preview)] p-4">
-          <div className="h-full rounded-sm border border-[var(--color-subtle-border)] bg-[var(--color-project-preview-inner)]" />
+        <div className="relative h-36 border-b border-(--color-border) bg-[image:var(--color-project-preview)]">
+          {project.preview ? (
+            <Image
+              src={project.preview.src}
+              alt={project.preview.alt}
+              fill
+              sizes="(min-width: 1024px) 33vw, 100vw"
+              className="object-cover"
+            />
+          ) : (
+            <div className="h-full p-4">
+              <div className="h-full rounded-sm border border-[var(--color-subtle-border)] bg-[var(--color-project-preview-inner)]" />
+            </div>
+          )}
         </div>
         <div className="p-5">
           <h3 className="text-xl font-semibold text-[var(--color-text-primary)]">{project.title}</h3>

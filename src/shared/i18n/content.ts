@@ -52,6 +52,7 @@ export type CaseStudyPageContent = {
   nextStepTitle: string;
   nextStepDescription: string;
   contact: string;
+  sourceRepository: string;
 };
 
 export const localizedContent = {
@@ -187,6 +188,7 @@ export const localizedContent = {
       nextStepDescription:
         "The strongest portfolio conversations start with a concrete product problem, not a generic introduction.",
       contact: "Contact",
+      sourceRepository: "Source repository",
     },
     caseStudies: [
       {
@@ -717,6 +719,7 @@ export const localizedContent = {
       nextStepDescription:
         "Самые сильные разговоры о портфолио начинаются с конкретной продуктовой проблемы, а не с общей презентации.",
       contact: "Связаться",
+      sourceRepository: "Исходный репозиторий",
     },
     caseStudies: [
       {
@@ -1168,7 +1171,7 @@ export function getLocalizedCaseStudies(locale: Locale) {
   return localizedContent[locale].caseStudies;
 }
 
-export function getLocalizedCaseStudy(locale: Locale, slug: string) {
+export function getLocalizedCaseStudy(locale: Locale, slug: string): CaseStudy | undefined {
   return localizedContent[locale].caseStudies.find((caseStudy) => caseStudy.slug === slug);
 }
 

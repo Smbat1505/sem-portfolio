@@ -1,4 +1,5 @@
-import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, ExternalLink } from "lucide-react";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   defaultLocale,
@@ -60,14 +61,26 @@ export function CaseStudyPage({ slug, locale = defaultLocale }: { slug: string; 
         </Card>
       </section>
 
+      {caseStudy.preview ? (
+        <div className="motion-enter relative mt-14 aspect-video overflow-hidden rounded-md border border-[var(--color-border)]">
+          <Image
+            src={caseStudy.preview.src}
+            alt={caseStudy.preview.alt}
+            fill
+            sizes="(min-width: 1280px) 1200px, 100vw"
+            className="object-cover"
+          />
+        </div>
+      ) : null}
+
       <section className="motion-enter mt-14 grid gap-5 md:grid-cols-2">
         {Object.values(caseStudy.sections).map((section) => (
           <Card key={section.title} className="p-7">
-            <p className="font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-accent-primary)]">
+            <p className="font-mono text-xs uppercase tracking-[0.24em] text-(--color-accent-primary)">
               {content.caseStudiesPage.overview}
             </p>
-            <h2 className="mt-4 text-2xl font-semibold text-[var(--color-text-primary)]">{section.title}</h2>
-            <p className="mt-4 text-sm leading-7 text-[var(--color-text-secondary)]">{section.body}</p>
+            <h2 className="mt-4 text-2xl font-semibold text-foreground">{section.title}</h2>
+            <p className="mt-4 text-sm leading-7 text-(--color-text-secondary)">{section.body}</p>
           </Card>
         ))}
       </section>
@@ -118,9 +131,16 @@ export function CaseStudyPage({ slug, locale = defaultLocale }: { slug: string; 
             {content.caseStudiesPage.nextStepDescription}
           </p>
         </div>
-        <Button href={withLocalePath("/contact", locale)} variant="primary" className="mt-6 shrink-0 md:mt-0">
-          {content.caseStudiesPage.contact} <Icon icon={ArrowRight} />
-        </Button>
+        <div className="mt-6 flex shrink-0 flex-col gap-3 sm:flex-row md:mt-0">
+          {caseStudy.repositoryUrl ? (
+            <Button href={caseStudy.repositoryUrl} target="_blank" rel="noopener noreferrer">
+              {content.caseStudiesPage.sourceRepository} <Icon icon={ExternalLink} />
+            </Button>
+          ) : null}
+          <Button href={withLocalePath("/contact", locale)} variant="primary">
+            {content.caseStudiesPage.contact} <Icon icon={ArrowRight} />
+          </Button>
+        </div>
       </Card>
     </main>
   );
