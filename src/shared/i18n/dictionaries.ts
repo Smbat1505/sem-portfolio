@@ -152,7 +152,7 @@ export const dictionaries = {
           tags: ["Next.js", "Prisma", "PostgreSQL", "RBAC", "Socket.IO"],
         },
         {
-          project: "Social Platform",
+          project: "ICTROOT Social Platform",
           focus:
             "One of the primary frontend contributors across social interactions, feed and profile behavior, API-driven state, testing, and stabilization.",
           outcome:
@@ -418,7 +418,7 @@ export const dictionaries = {
           tags: ["Next.js", "Prisma", "PostgreSQL", "RBAC", "Socket.IO"],
         },
         {
-          project: "Social Platform",
+          project: "ICTROOT Social Platform",
           focus:
             "Один из основных frontend-разработчиков: социальные взаимодействия, лента и профиль, состояние на основе API, тестирование и стабилизация.",
           outcome:
