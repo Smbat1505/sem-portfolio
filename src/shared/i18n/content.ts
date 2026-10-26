@@ -123,10 +123,10 @@ export const localizedContent = {
         slug: "social-platform",
         title: "ICTROOT Social Platform",
         summary:
-          "A team-built Instagram-style social network on Next.js 15 and RTK Query, where I delivered the messenger, realtime channel, and feed interaction flows.",
+          "A team-built Instagram-style social network on Next.js 15 and RTK Query, where I worked across posts and profiles, auth and SSR, notifications, subscriptions, and the messenger.",
         role: "Frontend Engineer",
         stack: ["Next.js", "React", "TypeScript", "RTK Query", "WebSockets"],
-        impact: "Shipped voice messages, virtualized dialogue history, and realtime messenger indicators",
+        impact: "Delivered frontend features across posts, profiles, auth, notifications, subscriptions, and messaging",
         category: "architecture",
         capabilities: ["frontend-architecture", "api-contracts", "testing-ci"],
       },
@@ -135,7 +135,7 @@ export const localizedContent = {
         slug: "admin-console",
         title: "ICTROOT Super Admin",
         summary:
-          "An internal moderation panel on Next.js 16 and GraphQL, where I built the admin shell, user moderation flows, and the realtime posts list.",
+          "An internal moderation panel on Next.js 16 and GraphQL, where I built the app shell and typed GraphQL foundation, user moderation flows, and the realtime posts list.",
         role: "Frontend Engineer",
         stack: ["Next.js", "TypeScript", "Apollo Client", "GraphQL", "Zustand"],
         impact: "Delivered user moderation and a searchable realtime posts view for admins",
@@ -247,53 +247,61 @@ export const localizedContent = {
         title: "ICTROOT Social Platform",
         eyebrow: "Case study / Frontend Architecture",
         summary:
-          "A team-built Instagram-style social network where I delivered the messenger, realtime channel, feed interactions, and account subscription views.",
+          "A team-built Instagram-style social network where I worked across posts and profiles, auth and SSR, notifications, subscriptions, and the messenger.",
         role: "Frontend Engineer",
         stack: ["Next.js", "React", "TypeScript", "RTK Query", "WebSockets"],
-        impact: "Shipped voice messages, virtualized dialogue history, and realtime messenger indicators",
+        impact: "Delivered frontend features across posts, profiles, auth, notifications, subscriptions, and messaging",
         timeline: "Team project, 2025–2026",
         capabilities: ["Frontend Architecture", "API Contracts", "Testing & CI"],
         repositoryUrl: "https://github.com/ictroot70/Ict",
         sections: {
           problem: {
             title: "Problem",
-            body: "Messaging, notifications, and feed interactions mix server data, realtime events, and media. Mocked data and loose API assumptions hide contract problems until late.",
+            body: "A social product combines server-rendered pages, auth-dependent routes, realtime events, and media. Without clear boundaries, SSR, route guards, cached data, and API assumptions drift apart, and regressions surface late.",
           },
           constraints: {
             title: "Constraints",
-            body: "A shared team codebase with fixed architecture rules, a shared UI kit, and lint, typecheck, and build gates on every change.",
+            body: "A shared team codebase with fixed architecture rules, a shared UI kit, parallel feature work by several developers, and lint, typecheck, and build gates on every change.",
           },
           solution: {
             title: "Solution",
-            body: "I replaced messenger mocks with real dialogue data, aligned media payloads with the Swagger contract, added cursor pagination with list virtualization, built the voice-message flow, and added unread and delivery-status indicators. I also built the account views that show current subscriptions and auto-renewal state.",
+            body: "I worked across the product: post CRUD, likes, comments, and the post modal; profile management and settings; auth-aware SSR with guest and private route guards; WebSocket notifications; subscription and auto-renewal views with prices from the API; and the messenger with voice messages, cursor pagination, list virtualization, and delivery and unread indicators. Alongside features I worked on app-wide performance, including route-level code splitting and public cache policy, and on tests and quality gates around the riskiest flows.",
           },
           outcome: {
             title: "Outcome",
-            body: "Messaging moved from prototype screens to a working feature set: voice messages, paginated history, and unread and delivery indicators.",
+            body: "Core product flows (posts, profiles, auth, notifications, subscriptions, and messaging) were delivered on a shared frontend where API contracts, route guards, and loading states are handled explicitly.",
           },
         },
         decisions: [
           {
-            title: "Contract-first media handling",
+            title: "Contract-first API integration",
             description:
-              "Align message and media payloads with the Swagger contract before building UI on top of them.",
+              "Align post CRUD, messenger media, and pricing data with the Swagger contract instead of mocks and hardcoded values.",
+          },
+          {
+            title: "Auth-aware SSR and route guards",
+            description:
+              "Keep server rendering, public and private contracts, and guest route guards consistent so auth state does not leak into the wrong pages.",
+          },
+          {
+            title: "Route-level performance work",
+            description:
+              "Split code by auth-based routes, reduce unnecessary no-store caching on public pages, and load fonts through next/font.",
           },
           {
             title: "Cursor pagination with virtualized lists",
             description:
-              "Load history by cursor and virtualize long dialogues so every message is not rendered at once.",
-          },
-          {
-            title: "Guarded routes and explicit loading states",
-            description:
-              "Guard guest-only and private routes and use targeted skeleton states instead of blank screens.",
+              "Load long histories by cursor and virtualize dialogues so every message is not rendered at once.",
           },
         ],
         proof: [
-          "Voice-message flow, delivery status, and unread indicator in the messenger (SCRUM-307).",
-          "Messenger mocks replaced with real dialogue data and Swagger-aligned media contracts.",
-          "Guest route guards and targeted skeleton states for feed and comment modals.",
+          "Post CRUD, likes, comments, and the post modal across profile and feed (SCRUM-126, SCRUM-282, SCRUM-291).",
+          "Profile management and API-driven pricing instead of hardcoded prices (SCRUM-119, SCRUM-205).",
+          "Auth-aware SSR, guest route guards, and refresh and recovery flows (SCRUM-145).",
+          "WebSocket notifications in the header (SCRUM-254).",
           "Current subscription and auto-renewal views in account management (SCRUM-199).",
+          "Voice messages, cursor pagination, virtualization, and delivery and unread indicators in the messenger (SCRUM-307).",
+          "Route-level code splitting, public cache policy, and font cleanup (SCRUM-149, SCRUM-151, SCRUM-152).",
         ],
       },
       {
@@ -301,7 +309,7 @@ export const localizedContent = {
         title: "ICTROOT Super Admin",
         eyebrow: "Case study / Product UI",
         summary:
-          "An internal moderation panel on Next.js 16 and GraphQL, where I built the admin shell, user moderation flows, and the realtime posts list.",
+          "An internal moderation panel on Next.js 16 and GraphQL, where I built the app shell and typed GraphQL foundation, user moderation flows, and the realtime posts list.",
         role: "Frontend Engineer",
         stack: ["Next.js", "TypeScript", "Apollo Client", "GraphQL", "Zustand"],
         impact: "Delivered user moderation and a searchable realtime posts view for admins",
@@ -315,11 +323,11 @@ export const localizedContent = {
           },
           constraints: {
             title: "Constraints",
-            body: "Evolving GraphQL contracts, sprint work split across people with handoff points, and CI gates on every merge.",
+            body: "Evolving GraphQL contracts, sprint work split across several developers with handoff points, and CI gates on every merge.",
           },
           solution: {
             title: "Solution",
-            body: "I set up the project structure, added a session-based auth guard to the layout, implemented ban, unban, and delete flows with confirm modals, built the posts list with search and infinite scroll, and wrote a handoff contract for the realtime integration.",
+            body: "I set up the project structure and app shell (header, sidebar, and UI kit tokens), added a session-based auth guard, built the typed GraphQL foundation with admin mutations, implemented ban, unban, and delete flows with confirm modals, built the posts list with search and infinite scroll, and wrote a handoff contract for the realtime integration.",
           },
           outcome: {
             title: "Outcome",
@@ -344,7 +352,9 @@ export const localizedContent = {
         proof: [
           "Ban, unban, and delete user flows (SCRUM-259).",
           "Posts list with search, infinite scroll, and realtime updates (A6).",
-          "Session-based auth guard on the admin layout.",
+          "Typed GraphQL foundation with admin mutation operations.",
+          "Session-based auth guard, header, and sidebar shell on UI kit tokens.",
+          "Shared Select and Carousel composites.",
           "Repository README, CONTRIBUTING, and sprint documentation.",
         ],
       },
@@ -659,10 +669,10 @@ export const localizedContent = {
         slug: "social-platform",
         title: "ICTROOT Social Platform",
         summary:
-          "Командный Instagram-подобный соцсервис на Next.js 15 и RTK Query, где я делал мессенджер, realtime-канал и сценарии взаимодействия в ленте.",
+          "Командный Instagram-подобный соцсервис на Next.js 15 и RTK Query, где я работал над постами и профилями, авторизацией и SSR, уведомлениями, подписками и мессенджером.",
         role: "Frontend-инженер",
         stack: ["Next.js", "React", "TypeScript", "RTK Query", "WebSockets"],
-        impact: "Реализовал голосовые сообщения, виртуализированную историю диалогов и realtime-индикаторы мессенджера",
+        impact: "Реализовал frontend-функции для постов, профилей, авторизации, уведомлений, подписок и мессенджера",
         category: "architecture",
         capabilities: ["frontend-architecture", "api-contracts", "testing-ci"],
       },
@@ -671,7 +681,7 @@ export const localizedContent = {
         slug: "admin-console",
         title: "ICTROOT Super Admin",
         summary:
-          "Внутренняя панель модерации на Next.js 16 и GraphQL, где я сделал каркас админки, сценарии модерации пользователей и realtime-список постов.",
+          "Внутренняя панель модерации на Next.js 16 и GraphQL, где я сделал оболочку приложения и типизированный GraphQL-фундамент, сценарии модерации пользователей и realtime-список постов.",
         role: "Frontend-инженер",
         stack: ["Next.js", "TypeScript", "Apollo Client", "GraphQL", "Zustand"],
         impact: "Реализовал модерацию пользователей и realtime-список постов с поиском для администраторов",
@@ -787,53 +797,61 @@ export const localizedContent = {
         title: "ICTROOT Social Platform",
         eyebrow: "Кейс / Frontend Architecture",
         summary:
-          "Командный Instagram-подобный соцсервис, где я делал мессенджер, realtime-канал, взаимодействия в ленте и экраны подписок аккаунта.",
+          "Командный Instagram-подобный соцсервис, где я работал над постами и профилями, авторизацией и SSR, уведомлениями, подписками и мессенджером.",
         role: "Frontend-инженер",
         stack: ["Next.js", "React", "TypeScript", "RTK Query", "WebSockets"],
-        impact: "Реализовал голосовые сообщения, виртуализированную историю диалогов и realtime-индикаторы мессенджера",
+        impact: "Реализовал frontend-функции для постов, профилей, авторизации, уведомлений, подписок и мессенджера",
         timeline: "Командный проект, 2025–2026",
         capabilities: ["Frontend Architecture", "API Contracts", "Testing & CI"],
         repositoryUrl: "https://github.com/ictroot70/Ict",
         sections: {
           problem: {
             title: "Проблема",
-            body: "Мессенджер, уведомления и взаимодействия в ленте смешивают серверные данные, realtime-события и медиа. Моки и расплывчатые допущения об API скрывают проблемы контракта до поздней стадии.",
+            body: "Соцсервис сочетает серверный рендеринг, маршруты, зависящие от авторизации, realtime-события и медиа. Без ясных границ SSR, guard-ы, кэшируемые данные и допущения об API расходятся, а регрессии проявляются поздно.",
           },
           constraints: {
             title: "Ограничения",
-            body: "Общая командная кодовая база с зафиксированными архитектурными правилами, общий UI-кит и проверки lint, typecheck и build на каждое изменение.",
+            body: "Общая командная кодовая база с зафиксированными архитектурными правилами, общий UI-кит, параллельная работа нескольких разработчиков и проверки lint, typecheck и build на каждое изменение.",
           },
           solution: {
             title: "Решение",
-            body: "Я заменил моки мессенджера реальными данными диалогов, привёл медиа-данные в соответствие со Swagger-контрактом, добавил cursor pagination с виртуализацией списка, реализовал сценарий голосовых сообщений и индикаторы непрочитанных и статуса доставки. Также сделал экраны аккаунта, показывающие текущие подписки и состояние автопродления.",
+            body: "Я работал по всему продукту: CRUD постов, лайки, комментарии и модальное окно поста; управление профилем и настройки; auth-aware SSR с guard-ами гостевых и приватных маршрутов; уведомления через WebSocket; экраны подписок и автопродления с ценами из API; мессенджер с голосовыми сообщениями, cursor pagination, виртуализацией списка и индикаторами доставки и непрочитанных. Параллельно занимался производительностью всего приложения, включая разбиение кода по маршрутам и политику кэширования публичных страниц, а также тестами и quality gate вокруг самых рискованных сценариев.",
           },
           outcome: {
             title: "Результат",
-            body: "Мессенджер перешёл от прототипных экранов к рабочему набору функций: голосовые сообщения, постраничная история, индикаторы непрочитанных и доставки.",
+            body: "Ключевые сценарии продукта (посты, профили, авторизация, уведомления, подписки и мессенджер) были реализованы на общем frontend, где API-контракты, guard-ы маршрутов и состояния загрузки обрабатываются явно.",
           },
         },
         decisions: [
           {
-            title: "Медиа-контракты в первую очередь",
+            title: "Интеграция с API по контракту",
             description:
-              "Привести сообщения и медиа-данные в соответствие со Swagger-контрактом до построения UI поверх них.",
+              "Привести CRUD постов, медиа мессенджера и данные цен в соответствие со Swagger-контрактом вместо моков и захардкоженных значений.",
+          },
+          {
+            title: "Auth-aware SSR и guard-ы маршрутов",
+            description:
+              "Держать серверный рендеринг, публичные и приватные контракты и guard-ы гостевых маршрутов согласованными, чтобы состояние авторизации не попадало на не те страницы.",
+          },
+          {
+            title: "Производительность на уровне маршрутов",
+            description:
+              "Разбивать код по auth-маршрутам, убирать лишнее no-store-кэширование на публичных страницах и подключать шрифты через next/font.",
           },
           {
             title: "Cursor pagination и виртуализация",
             description:
-              "Загружать историю по курсору и виртуализировать длинные диалоги, чтобы не рендерить все сообщения сразу.",
-          },
-          {
-            title: "Защищённые маршруты и явные состояния загрузки",
-            description:
-              "Закрывать гостевые и приватные маршруты guard-ами и показывать целевые skeleton-состояния вместо пустых экранов.",
+              "Загружать длинную историю по курсору и виртуализировать диалоги, чтобы не рендерить все сообщения сразу.",
           },
         ],
         proof: [
-          "Сценарий голосовых сообщений, статус доставки и индикатор непрочитанных в мессенджере (SCRUM-307).",
-          "Моки мессенджера заменены реальными данными диалогов и медиа-контрактами по Swagger.",
-          "Guard-ы гостевых маршрутов и целевые skeleton-состояния для ленты и модалок комментариев.",
+          "CRUD постов, лайки, комментарии и модальное окно поста в профиле и ленте (SCRUM-126, SCRUM-282, SCRUM-291).",
+          "Управление профилем и цены из API вместо захардкоженных (SCRUM-119, SCRUM-205).",
+          "Auth-aware SSR, guard-ы гостевых маршрутов, сценарии refresh и восстановления (SCRUM-145).",
+          "Уведомления через WebSocket в header (SCRUM-254).",
           "Экраны текущих подписок и автопродления в управлении аккаунтом (SCRUM-199).",
+          "Голосовые сообщения, cursor pagination, виртуализация и индикаторы доставки и непрочитанных в мессенджере (SCRUM-307).",
+          "Разбиение кода по маршрутам, политика кэширования публичных страниц и чистка шрифтов (SCRUM-149, SCRUM-151, SCRUM-152).",
         ],
       },
       {
@@ -841,7 +859,7 @@ export const localizedContent = {
         title: "ICTROOT Super Admin",
         eyebrow: "Кейс / Продуктовый UI",
         summary:
-          "Внутренняя панель модерации на Next.js 16 и GraphQL, где я сделал каркас админки, сценарии модерации пользователей и realtime-список постов.",
+          "Внутренняя панель модерации на Next.js 16 и GraphQL, где я сделал оболочку приложения и типизированный GraphQL-фундамент, сценарии модерации пользователей и realtime-список постов.",
         role: "Frontend-инженер",
         stack: ["Next.js", "TypeScript", "Apollo Client", "GraphQL", "Zustand"],
         impact: "Реализовал модерацию пользователей и realtime-список постов с поиском для администраторов",
@@ -855,11 +873,11 @@ export const localizedContent = {
           },
           constraints: {
             title: "Ограничения",
-            body: "Меняющиеся GraphQL-контракты, спринтовая работа нескольких людей с точками передачи и CI-проверки на каждом merge.",
+            body: "Меняющиеся GraphQL-контракты, спринтовая работа нескольких разработчиков с точками передачи и CI-проверки на каждом merge.",
           },
           solution: {
             title: "Решение",
-            body: "Я настроил структуру проекта, добавил auth-guard по сессии в layout, реализовал бан, разбан и удаление пользователей с модалками подтверждения, собрал список постов с поиском и infinite scroll и написал контракт передачи для realtime-интеграции.",
+            body: "Я настроил структуру проекта и оболочку приложения (header, sidebar и токены UI-кита), добавил auth-guard по сессии, сделал типизированный GraphQL-фундамент с admin-мутациями, реализовал бан, разбан и удаление пользователей с модалками подтверждения, собрал список постов с поиском и infinite scroll и написал контракт передачи для realtime-интеграции.",
           },
           outcome: {
             title: "Результат",
@@ -886,7 +904,9 @@ export const localizedContent = {
         proof: [
           "Сценарии бана, разбана и удаления пользователей (SCRUM-259).",
           "Список постов с поиском, infinite scroll и realtime-обновлениями (A6).",
-          "Auth-guard по сессии в layout админки.",
+          "Типизированный GraphQL-фундамент с admin-мутациями.",
+          "Auth-guard по сессии, header и sidebar на токенах UI-кита.",
+          "Общие композиты Select и Carousel.",
           "README, CONTRIBUTING и спринтовая документация репозитория.",
         ],
       },
