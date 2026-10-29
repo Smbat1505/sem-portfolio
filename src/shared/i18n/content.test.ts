@@ -1,8 +1,12 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
+import type { CaseStudy } from "../../entities/case-study";
+import { caseStudySchema } from "../../entities/case-study/case-study.model";
 import { capabilitySchema } from "../../entities/capability/capability.model";
 import { projectSchema } from "../../entities/project/project.model";
 import { locales, type Locale } from "./config";
-import { filterLocalizedProjects, getLocalizedCapability, localizedContent } from "./content";
+import { filterLocalizedProjects, getLocalizedCapability, getLocalizedContent, localizedContent } from "./content";
 
 const projectsOf = (locale: Locale) => localizedContent[locale].projects;
 const defaultCapabilityId = "frontend-architecture";
@@ -46,6 +50,25 @@ describe.each(locales)("localized content (%s)", (locale) => {
       for (const name of capability.relatedProjects) {
         expect(titles.has(name), `${locale}: "${name}" in "${capability.id}"`).toBe(true);
       }
+    }
+  });
+
+  it("keeps case studies valid against the schema", () => {
+    for (const caseStudy of localizedContent[locale].caseStudies) {
+      expect(() => caseStudySchema.parse(caseStudy)).not.toThrow();
+    }
+  });
+
+  it("points media to existing files in public", () => {
+    const { projects } = getLocalizedContent(locale);
+    const caseStudies: CaseStudy[] = getLocalizedContent(locale).caseStudies;
+    const sources = [
+      ...projects.map((project) => project.preview?.src),
+      ...caseStudies.flatMap((caseStudy) => [caseStudy.preview?.src, caseStudy.demo?.src]),
+    ].filter((src): src is string => Boolean(src));
+
+    for (const src of sources) {
+      expect(existsSync(join(process.cwd(), "public", src)), `${locale}: missing public${src}`).toBe(true);
     }
   });
 });

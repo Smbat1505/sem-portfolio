@@ -53,6 +53,8 @@ export type CaseStudyPageContent = {
   nextStepDescription: string;
   contact: string;
   sourceRepository: string;
+  watchDemo: string;
+  closeDemo: string;
 };
 
 export const localizedContent = {
@@ -199,6 +201,8 @@ export const localizedContent = {
         "The strongest portfolio conversations start with a concrete product problem, not a generic introduction.",
       contact: "Contact",
       sourceRepository: "Source repository",
+      watchDemo: "Watch demo",
+      closeDemo: "Close demo",
     },
     caseStudies: [
       {
@@ -265,6 +269,11 @@ export const localizedContent = {
         preview: {
           src: "/projects/ictroot-social-platform.webp",
           alt: "ICTROOT messenger with a dialogue containing voice messages and delivery status",
+        },
+        demo: {
+          src: "/projects/ictroot-social-platform-demo.mp4",
+          caption:
+            "Screen recording of the ICTROOT app: subscription and auto-renewal settings, payment history, and the messenger with voice messages",
         },
         sections: {
           problem: {
@@ -762,6 +771,8 @@ export const localizedContent = {
         "Самые сильные разговоры о портфолио начинаются с конкретной продуктовой проблемы, а не с общей презентации.",
       contact: "Связаться",
       sourceRepository: "Исходный репозиторий",
+      watchDemo: "Смотреть демо",
+      closeDemo: "Закрыть демо",
     },
     caseStudies: [
       {
@@ -831,6 +842,11 @@ export const localizedContent = {
         preview: {
           src: "/projects/ictroot-social-platform.webp",
           alt: "Мессенджер ICTROOT: диалог с голосовыми сообщениями и статусами доставки",
+        },
+        demo: {
+          src: "/projects/ictroot-social-platform-demo.mp4",
+          caption:
+            "Запись экрана ICTROOT: подписка и автопродление, история платежей и мессенджер с голосовыми сообщениями",
         },
         sections: {
           problem: {

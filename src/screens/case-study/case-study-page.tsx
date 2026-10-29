@@ -9,6 +9,7 @@ import {
   withLocalePath,
 } from "@/src/shared/i18n";
 import { Button, Card, Icon, SectionHeader, Tag } from "@/src/shared/ui";
+import { CaseStudyDemo } from "@/src/widgets/case-study-demo";
 
 export function CaseStudyPage({ slug, locale = defaultLocale }: { slug: string; locale?: Locale }) {
   const content = getLocalizedContent(locale);
@@ -61,7 +62,7 @@ export function CaseStudyPage({ slug, locale = defaultLocale }: { slug: string; 
         </Card>
       </section>
 
-      {caseStudy.preview ? (
+      {caseStudy.preview && !caseStudy.demo ? (
         <div className="motion-enter relative mt-14 aspect-video overflow-hidden rounded-md border border-[var(--color-border)]">
           <Image
             src={caseStudy.preview.src}
@@ -69,6 +70,16 @@ export function CaseStudyPage({ slug, locale = defaultLocale }: { slug: string; 
             fill
             sizes="(min-width: 1280px) 1200px, 100vw"
             className="object-cover"
+          />
+        </div>
+      ) : null}
+
+      {caseStudy.preview && caseStudy.demo ? (
+        <div className="motion-enter mt-14">
+          <CaseStudyDemo
+            poster={caseStudy.preview}
+            video={caseStudy.demo}
+            labels={{ watch: content.caseStudiesPage.watchDemo, close: content.caseStudiesPage.closeDemo }}
           />
         </div>
       ) : null}
