@@ -240,24 +240,6 @@ export const dictionaries = {
             "Prefer adapter boundaries and typed content so backend, PDF, and future design-system integration stay controlled.",
         },
       ],
-      pdfReadyTitle: "PDF-ready resume foundation",
-      pdfReadyDescription:
-        "The resume stays as typed localized content instead of static page copy, so the web version and downloadable PDF can evolve from one reviewed source.",
-      pdfReadyItems: [
-        {
-          title: "Structured sections",
-          description:
-            "Role, metrics, skills, experience, evidence, and principles are separated as predictable blocks.",
-        },
-        {
-          title: "Localization-safe",
-          description: "EN and RU content stay parallel, which keeps future PDF exports consistent across languages.",
-        },
-        {
-          title: "Backend-ready",
-          description: "The shape can move to an API or CMS later without changing the page composition.",
-        },
-      ],
     },
   },
   ru: {
@@ -505,24 +487,6 @@ export const dictionaries = {
           title: "Оставлять путь к миграции",
           description:
             "Сохранять границы адаптеров и типизированный контент, чтобы backend, PDF и будущая дизайн-система подключались контролируемо.",
-        },
-      ],
-      pdfReadyTitle: "Основа резюме для PDF",
-      pdfReadyDescription:
-        "Резюме хранится как типизированный локализованный контент, чтобы веб-версия и скачиваемый PDF развивались из одного проверенного источника.",
-      pdfReadyItems: [
-        {
-          title: "Структурированные секции",
-          description: "Роль, метрики, навыки, опыт, доказательства и принципы разделены на предсказуемые блоки.",
-        },
-        {
-          title: "Готово к локализации",
-          description:
-            "Английский и русский контент развиваются параллельно, поэтому будущий PDF остаётся согласованным на двух языках.",
-        },
-        {
-          title: "Готово к backend-интеграции",
-          description: "Эту форму данных позже можно перенести в API или CMS без переписывания композиции страницы.",
         },
       ],
     },

@@ -1,14 +1,4 @@
-import {
-  ArrowRight,
-  CheckCircle2,
-  Download,
-  FileText,
-  Languages,
-  Layers3,
-  Route,
-  ShieldCheck,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight, CheckCircle2, Download, FileText, Languages, Route } from "lucide-react";
 import { resumePdfPath } from "@/src/shared/config/resume";
 import { defaultLocale, getDictionary, type Locale, withLocalePath } from "@/src/shared/i18n";
 import { Button, Card, Icon, SectionHeader, Tag } from "@/src/shared/ui";
@@ -197,31 +187,6 @@ export function ResumePage({ locale = defaultLocale }: { locale?: Locale }) {
             </div>
           </Card>
         </aside>
-      </section>
-
-      <section className="mt-14 grid gap-5 lg:grid-cols-[0.8fr_1.2fr]">
-        <Card className="p-7">
-          <div className="grid size-12 place-items-center rounded-[var(--radius-md)] border border-[var(--color-border-active)] bg-[var(--color-accent-tint)] text-[var(--color-accent-primary)]">
-            <Icon icon={Layers3} />
-          </div>
-          <h2 className="mt-5 text-2xl font-semibold text-[var(--color-text-primary)]">{resume.pdfReadyTitle}</h2>
-          <p className="mt-4 text-sm leading-6 text-[var(--color-text-secondary)]">{resume.pdfReadyDescription}</p>
-        </Card>
-        <div className="grid gap-5 md:grid-cols-3">
-          {resume.pdfReadyItems.map((item, index) => {
-            const PdfIcon = [FileText, ShieldCheck, Sparkles][index] ?? FileText;
-
-            return (
-              <Card key={item.title} className="p-6">
-                <div className="grid size-10 place-items-center rounded-[var(--radius-sm)] border border-[var(--color-border-active)] text-[var(--color-accent-primary)]">
-                  <Icon icon={PdfIcon} className="size-5" />
-                </div>
-                <h3 className="mt-4 font-semibold text-[var(--color-text-primary)]">{item.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-[var(--color-text-secondary)]">{item.description}</p>
-              </Card>
-            );
-          })}
-        </div>
       </section>
     </main>
   );
