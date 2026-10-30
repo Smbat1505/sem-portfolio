@@ -9,6 +9,7 @@ import {
   ShieldCheck,
   Sparkles,
 } from "lucide-react";
+import { resumePdfPath } from "@/src/shared/config/resume";
 import { defaultLocale, getDictionary, type Locale, withLocalePath } from "@/src/shared/i18n";
 import { Button, Card, Icon, SectionHeader, Tag } from "@/src/shared/ui";
 
@@ -26,9 +27,9 @@ export function ResumePage({ locale = defaultLocale }: { locale?: Locale }) {
             <Button href={withLocalePath("/contact", locale)} variant="primary">
               {dictionary.common.contactMe} <Icon icon={ArrowRight} />
             </Button>
-            <span className="inline-flex min-h-12 items-center justify-center gap-3 rounded-[var(--radius-md)] border border-[var(--color-border)] px-5 text-sm font-medium text-[var(--color-text-muted)] opacity-70">
-              <Icon icon={Download} /> {dictionary.common.pdfInNextVersion}
-            </span>
+            <Button href={resumePdfPath} target="_blank" rel="noopener noreferrer">
+              <Icon icon={Download} /> {dictionary.common.downloadResume}
+            </Button>
           </div>
         </div>
 

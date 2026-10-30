@@ -68,8 +68,9 @@
 
 - Резюме: `src/shared/i18n/dictionaries.ts` → `resume`.
 - Экран: `src/screens/resume/resume-page.tsx`.
-- PDF пока отсутствует: кнопка намеренно показывает `PDF in V1.1`; фактический
-  файл нужно добавить отдельно в `public/` и заменить UI-элемент на ссылку.
+- PDF: `public/resume/smbat-antonian-cv-ru.pdf` (русская версия), путь задан в
+  `src/shared/config/resume.ts`. Английской версии нет, поэтому в EN-локали кнопка
+  подписана `Download CV (PDF, Russian)`. Чтобы обновить резюме, заменить файл с тем же именем.
 - Контактные ссылки: `src/entities/contact/contact.data.ts`.
 
 ## UI и стили
