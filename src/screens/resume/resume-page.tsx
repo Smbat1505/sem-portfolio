@@ -107,7 +107,7 @@ export function ResumePage({ locale = defaultLocale }: { locale?: Locale }) {
             {dictionary.common.viewAllProjects} <Icon icon={ArrowRight} />
           </Button>
         </div>
-        <div className="grid gap-5 lg:grid-cols-3">
+        <div className="grid gap-5 lg:grid-cols-2">
           {resume.projectEvidence.map((item) => (
             <Card key={item.project} className="p-6">
               <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">{item.project}</h3>
@@ -119,6 +119,40 @@ export function ResumePage({ locale = defaultLocale }: { locale?: Locale }) {
                 <p className="mt-2 text-sm leading-6 text-[var(--color-text-primary)]">{item.outcome}</p>
               </div>
               <div className="mt-5 flex flex-wrap gap-2">
+                {item.tags.map((tag) => (
+                  <Tag key={tag}>{tag}</Tag>
+                ))}
+              </div>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-14">
+        <div className="mb-6">
+          <p className="font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-accent-primary)]">
+            {resume.inDevelopmentEyebrow}
+          </p>
+          <h2 className="mt-3 text-2xl font-semibold text-[var(--color-text-primary)]">{resume.inDevelopmentTitle}</h2>
+        </div>
+        <div className="grid gap-5 lg:grid-cols-2">
+          {resume.inDevelopment.map((item) => (
+            <Card key={item.project} className="p-6">
+              <div className="flex flex-wrap items-center gap-3">
+                <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">{item.project}</h3>
+                <Tag>{resume.inDevelopmentStatus}</Tag>
+              </div>
+              <p className="mt-3 text-sm leading-6 text-[var(--color-text-secondary)]">{item.description}</p>
+              <div className="mt-5 border-t border-[var(--color-border)] pt-5">
+                <p className="font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+                  {resume.inDevelopmentScopeLabel}
+                </p>
+                <p className="mt-2 text-sm leading-6 text-[var(--color-text-primary)]">{item.scope}</p>
+              </div>
+              <p className="mt-5 font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+                {resume.inDevelopmentStackLabel}
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
                 {item.tags.map((tag) => (
                   <Tag key={tag}>{tag}</Tag>
                 ))}
