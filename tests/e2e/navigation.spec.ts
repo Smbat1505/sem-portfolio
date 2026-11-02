@@ -20,7 +20,7 @@ test("portfolio navigation and core interactions work", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "Resume", exact: true })).toBeVisible();
   await expect(page.getByRole("link", { name: /Download CV/i })).toHaveAttribute(
     "href",
-    "/resume/smbat-antonian-cv-ru.pdf",
+    "/resume/smbat-antonian-cv-en.pdf",
   );
   await page.getByRole("link", { name: "Contact", exact: true }).click();
   await expect(page.getByRole("heading", { name: /Let.s build something useful/i })).toBeVisible();

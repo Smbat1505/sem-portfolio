@@ -67,7 +67,7 @@ export const localizedContent = {
       stats: [
         { value: "2019", label: "Learning path" },
         { value: "2023", label: "IT-Incubator" },
-        { value: "3–5", label: "Team size" },
+        { value: "2", label: "Team products" },
       ],
       cardLabels: {
         role: "Role",
@@ -286,7 +286,7 @@ export const localizedContent = {
           },
           solution: {
             title: "Solution",
-            body: "I worked across the product: post CRUD, likes, comments, and the post modal; profile management and settings; auth-aware SSR with guest and private route guards; WebSocket notifications; subscription and auto-renewal views with prices from the API; and the messenger with voice messages, cursor pagination, list virtualization, and delivery and unread indicators. Alongside features I worked on app-wide performance, including route-level code splitting and public cache policy, and on tests and quality gates around the riskiest flows.",
+            body: "I worked across the product: post CRUD, likes, comments, and the post modal; profile management and settings; auth-aware SSR with guest and private route guards; WebSocket notifications; the subscription block with the current subscription, auto-renewal, queue logic, and prices from the API; and the messenger with voice messages, cursor pagination, list virtualization, and delivery and unread indicators. Alongside features I worked on app-wide performance, including route-level code splitting and public cache policy, and on tests and quality gates around the riskiest flows.",
           },
           outcome: {
             title: "Outcome",
@@ -320,7 +320,7 @@ export const localizedContent = {
           "Profile management and API-driven pricing instead of hardcoded prices (SCRUM-119, SCRUM-205).",
           "Auth-aware SSR, guest route guards, and refresh and recovery flows (SCRUM-145).",
           "WebSocket notifications in the header (SCRUM-254).",
-          "Current subscription and auto-renewal views in account management (SCRUM-199).",
+          "Current subscription, auto-renewal, and subscription queue logic in account management (SCRUM-199, SCRUM-209).",
           "Voice messages, cursor pagination, virtualization, and delivery and unread indicators in the messenger (SCRUM-307).",
           "Route-level code splitting, public cache policy, and font cleanup (SCRUM-149, SCRUM-151, SCRUM-152).",
         ],
@@ -352,7 +352,7 @@ export const localizedContent = {
           },
           solution: {
             title: "Solution",
-            body: "I set up the project structure and app shell (header, sidebar, and UI kit tokens), added a session-based auth guard, built the typed GraphQL foundation with admin mutations, implemented ban, unban, and delete flows with confirm modals, built the posts list with search and infinite scroll, and wrote a handoff contract for the realtime integration.",
+            body: "I set up the project structure and app shell (header, sidebar, and UI kit tokens), added a session-based auth guard, built the typed GraphQL foundation with admin mutations, implemented ban, unban, and delete flows with confirm modals, built the posts list with search and infinite scroll, wrote a handoff contract for the realtime integration, and added CI quality gates with the container, nginx, and pipeline deployment configuration.",
           },
           outcome: {
             title: "Outcome",
@@ -380,6 +380,7 @@ export const localizedContent = {
           "Typed GraphQL foundation with admin mutation operations.",
           "Session-based auth guard, header, and sidebar shell on UI kit tokens.",
           "Shared Select and Carousel composites.",
+          "CI quality gates and release boundary checks (SCRUM-256), plus container, nginx, and pipeline deployment configuration.",
           "Repository README, CONTRIBUTING, and sprint documentation.",
         ],
       },
@@ -636,7 +637,7 @@ export const localizedContent = {
       stats: [
         { value: "2019", label: "Начало пути" },
         { value: "2023", label: "IT-Incubator" },
-        { value: "3–5", label: "Команда" },
+        { value: "2", label: "Командных продукта" },
       ],
       cardLabels: {
         role: "Роль",
@@ -859,7 +860,7 @@ export const localizedContent = {
           },
           solution: {
             title: "Решение",
-            body: "Я работал по всему продукту: CRUD постов, лайки, комментарии и модальное окно поста; управление профилем и настройки; auth-aware SSR с guard-ами гостевых и приватных маршрутов; уведомления через WebSocket; экраны подписок и автопродления с ценами из API; мессенджер с голосовыми сообщениями, cursor pagination, виртуализацией списка и индикаторами доставки и непрочитанных. Параллельно занимался производительностью всего приложения, включая разбиение кода по маршрутам и политику кэширования публичных страниц, а также тестами и quality gate вокруг самых рискованных сценариев.",
+            body: "Я работал по всему продукту: CRUD постов, лайки, комментарии и модальное окно поста; управление профилем и настройки; auth-aware SSR с guard-ами гостевых и приватных маршрутов; уведомления через WebSocket; блок подписки с текущей подпиской, автопродлением, логикой очереди и ценами из API; мессенджер с голосовыми сообщениями, cursor pagination, виртуализацией списка и индикаторами доставки и непрочитанных. Параллельно занимался производительностью всего приложения, включая разбиение кода по маршрутам и политику кэширования публичных страниц, а также тестами и quality gate вокруг самых рискованных сценариев.",
           },
           outcome: {
             title: "Результат",
@@ -893,7 +894,7 @@ export const localizedContent = {
           "Управление профилем и цены из API вместо захардкоженных (SCRUM-119, SCRUM-205).",
           "Auth-aware SSR, guard-ы гостевых маршрутов, сценарии refresh и восстановления (SCRUM-145).",
           "Уведомления через WebSocket в header (SCRUM-254).",
-          "Экраны текущих подписок и автопродления в управлении аккаунтом (SCRUM-199).",
+          "Текущая подписка, автопродление и логика очереди подписок в управлении аккаунтом (SCRUM-199, SCRUM-209).",
           "Голосовые сообщения, cursor pagination, виртуализация и индикаторы доставки и непрочитанных в мессенджере (SCRUM-307).",
           "Разбиение кода по маршрутам, политика кэширования публичных страниц и чистка шрифтов (SCRUM-149, SCRUM-151, SCRUM-152).",
         ],
@@ -925,7 +926,7 @@ export const localizedContent = {
           },
           solution: {
             title: "Решение",
-            body: "Я настроил структуру проекта и оболочку приложения (header, sidebar и токены UI-кита), добавил auth-guard по сессии, сделал типизированный GraphQL-фундамент с admin-мутациями, реализовал бан, разбан и удаление пользователей с модалками подтверждения, собрал список постов с поиском и infinite scroll и написал контракт передачи для realtime-интеграции.",
+            body: "Я настроил структуру проекта и оболочку приложения (header, sidebar и токены UI-кита), добавил auth-guard по сессии, сделал типизированный GraphQL-фундамент с admin-мутациями, реализовал бан, разбан и удаление пользователей с модалками подтверждения, собрал список постов с поиском и infinite scroll написал контракт передачи для realtime-интеграции, а также добавил CI quality gates и конфигурацию деплоя: контейнер, nginx и pipeline.",
           },
           outcome: {
             title: "Результат",
@@ -955,6 +956,7 @@ export const localizedContent = {
           "Типизированный GraphQL-фундамент с admin-мутациями.",
           "Auth-guard по сессии, header и sidebar на токенах UI-кита.",
           "Общие композиты Select и Carousel.",
+          "CI quality gates и проверки границы релиза (SCRUM-256), конфигурация деплоя: контейнер, nginx, pipeline.",
           "README, CONTRIBUTING и спринтовая документация репозитория.",
         ],
       },

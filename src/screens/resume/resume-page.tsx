@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle2, Download, FileText, Languages, Route } from "lucide-react";
+import { ArrowRight, Download, FileText, Languages } from "lucide-react";
 import { resumePdfPath } from "@/src/shared/config/resume";
 import { defaultLocale, getDictionary, type Locale, withLocalePath } from "@/src/shared/i18n";
 import { Button, Card, Icon, SectionHeader, Tag } from "@/src/shared/ui";
@@ -17,7 +17,7 @@ export function ResumePage({ locale = defaultLocale }: { locale?: Locale }) {
             <Button href={withLocalePath("/contact", locale)} variant="primary">
               {dictionary.common.contactMe} <Icon icon={ArrowRight} />
             </Button>
-            <Button href={resumePdfPath} target="_blank" rel="noopener noreferrer">
+            <Button href={resumePdfPath(locale)} target="_blank" rel="noopener noreferrer">
               <Icon icon={Download} /> {dictionary.common.downloadResume}
             </Button>
           </div>
@@ -201,24 +201,6 @@ export function ResumePage({ locale = defaultLocale }: { locale?: Locale }) {
             <Button href={withLocalePath("/projects", locale)} variant="ghost" className="mt-6 px-0">
               {dictionary.common.viewProofThroughProjects} <Icon icon={ArrowRight} />
             </Button>
-          </Card>
-
-          <Card className="mt-5 p-7">
-            <div className="grid size-12 place-items-center rounded-[var(--radius-md)] border border-[var(--color-border-active)] bg-[var(--color-accent-tint)] text-[var(--color-accent-primary)]">
-              <Icon icon={Route} />
-            </div>
-            <h2 className="mt-5 text-xl font-semibold text-[var(--color-text-primary)]">{resume.workingModelTitle}</h2>
-            <div className="mt-5 space-y-4">
-              {resume.workingModel.map((item) => (
-                <div key={item.title}>
-                  <h3 className="flex items-center gap-2 text-sm font-semibold text-[var(--color-text-primary)]">
-                    <Icon icon={CheckCircle2} className="size-4 text-[var(--color-accent-primary)]" />
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">{item.description}</p>
-                </div>
-              ))}
-            </div>
           </Card>
         </aside>
       </section>

@@ -29,7 +29,7 @@ export const dictionaries = {
       viewAllProjects: "View all projects",
       contactMe: "Contact me",
       emailMe: "Email me",
-      downloadResume: "Download CV (PDF, Russian)",
+      downloadResume: "Download CV (PDF)",
       viewProofThroughProjects: "View proof through projects",
       projectFiltersLabel: "Project filters",
     },
@@ -103,7 +103,7 @@ export const dictionaries = {
         { label: "Location", value: "Armenia · GMT+4" },
       ],
       snapshotTitle: "Current snapshot",
-      snapshotItems: ["Remote / Hybrid / On-site", "Open to relocation", "React", "Next.js", "TypeScript", "Team 3–5"],
+      snapshotItems: ["Remote / Hybrid / On-site", "Open to relocation", "React", "Next.js", "TypeScript"],
       impact: [
         {
           value: "2019",
@@ -116,28 +116,57 @@ export const dictionaries = {
           description: "Structured frontend training followed by collaborative product development.",
         },
         {
-          value: "3–5",
-          label: "Team size",
-          description: "Practical collaboration across changing project teams and shared project ownership.",
+          value: "2",
+          label: "Team products",
+          description: "A social platform and a super-admin application built collaboratively with a team.",
         },
       ],
       skillGroups: [
-        { title: "Frontend Core", items: ["React", "Next.js", "TypeScript", "State and data flow", "Responsive UI"] },
+        {
+          title: "Frontend Core",
+          items: ["JavaScript", "TypeScript", "React", "Next.js (App Router, SSR/ISR)"],
+        },
+        {
+          title: "State and Data",
+          items: [
+            "Redux Toolkit",
+            "RTK Query",
+            "Zustand",
+            "REST API",
+            "GraphQL (Apollo Client)",
+            "WebSocket",
+            "React Hook Form",
+            "Zod",
+          ],
+        },
         {
           title: "UI Platform",
-          items: ["Design systems", "Component APIs", "Accessibility", "CSS variables", "Storybook"],
+          items: ["Sass/SCSS", "CSS Modules", "Tailwind", "Radix UI", "Storybook", "Feature-Sliced Design (FSD)"],
         },
-        { title: "Delivery Quality", items: ["Vitest", "Playwright", "ESLint", "Prettier", "Git", "CI/CD"] },
         {
-          title: "Backend / Infra Path",
-          items: ["REST", "GraphQL", "Prisma", "PostgreSQL", "NextAuth", "Socket.IO", "Docker", "Jenkins"],
+          title: "Delivery Quality",
+          items: [
+            "Vitest",
+            "MSW",
+            "Playwright",
+            "Git",
+            "GitHub Actions",
+            "pnpm",
+            "ESLint",
+            "Prettier",
+            "Stylelint",
+            "Husky",
+            "Figma",
+            "Jira",
+            "Vercel",
+          ],
         },
       ],
       languagesTitle: "Languages",
       languages: [
-        { name: "Russian", level: "Fluent · written and spoken" },
-        { name: "Armenian", level: "Native spoken proficiency" },
-        { name: "English", level: "Conversational · basic written communication" },
+        { name: "Russian", level: "Native" },
+        { name: "Armenian", level: "Native" },
+        { name: "English", level: "B1" },
       ],
       projectEvidenceEyebrow: "Project evidence",
       projectEvidenceTitle: "Where the resume is proven",
@@ -180,7 +209,7 @@ export const dictionaries = {
           role: "Frontend Developer",
           company: "IT-Incubator · team projects",
           summary:
-            "Collaborative development of a social platform, super-admin application, and shared UI kit in teams of three to five people.",
+            "Collaborative development of a social platform, super-admin application, and shared UI kit as part of a team.",
           highlights: [
             "Owned substantial frontend scope across interactive product flows and integration work.",
             "Worked with REST and GraphQL contracts, client state, optimistic updates, SSR, and reusable UI.",
@@ -212,38 +241,22 @@ export const dictionaries = {
           ],
         },
       ],
-      principlesTitle: "How I position work",
+      principlesTitle: "How I work",
       principles: [
         {
-          title: "Architecture before scale",
+          title: "Contracts before UI",
           description:
-            "Keep V1 simple, but make boundaries clear enough for i18n, backend data, PDF generation, and design-system migration.",
+            "I align API contracts and types first, so screens are built on real data shapes instead of assumptions.",
         },
         {
-          title: "Proof over decoration",
+          title: "States are part of the feature",
           description:
-            "Every visual section should point to projects, delivery evidence, capability depth, or a practical contact path.",
+            "Loading, empty, error, and guarded-route states are designed together with the feature, not patched in later.",
         },
         {
-          title: "Migration-friendly UI",
+          title: "Protect risky flows with tests",
           description:
-            "Pages import through local shared UI adapters, so a future design system can replace internals without rewriting screens.",
-        },
-      ],
-      workingModelTitle: "Working model",
-      workingModel: [
-        {
-          title: "Clarify before building",
-          description: "Define the user path, acceptance risk, data shape, and UI states before implementation.",
-        },
-        {
-          title: "Ship with evidence",
-          description: "Pair implementation with checks, screenshots, and clear notes about what changed.",
-        },
-        {
-          title: "Keep migration paths open",
-          description:
-            "Prefer adapter boundaries and typed content so backend, PDF, and future design-system integration stay controlled.",
+            "I cover the flows that hurt users first, such as auth and data fetching, with Vitest, MSW, and CI checks.",
         },
       ],
     },
@@ -354,7 +367,7 @@ export const dictionaries = {
         { label: "Локация", value: "Армения · GMT+4" },
       ],
       snapshotTitle: "Текущий срез",
-      snapshotItems: ["Удалённо / гибрид / офис", "Готов к переезду", "React", "Next.js", "TypeScript", "Команда 3–5"],
+      snapshotItems: ["Удалённо / гибрид / офис", "Готов к переезду", "React", "Next.js", "TypeScript"],
       impact: [
         {
           value: "2019",
@@ -367,31 +380,57 @@ export const dictionaries = {
           description: "Структурированное обучение frontend-разработке с последующей командной разработкой продуктов.",
         },
         {
-          value: "3–5",
-          label: "Размер команды",
-          description: "Практическая совместная работа в меняющихся проектных командах.",
+          value: "2",
+          label: "Командных продукта",
+          description: "Социальная платформа и приложение суперадминистратора, созданные совместно с командой.",
         },
       ],
       skillGroups: [
         {
           title: "Основы frontend",
-          items: ["React", "Next.js", "TypeScript", "Состояние и поток данных", "Адаптивный UI"],
+          items: ["JavaScript", "TypeScript", "React", "Next.js (App Router, SSR/ISR)"],
+        },
+        {
+          title: "Состояние и данные",
+          items: [
+            "Redux Toolkit",
+            "RTK Query",
+            "Zustand",
+            "REST API",
+            "GraphQL (Apollo Client)",
+            "WebSocket",
+            "React Hook Form",
+            "Zod",
+          ],
         },
         {
           title: "UI-платформа",
-          items: ["Дизайн-системы", "API компонентов", "Доступность", "CSS-переменные", "Storybook"],
+          items: ["Sass/SCSS", "CSS Modules", "Tailwind", "Radix UI", "Storybook", "Feature-Sliced Design (FSD)"],
         },
-        { title: "Качество поставки", items: ["Vitest", "Playwright", "ESLint", "Prettier", "Git", "CI/CD"] },
         {
-          title: "Backend и инфраструктура",
-          items: ["REST", "GraphQL", "Prisma", "PostgreSQL", "NextAuth", "Socket.IO", "Docker", "Jenkins"],
+          title: "Качество поставки",
+          items: [
+            "Vitest",
+            "MSW",
+            "Playwright",
+            "Git",
+            "GitHub Actions",
+            "pnpm",
+            "ESLint",
+            "Prettier",
+            "Stylelint",
+            "Husky",
+            "Figma",
+            "Jira",
+            "Vercel",
+          ],
         },
       ],
       languagesTitle: "Языки",
       languages: [
-        { name: "Русский", level: "Свободно · устно и письменно" },
-        { name: "Армянский", level: "Родной разговорный · без чтения и письма" },
-        { name: "Английский", level: "Разговорный · базовая письменная коммуникация" },
+        { name: "Русский", level: "Родной" },
+        { name: "Армянский", level: "Родной" },
+        { name: "Английский", level: "B1" },
       ],
       projectEvidenceEyebrow: "Доказательства проектами",
       projectEvidenceTitle: "Где резюме подтверждается",
@@ -435,7 +474,7 @@ export const dictionaries = {
           role: "Frontend-разработчик",
           company: "IT-Incubator · командные проекты",
           summary:
-            "Командная разработка социальной платформы, приложения суперадминистратора и общей UI-библиотеки в командах от трёх до пяти человек.",
+            "Командная разработка социальной платформы, приложения суперадминистратора и общей UI-библиотеки в составе команды.",
           highlights: [
             "Отвечал за значимую часть frontend-функциональности и интеграцию сложных пользовательских сценариев.",
             "Работал с REST и GraphQL, клиентским состоянием, оптимистичными обновлениями, SSR и переиспользуемым UI.",
@@ -467,38 +506,22 @@ export const dictionaries = {
           ],
         },
       ],
-      principlesTitle: "Как я позиционирую работу",
+      principlesTitle: "Как я работаю",
       principles: [
         {
-          title: "Архитектура до масштабирования",
+          title: "Сначала контракты, потом UI",
           description:
-            "V1 должен оставаться простым, но границы должны быть достаточно ясными для локализации, backend-данных, генерации PDF и миграции дизайн-системы.",
+            "Сначала согласую API-контракты и типы, чтобы экраны строились на реальных формах данных, а не на предположениях.",
         },
         {
-          title: "Доказательства вместо декора",
+          title: "Состояния — часть функциональности",
           description:
-            "Каждая визуальная секция должна вести к проектам, доказательствам поставки, глубине навыков или понятному способу связаться.",
+            "Загрузку, пустое состояние, ошибки и защищённые маршруты проектирую вместе с функцией, а не дорабатываю потом.",
         },
         {
-          title: "UI, готовый к миграции",
+          title: "Тесты на рискованных сценариях",
           description:
-            "Страницы используют общие UI-адаптеры, поэтому будущая дизайн-система сможет заменить внутреннюю реализацию без переписывания экранов.",
-        },
-      ],
-      workingModelTitle: "Рабочая модель",
-      workingModel: [
-        {
-          title: "Уточнить до реализации",
-          description: "Сначала определить путь пользователя, риски приёмки, форму данных и UI-состояния.",
-        },
-        {
-          title: "Показывать доказательства",
-          description: "Сопровождать реализацию проверками, скриншотами и ясным описанием изменений.",
-        },
-        {
-          title: "Оставлять путь к миграции",
-          description:
-            "Сохранять границы адаптеров и типизированный контент, чтобы backend, PDF и будущая дизайн-система подключались контролируемо.",
+            "В первую очередь покрываю то, что ломает опыт пользователя, например авторизацию и загрузку данных, с помощью Vitest, MSW и CI-проверок.",
         },
       ],
     },
