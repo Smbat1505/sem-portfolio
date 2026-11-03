@@ -1,9 +1,20 @@
 import type { ContactLink } from "./contact.model";
+
+export const primaryEmail = {
+  value: "sem.antony.dev@gmail.com",
+  href: "mailto:sem.antony.dev@gmail.com",
+} as const;
+
 export const contactLinks: ContactLink[] = [
-  { id: "email", label: "Email", value: "hello@semen.dev", href: "mailto:hello@semen.dev" },
-  { id: "github", label: "GitHub", value: "github.com/semen-dev", href: "https://github.com/semen-dev" },
-  { id: "linkedin", label: "LinkedIn", value: "linkedin.com/in/semen-dev", href: "https://linkedin.com/in/semen-dev" },
-  { id: "telegram", label: "Telegram", value: "@semen_dev", href: "https://t.me/semen_dev" },
+  { id: "email", label: "Email", ...primaryEmail },
+  { id: "github", label: "GitHub", value: "github.com/Smbat1505", href: "https://github.com/Smbat1505" },
+  {
+    id: "linkedin",
+    label: "LinkedIn",
+    value: "linkedin.com/in/smbat-antonian",
+    href: "https://www.linkedin.com/in/smbat-antonian",
+  },
+  { id: "telegram", label: "Telegram", value: "@SemAntony", href: "https://t.me/SemAntony" },
 ];
 export const bestFit = [
   { title: "Product teams", description: "Collaborate closely with designers, PMs, and engineers." },

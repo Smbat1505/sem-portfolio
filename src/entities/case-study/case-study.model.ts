@@ -5,6 +5,10 @@ export const caseStudySectionSchema = z.object({
   body: z.string(),
 });
 
+export const caseStudyPreviewSchema = z.object({ src: z.string(), alt: z.string() });
+
+export const caseStudyDemoSchema = z.object({ src: z.string(), caption: z.string() });
+
 export const caseStudyDecisionSchema = z.object({
   title: z.string(),
   description: z.string(),
@@ -28,6 +32,9 @@ export const caseStudySchema = z.object({
   }),
   decisions: z.array(caseStudyDecisionSchema),
   proof: z.array(z.string()),
+  repositoryUrl: z.url().optional(),
+  preview: caseStudyPreviewSchema.optional(),
+  demo: caseStudyDemoSchema.optional(),
 });
 
 export type CaseStudy = z.infer<typeof caseStudySchema>;

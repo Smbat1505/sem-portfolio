@@ -17,15 +17,21 @@
 html {
   background: var(--color-bg);
   color: var(--color-text-primary);
+  transition:
+    background-color var(--motion-medium),
+    color var(--motion-medium);
 }
 body {
   min-height: 100vh;
   margin: 0;
   background:
-    radial-gradient(circle at 18% 12%, rgb(125 211 176 / 8%), transparent 28rem),
-    radial-gradient(circle at 84% 18%, rgb(227 184 107 / 7%), transparent 30rem), var(--color-bg);
+    radial-gradient(circle at 18% 12%, var(--color-page-glow-primary), transparent 28rem),
+    radial-gradient(circle at 84% 18%, var(--color-page-glow-secondary), transparent 30rem), var(--color-bg);
   color: var(--color-text-primary);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  transition:
+    background-color var(--motion-medium),
+    color var(--motion-medium);
 }
 a {
   color: inherit;

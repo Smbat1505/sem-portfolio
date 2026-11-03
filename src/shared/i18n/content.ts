@@ -52,9 +52,12 @@ export type CaseStudyPageContent = {
   nextStepTitle: string;
   nextStepDescription: string;
   contact: string;
+  sourceRepository: string;
+  watchDemo: string;
+  closeDemo: string;
 };
 
-const localizedContent = {
+export const localizedContent = {
   en: {
     footer: "Prefer async first. Clear scope, fast feedback, shipped outcomes.",
     projectsPage: {
@@ -64,7 +67,7 @@ const localizedContent = {
       stats: [
         { value: "2019", label: "Learning path" },
         { value: "2023", label: "IT-Incubator" },
-        { value: "3–5", label: "Team size" },
+        { value: "2", label: "Team products" },
       ],
       cardLabels: {
         role: "Role",
@@ -120,24 +123,34 @@ const localizedContent = {
       {
         id: "social-platform",
         slug: "social-platform",
-        title: "Social Platform",
-        summary: "Production-minded social experience with resilient UI states and typed interaction flows.",
+        title: "ICTROOT Social Platform",
+        summary:
+          "A team-built Instagram-style social network on Next.js 15 and RTK Query, where I worked across posts and profiles, auth and SSR, notifications, subscriptions, and the messenger.",
         role: "Frontend Engineer",
-        stack: ["React", "TypeScript", "RTK Query"],
-        impact: "Improved interaction confidence and feedback loops",
+        stack: ["Next.js", "React", "TypeScript", "RTK Query", "WebSockets"],
+        impact: "Delivered frontend features across posts, profiles, auth, notifications, subscriptions, and messaging",
         category: "architecture",
         capabilities: ["frontend-architecture", "api-contracts", "testing-ci"],
+        preview: {
+          src: "/projects/ictroot-social-platform.webp",
+          alt: "ICTROOT messenger with a dialogue containing voice messages and delivery status",
+        },
       },
       {
         id: "admin-console",
         slug: "admin-console",
-        title: "Admin Console",
-        summary: "Dense admin product surface with reliable tables, filters, and status-driven decisions.",
+        title: "ICTROOT Super Admin",
+        summary:
+          "An internal moderation panel on Next.js 16 and GraphQL, where I built the app shell and typed GraphQL foundation, user moderation flows, and the realtime posts list.",
         role: "Frontend Engineer",
-        stack: ["React", "TypeScript", "Radix UI"],
-        impact: "Faster admin workflows with safer UI states",
+        stack: ["Next.js", "TypeScript", "Apollo Client", "GraphQL", "Zustand"],
+        impact: "Delivered user moderation and a searchable realtime posts view for admins",
         category: "product-ui",
-        capabilities: ["ui-engineering", "frontend-architecture", "accessibility"],
+        capabilities: ["ui-engineering", "frontend-architecture", "api-contracts"],
+        preview: {
+          src: "/projects/ictroot-super-admin.webp",
+          alt: "ICTROOT Super Admin posts list with search and moderation actions",
+        },
       },
       {
         id: "automation-tool",
@@ -187,6 +200,9 @@ const localizedContent = {
       nextStepDescription:
         "The strongest portfolio conversations start with a concrete product problem, not a generic introduction.",
       contact: "Contact",
+      sourceRepository: "Source repository",
+      watchDemo: "Watch demo",
+      closeDemo: "Close demo",
     },
     caseStudies: [
       {
@@ -240,103 +256,132 @@ const localizedContent = {
       },
       {
         slug: "social-platform",
-        title: "Social Platform",
+        title: "ICTROOT Social Platform",
         eyebrow: "Case study / Frontend Architecture",
         summary:
-          "A production-minded social interface with resilient UI states, typed interaction flows, and API boundary discipline.",
+          "A team-built Instagram-style social network where I worked across posts and profiles, auth and SSR, notifications, subscriptions, and the messenger.",
         role: "Frontend Engineer",
-        stack: ["React", "TypeScript", "RTK Query"],
-        impact: "Improved interaction confidence and feedback loops",
-        timeline: "Product iteration",
+        stack: ["Next.js", "React", "TypeScript", "RTK Query", "WebSockets"],
+        impact: "Delivered frontend features across posts, profiles, auth, notifications, subscriptions, and messaging",
+        timeline: "Team project, 2025–2026",
         capabilities: ["Frontend Architecture", "API Contracts", "Testing & CI"],
+        repositoryUrl: "https://github.com/ictroot70/Ict",
+        preview: {
+          src: "/projects/ictroot-social-platform.webp",
+          alt: "ICTROOT messenger with a dialogue containing voice messages and delivery status",
+        },
+        demo: {
+          src: "/projects/ictroot-social-platform-demo.mp4",
+          caption:
+            "Screen recording of the ICTROOT app: subscription and auto-renewal settings, payment history, and the messenger with voice messages",
+        },
         sections: {
           problem: {
             title: "Problem",
-            body: "Social interfaces carry a lot of implicit state: optimistic reactions, profile transitions, comments, auth-adjacent flows, and backend contract changes. Without clear boundaries, each small interaction can create hidden regressions.",
+            body: "A social product combines server-rendered pages, auth-dependent routes, realtime events, and media. Without clear boundaries, SSR, route guards, cached data, and API assumptions drift apart, and regressions surface late.",
           },
           constraints: {
             title: "Constraints",
-            body: "The UI needed to stay responsive while still respecting API behavior, loading states, failure states, and route-level expectations. The implementation also had to remain readable for future product changes.",
+            body: "A shared team codebase with fixed architecture rules, a shared UI kit, parallel feature work by several developers, and lint, typecheck, and build gates on every change.",
           },
           solution: {
             title: "Solution",
-            body: "The work centered on typed data boundaries, predictable async state, explicit UI states, and reviewable interaction flows. Product behavior was tied to concrete checks instead of relying on manual confidence.",
+            body: "I worked across the product: post CRUD, likes, comments, and the post modal; profile management and settings; auth-aware SSR with guest and private route guards; WebSocket notifications; the subscription block with the current subscription, auto-renewal, queue logic, and prices from the API; and the messenger with voice messages, cursor pagination, list virtualization, and delivery and unread indicators. Alongside features I worked on app-wide performance, including route-level code splitting and public cache policy, and on tests and quality gates around the riskiest flows.",
           },
           outcome: {
             title: "Outcome",
-            body: "The interface became easier to reason about, safer to change, and better aligned with real user interactions across social flows.",
+            body: "Core product flows (posts, profiles, auth, notifications, subscriptions, and messaging) were delivered on a shared frontend where API contracts, route guards, and loading states are handled explicitly.",
           },
         },
         decisions: [
           {
-            title: "Typed interaction boundaries",
+            title: "Contract-first API integration",
             description:
-              "Keep API response adaptation close to the data edge so components render predictable product states.",
+              "Align post CRUD, messenger media, and pricing data with the Swagger contract instead of mocks and hardcoded values.",
           },
           {
-            title: "State-first UI review",
+            title: "Auth-aware SSR and route guards",
             description:
-              "Review loading, empty, success, optimistic, and failure paths as product behavior, not decoration.",
+              "Keep server rendering, public and private contracts, and guest route guards consistent so auth state does not leak into the wrong pages.",
           },
           {
-            title: "Regression-aware checks",
+            title: "Route-level performance work",
             description:
-              "Use focused tests and smoke flows around high-risk interactions before treating work as complete.",
+              "Split code by auth-based routes, reduce unnecessary no-store caching on public pages, and load fonts through next/font.",
+          },
+          {
+            title: "Cursor pagination with virtualized lists",
+            description:
+              "Load long histories by cursor and virtualize dialogues so every message is not rendered at once.",
           },
         ],
         proof: [
-          "Typed RTK Query usage for API-driven UI flows.",
-          "Explicit handling for interaction confidence and feedback loops.",
-          "Architecture decisions mapped directly to Testing & CI and API Contracts capabilities.",
+          "Post CRUD, likes, comments, and the post modal across profile and feed (SCRUM-126, SCRUM-282, SCRUM-291).",
+          "Profile management and API-driven pricing instead of hardcoded prices (SCRUM-119, SCRUM-205).",
+          "Auth-aware SSR, guest route guards, and refresh and recovery flows (SCRUM-145).",
+          "WebSocket notifications in the header (SCRUM-254).",
+          "Current subscription, auto-renewal, and subscription queue logic in account management (SCRUM-199, SCRUM-209).",
+          "Voice messages, cursor pagination, virtualization, and delivery and unread indicators in the messenger (SCRUM-307).",
+          "Route-level code splitting, public cache policy, and font cleanup (SCRUM-149, SCRUM-151, SCRUM-152).",
         ],
       },
       {
         slug: "admin-console",
-        title: "Admin Console",
+        title: "ICTROOT Super Admin",
         eyebrow: "Case study / Product UI",
         summary:
-          "A dense admin product surface built around tables, filters, status-driven decisions, and predictable repeated work.",
+          "An internal moderation panel on Next.js 16 and GraphQL, where I built the app shell and typed GraphQL foundation, user moderation flows, and the realtime posts list.",
         role: "Frontend Engineer",
-        stack: ["React", "TypeScript", "Radix UI"],
-        impact: "Faster admin workflows with safer UI states",
-        timeline: "Internal product delivery",
-        capabilities: ["UI Engineering", "Frontend Architecture", "Accessibility"],
+        stack: ["Next.js", "TypeScript", "Apollo Client", "GraphQL", "Zustand"],
+        impact: "Delivered user moderation and a searchable realtime posts view for admins",
+        timeline: "Sprint delivery, 2026",
+        capabilities: ["UI Engineering", "Frontend Architecture", "API Contracts"],
+        repositoryUrl: "https://github.com/ictroot70/super-admin-ictroot",
+        preview: {
+          src: "/projects/ictroot-super-admin.webp",
+          alt: "ICTROOT Super Admin posts list with search and moderation actions",
+        },
         sections: {
           problem: {
             title: "Problem",
-            body: "Operational users need to scan, compare, filter, and act repeatedly. A visually pleasant admin screen still fails if status information, affordances, and error states are not immediately clear.",
+            body: "A moderation panel exposes destructive actions and a fast-changing posts list. Neither should be easy to misuse or hard to scan.",
           },
           constraints: {
             title: "Constraints",
-            body: "The interface had to support dense information without turning into visual noise. Accessibility, keyboard flow, table behavior, and responsive layout all had to stay stable.",
+            body: "Evolving GraphQL contracts, sprint work split across several developers with handoff points, and CI gates on every merge.",
           },
           solution: {
             title: "Solution",
-            body: "The implementation prioritized compact hierarchy, stable controls, reusable UI patterns, and clear state language for filters, tables, actions, and status feedback.",
+            body: "I set up the project structure and app shell (header, sidebar, and UI kit tokens), added a session-based auth guard, built the typed GraphQL foundation with admin mutations, implemented ban, unban, and delete flows with confirm modals, built the posts list with search and infinite scroll, wrote a handoff contract for the realtime integration, and added CI quality gates with the container, nginx, and pipeline deployment configuration.",
           },
           outcome: {
             title: "Outcome",
-            body: "Admin workflows became easier to scan and repeat, while UI states stayed safer for future changes.",
+            body: "Admins can moderate users and browse posts through search, infinite scroll, and realtime updates, and the next task had a written contract to build on.",
           },
         },
         decisions: [
           {
-            title: "Dense but calm layout",
-            description: "Use restrained visual hierarchy so repeated operational work remains scannable.",
+            title: "Typed GraphQL documents",
+            description: "Use codegen-generated documents so query changes surface as type errors.",
           },
           {
-            title: "Accessible primitives",
-            description: "Lean on Radix UI patterns for focus behavior, keyboard interactions, and state consistency.",
+            title: "Confirmed destructive actions",
+            description: "Route ban, unban, and delete through explicit confirm modals with typed user ids.",
           },
           {
-            title: "Reusable state patterns",
-            description: "Keep filters, status labels, and action states predictable across the admin surface.",
+            title: "Written handoff contracts",
+            description:
+              "Document the boundary between the posts UI and the realtime integration so parallel sprint work does not collide.",
           },
         ],
         proof: [
-          "Reliable table and filter surface.",
-          "Status-driven UI decisions instead of decorative cards.",
-          "Direct relationship to UI Engineering and Accessibility capabilities.",
+          "Ban, unban, and delete user flows (SCRUM-259).",
+          "Posts list with search, infinite scroll, and realtime updates (A6).",
+          "Typed GraphQL foundation with admin mutation operations.",
+          "Session-based auth guard, header, and sidebar shell on UI kit tokens.",
+          "Shared Select and Carousel composites.",
+          "CI quality gates and release boundary checks (SCRUM-256), plus container, nginx, and pipeline deployment configuration.",
+          "Repository README, CONTRIBUTING, and sprint documentation.",
         ],
       },
       {
@@ -491,7 +536,7 @@ const localizedContent = {
         title: "Product Delivery",
         description: "End-to-end delivery from product intent to shipped interface.",
         evidence: "Ships with scope clarity, feedback loops, and measurable outcomes.",
-        relatedProjects: ["Social Platform", "Admin Console"],
+        relatedProjects: ["ICTROOT Social Platform", "ICTROOT Super Admin"],
         type: "core",
       },
       {
@@ -499,7 +544,7 @@ const localizedContent = {
         title: "Frontend Architecture",
         description: "Typed boundaries, reusable patterns, and predictable data flow.",
         evidence: "Defines scalable structure and regression-safe UI boundaries.",
-        relatedProjects: ["Social Platform", "UI Kit Scroll Area"],
+        relatedProjects: ["ICTROOT Social Platform", "UI Kit Scroll Area"],
         type: "core",
       },
       {
@@ -507,7 +552,7 @@ const localizedContent = {
         title: "UI Engineering",
         description: "Accessible, responsive interfaces with consistent states.",
         evidence: "Builds maintainable UI surfaces and component contracts.",
-        relatedProjects: ["Admin Console", "UI Kit Scroll Area"],
+        relatedProjects: ["ICTROOT Super Admin", "UI Kit Scroll Area"],
         type: "core",
       },
       {
@@ -515,7 +560,7 @@ const localizedContent = {
         title: "API Contracts",
         description: "Stable client integration through typed and explicit contracts.",
         evidence: "Keeps API drift visible and adapts response data at boundaries.",
-        relatedProjects: ["OAuth Flow", "Social Platform"],
+        relatedProjects: ["OAuth Flow", "ICTROOT Social Platform"],
         type: "core",
       },
       {
@@ -523,7 +568,7 @@ const localizedContent = {
         title: "Testing & CI",
         description: "Automated checks that protect product behavior and delivery flow.",
         evidence: "Covers critical paths with unit, smoke, and build gates.",
-        relatedProjects: ["Automation Tool", "Social Platform"],
+        relatedProjects: ["Automation Tool", "ICTROOT Social Platform"],
         type: "core",
       },
       {
@@ -531,7 +576,7 @@ const localizedContent = {
         title: "Performance",
         description: "Rendering and interaction decisions that keep product surfaces fast.",
         evidence: "Balances UX quality with runtime and build constraints.",
-        relatedProjects: ["Operations Console", "Admin Console"],
+        relatedProjects: ["Operations Console", "ICTROOT Super Admin"],
         type: "supporting",
       },
       {
@@ -539,7 +584,7 @@ const localizedContent = {
         title: "Accessibility",
         description: "Keyboard, focus, semantic, and contrast-aware UI implementation.",
         evidence: "Uses accessible primitives and explicit interaction states.",
-        relatedProjects: ["UI Kit Scroll Area", "Admin Console"],
+        relatedProjects: ["UI Kit Scroll Area"],
         type: "supporting",
       },
       {
@@ -565,7 +610,7 @@ const localizedContent = {
       {
         id: "product-thinking",
         title: "Product Thinking",
-        description: "Фокус на outcomes, а не на outputs, с привязкой к реальным потребностям пользователей.",
+        description: "Focus on outcomes rather than outputs, tied to real user needs.",
       },
       {
         id: "ship-confidence",
@@ -584,15 +629,15 @@ const localizedContent = {
     ],
   },
   ru: {
-    footer: "Сначала async. Четкий объем задачи, быстрая обратная связь, доведенный до результата delivery.",
+    footer: "Сначала асинхронно. Чёткий объём задачи, быстрая обратная связь и доведение работы до результата.",
     projectsPage: {
       title: "Избранные продуктовые проекты",
-      description: "Подборка интерфейсов, систем и delivery-улучшений с понятным продуктовым контекстом.",
+      description: "Подборка интерфейсов, систем и улучшений процесса поставки с понятным продуктовым контекстом.",
       proofTitle: "Сигналы надежности",
       stats: [
         { value: "2019", label: "Начало пути" },
         { value: "2023", label: "IT-Incubator" },
-        { value: "3–5", label: "Команда" },
+        { value: "2", label: "Командных продукта" },
       ],
       cardLabels: {
         role: "Роль",
@@ -627,19 +672,19 @@ const localizedContent = {
     },
     projectFilters: [
       { id: "all", label: "Все" },
-      { id: "product-ui", label: "Product UI" },
+      { id: "product-ui", label: "Продуктовый UI" },
       { id: "architecture", label: "Архитектура" },
-      { id: "testing-ci", label: "Testing & CI" },
+      { id: "testing-ci", label: "Тестирование и CI" },
       { id: "automation", label: "Автоматизация" },
-      { id: "performance", label: "Performance" },
+      { id: "performance", label: "Производительность" },
     ],
     projects: [
       {
         id: "operations-console",
         slug: "operations-console",
         title: "Operations Console",
-        summary: "Внутренний мониторинговый интерфейс для triage, ясности инцидентов и операционных процессов.",
-        role: "Frontend Engineer",
+        summary: "Внутренний мониторинговый интерфейс для разбора инцидентов и управления операционными процессами.",
+        role: "Frontend-инженер",
         stack: ["React", "TypeScript", "Next.js"],
         impact: "Сделал операционные сценарии понятнее и последовательнее",
         category: "product-ui",
@@ -648,32 +693,41 @@ const localizedContent = {
       {
         id: "social-platform",
         slug: "social-platform",
-        title: "Social Platform",
+        title: "ICTROOT Social Platform",
         summary:
-          "Социальный продуктовый интерфейс с устойчивыми UI-состояниями и типизированными сценариями взаимодействия.",
-        role: "Frontend Engineer",
-        stack: ["React", "TypeScript", "RTK Query"],
-        impact: "Повысил уверенность в интеракциях и улучшил циклы обратной связи",
+          "Командный Instagram-подобный соцсервис на Next.js 15 и RTK Query, где я работал над постами и профилями, авторизацией и SSR, уведомлениями, подписками и мессенджером.",
+        role: "Frontend-инженер",
+        stack: ["Next.js", "React", "TypeScript", "RTK Query", "WebSockets"],
+        impact: "Реализовал frontend-функции для постов, профилей, авторизации, уведомлений, подписок и мессенджера",
         category: "architecture",
         capabilities: ["frontend-architecture", "api-contracts", "testing-ci"],
+        preview: {
+          src: "/projects/ictroot-social-platform.webp",
+          alt: "Мессенджер ICTROOT: диалог с голосовыми сообщениями и статусами доставки",
+        },
       },
       {
         id: "admin-console",
         slug: "admin-console",
-        title: "Admin Console",
-        summary: "Плотный admin-интерфейс с надежными таблицами, фильтрами и решениями на основе статусов.",
-        role: "Frontend Engineer",
-        stack: ["React", "TypeScript", "Radix UI"],
-        impact: "Ускорил admin-процессы и сделал UI-состояния безопаснее",
+        title: "ICTROOT Super Admin",
+        summary:
+          "Внутренняя панель модерации на Next.js 16 и GraphQL, где я сделал оболочку приложения и типизированный GraphQL-фундамент, сценарии модерации пользователей и realtime-список постов.",
+        role: "Frontend-инженер",
+        stack: ["Next.js", "TypeScript", "Apollo Client", "GraphQL", "Zustand"],
+        impact: "Реализовал модерацию пользователей и realtime-список постов с поиском для администраторов",
         category: "product-ui",
-        capabilities: ["ui-engineering", "frontend-architecture", "accessibility"],
+        capabilities: ["ui-engineering", "frontend-architecture", "api-contracts"],
+        preview: {
+          src: "/projects/ictroot-super-admin.webp",
+          alt: "Список постов ICTROOT Super Admin с поиском и действиями модерации",
+        },
       },
       {
         id: "automation-tool",
         slug: "automation-tool",
         title: "Automation Tool",
-        summary: "Интерфейс автоматизации процессов для повторяющихся delivery- и review-задач.",
-        role: "Product-minded Frontend Engineer",
+        summary: "Интерфейс автоматизации повторяющихся задач поставки и ревью.",
+        role: "Frontend-инженер с продуктовым мышлением",
         stack: ["TypeScript", "Node.js", "CI"],
         impact: "Меньше ручной работы и понятнее процесс релиза",
         category: "automation",
@@ -683,10 +737,10 @@ const localizedContent = {
         id: "oauth-flow",
         slug: "oauth-flow",
         title: "OAuth Flow",
-        summary: "Аудит auth-сценария и усиление callback scope вокруг social sign-in.",
-        role: "Frontend Engineer",
+        summary: "Аудит сценария авторизации и уточнение области обработки callback для входа через социальные сети.",
+        role: "Frontend-инженер",
         stack: ["Next.js", "TypeScript", "OpenAPI"],
-        impact: "Снизил неоднозначность auth-flow и интеграционные риски",
+        impact: "Снизил неоднозначность сценария авторизации и интеграционные риски",
         category: "testing-ci",
         capabilities: ["api-contracts", "testing-ci", "frontend-architecture"],
       },
@@ -694,10 +748,11 @@ const localizedContent = {
         id: "ui-kit-scroll-area",
         slug: "ui-kit-scroll-area",
         title: "UI Kit Scroll Area",
-        summary: "Улучшение scroll behavior на уровне библиотеки для стабильности layout и responsive admin-страниц.",
-        role: "Frontend/UI Engineer",
+        summary:
+          "Улучшение прокрутки на уровне библиотеки для стабильной компоновки адаптивных административных страниц.",
+        role: "Frontend/UI-инженер",
         stack: ["React", "Radix UI", "TypeScript"],
-        impact: "Улучшил стабильность layout на продуктовых страницах",
+        impact: "Улучшил стабильность компоновки продуктовых страниц",
         category: "architecture",
         capabilities: ["frontend-architecture", "accessibility", "ui-engineering"],
       },
@@ -712,22 +767,25 @@ const localizedContent = {
       capabilities: "Навыки",
       decisions: "Технические решения",
       proof: "Доказательства",
-      nextStepTitle: "Нужен такой frontend ownership?",
+      nextStepTitle: "Нужен такой уровень ответственности за frontend?",
       nextStepDescription:
         "Самые сильные разговоры о портфолио начинаются с конкретной продуктовой проблемы, а не с общей презентации.",
       contact: "Связаться",
+      sourceRepository: "Исходный репозиторий",
+      watchDemo: "Смотреть демо",
+      closeDemo: "Закрыть демо",
     },
     caseStudies: [
       {
         slug: "operations-console",
         title: "Operations Console",
-        eyebrow: "Кейс / Operations UI",
+        eyebrow: "Кейс / Операционный UI",
         summary:
-          "Внутренний мониторинговый интерфейс для triage, ясности инцидентов и снижения трения в операционных процессах.",
-        role: "Frontend Engineer",
+          "Внутренний мониторинговый интерфейс для разбора инцидентов и снижения трения в операционных процессах.",
+        role: "Frontend-инженер",
         stack: ["React", "TypeScript", "Next.js"],
         impact: "Сделал операционные сценарии понятнее и последовательнее",
-        timeline: "Internal operations delivery",
+        timeline: "Поставка внутреннего операционного продукта",
         capabilities: ["Product Delivery", "UI Engineering", "Performance"],
         sections: {
           problem: {
@@ -736,190 +794,219 @@ const localizedContent = {
           },
           constraints: {
             title: "Ограничения",
-            body: "Интерфейс должен был оставаться плотным, responsive и надежным, при этом показывать status-heavy информацию так, чтобы поддерживать повторяющийся triage.",
+            body: "Интерфейс должен был оставаться плотным, адаптивным и надёжным, при этом показывать насыщенную статусами информацию так, чтобы поддерживать повторяющийся разбор инцидентов.",
           },
           solution: {
             title: "Решение",
-            body: "UI строился вокруг ясной иерархии, стабильного языка статусов, компактных карточек и предсказуемой навигации между monitoring context и action context.",
+            body: "UI строился вокруг ясной иерархии, стабильного языка статусов, компактных карточек и предсказуемой навигации между контекстом мониторинга и контекстом действий.",
           },
           outcome: {
             title: "Результат",
-            body: "Операционный flow стало проще сканировать, трения стало меньше, а контекст инцидентов стал понятнее для повторяющейся работы.",
+            body: "Операционный сценарий стало проще просматривать, трения стало меньше, а контекст инцидентов стал понятнее для повторяющейся работы.",
           },
         },
         decisions: [
           {
-            title: "Signal-first hierarchy",
+            title: "Иерархия от главного сигнала",
             description:
-              "Сначала показывать статус, severity и следующее действие, а уже потом вторичную метаинформацию.",
+              "Сначала показывать статус, критичность и следующее действие, а уже потом вторичную метаинформацию.",
           },
           {
-            title: "Stable scan patterns",
+            title: "Стабильные паттерны просмотра",
             description:
-              "Держать повторяющиеся layout-регионы предсказуемыми, чтобы пользователь быстрее считывал экран.",
+              "Держать повторяющиеся области компоновки предсказуемыми, чтобы пользователь быстрее считывал экран.",
           },
           {
-            title: "Performance-aware rendering",
+            title: "Рендеринг с учётом производительности",
             description:
               "Не перегружать визуально поверхности, к которым пользователь возвращается в напряженном контексте.",
           },
         ],
         proof: [
-          "Операционное трение выбрано как главный product outcome.",
-          "Плотность UI сбалансирована со scan clarity.",
+          "Операционное трение выбрано главным продуктовым результатом.",
+          "Плотность UI сбалансирована с ясностью просмотра.",
           "Кейс связан с Product Delivery, UI Engineering и Performance.",
         ],
       },
       {
         slug: "social-platform",
-        title: "Social Platform",
+        title: "ICTROOT Social Platform",
         eyebrow: "Кейс / Frontend Architecture",
         summary:
-          "Социальный продуктовый интерфейс с устойчивыми UI-состояниями, типизированными сценариями взаимодействия и дисциплиной API-границ.",
-        role: "Frontend Engineer",
-        stack: ["React", "TypeScript", "RTK Query"],
-        impact: "Повысил уверенность в интеракциях и улучшил циклы обратной связи",
-        timeline: "Продуктовая итерация",
+          "Командный Instagram-подобный соцсервис, где я работал над постами и профилями, авторизацией и SSR, уведомлениями, подписками и мессенджером.",
+        role: "Frontend-инженер",
+        stack: ["Next.js", "React", "TypeScript", "RTK Query", "WebSockets"],
+        impact: "Реализовал frontend-функции для постов, профилей, авторизации, уведомлений, подписок и мессенджера",
+        timeline: "Командный проект, 2025–2026",
         capabilities: ["Frontend Architecture", "API Contracts", "Testing & CI"],
+        repositoryUrl: "https://github.com/ictroot70/Ict",
+        preview: {
+          src: "/projects/ictroot-social-platform.webp",
+          alt: "Мессенджер ICTROOT: диалог с голосовыми сообщениями и статусами доставки",
+        },
+        demo: {
+          src: "/projects/ictroot-social-platform-demo.mp4",
+          caption:
+            "Запись экрана ICTROOT: подписка и автопродление, история платежей и мессенджер с голосовыми сообщениями",
+        },
         sections: {
           problem: {
             title: "Проблема",
-            body: "Социальные интерфейсы несут много неявного состояния: optimistic реакции, переходы профиля, комментарии, auth-adjacent сценарии и изменения backend-контрактов. Без ясных границ даже небольшая интеракция может создавать скрытые регрессии.",
+            body: "Соцсервис сочетает серверный рендеринг, маршруты, зависящие от авторизации, realtime-события и медиа. Без ясных границ SSR, guard-ы, кэшируемые данные и допущения об API расходятся, а регрессии проявляются поздно.",
           },
           constraints: {
             title: "Ограничения",
-            body: "UI должен был оставаться отзывчивым и при этом учитывать поведение API, loading states, failure states и ожидания на уровне routes. Реализация также должна была оставаться читаемой для будущих продуктовых изменений.",
+            body: "Общая командная кодовая база с зафиксированными архитектурными правилами, общий UI-кит, параллельная работа нескольких разработчиков и проверки lint, typecheck и build на каждое изменение.",
           },
           solution: {
             title: "Решение",
-            body: "Работа строилась вокруг typed data boundaries, предсказуемого async state, явных UI-состояний и проверяемых interaction flows. Поведение продукта привязывалось к конкретным проверкам, а не к ручной уверенности.",
+            body: "Я работал по всему продукту: CRUD постов, лайки, комментарии и модальное окно поста; управление профилем и настройки; auth-aware SSR с guard-ами гостевых и приватных маршрутов; уведомления через WebSocket; блок подписки с текущей подпиской, автопродлением, логикой очереди и ценами из API; мессенджер с голосовыми сообщениями, cursor pagination, виртуализацией списка и индикаторами доставки и непрочитанных. Параллельно занимался производительностью всего приложения, включая разбиение кода по маршрутам и политику кэширования публичных страниц, а также тестами и quality gate вокруг самых рискованных сценариев.",
           },
           outcome: {
             title: "Результат",
-            body: "Интерфейс стало проще понимать, безопаснее менять и легче связывать с реальными пользовательскими сценариями.",
+            body: "Ключевые сценарии продукта (посты, профили, авторизация, уведомления, подписки и мессенджер) были реализованы на общем frontend, где API-контракты, guard-ы маршрутов и состояния загрузки обрабатываются явно.",
           },
         },
         decisions: [
           {
-            title: "Typed interaction boundaries",
+            title: "Интеграция с API по контракту",
             description:
-              "Держать адаптацию API-ответов рядом с data edge, чтобы компоненты рендерили предсказуемые продуктовые состояния.",
+              "Привести CRUD постов, медиа мессенджера и данные цен в соответствие со Swagger-контрактом вместо моков и захардкоженных значений.",
           },
           {
-            title: "State-first UI review",
+            title: "Auth-aware SSR и guard-ы маршрутов",
             description:
-              "Рассматривать loading, empty, success, optimistic и failure пути как поведение продукта, а не как оформление.",
+              "Держать серверный рендеринг, публичные и приватные контракты и guard-ы гостевых маршрутов согласованными, чтобы состояние авторизации не попадало на не те страницы.",
           },
           {
-            title: "Regression-aware checks",
+            title: "Производительность на уровне маршрутов",
             description:
-              "Использовать сфокусированные тесты и smoke flows вокруг рискованных интеракций до завершения работы.",
+              "Разбивать код по auth-маршрутам, убирать лишнее no-store-кэширование на публичных страницах и подключать шрифты через next/font.",
+          },
+          {
+            title: "Cursor pagination и виртуализация",
+            description:
+              "Загружать длинную историю по курсору и виртуализировать диалоги, чтобы не рендерить все сообщения сразу.",
           },
         ],
         proof: [
-          "Typed RTK Query usage для API-driven UI flows.",
-          "Явная работа с interaction confidence и feedback loops.",
-          "Архитектурные решения напрямую связаны с Testing & CI и API Contracts.",
+          "CRUD постов, лайки, комментарии и модальное окно поста в профиле и ленте (SCRUM-126, SCRUM-282, SCRUM-291).",
+          "Управление профилем и цены из API вместо захардкоженных (SCRUM-119, SCRUM-205).",
+          "Auth-aware SSR, guard-ы гостевых маршрутов, сценарии refresh и восстановления (SCRUM-145).",
+          "Уведомления через WebSocket в header (SCRUM-254).",
+          "Текущая подписка, автопродление и логика очереди подписок в управлении аккаунтом (SCRUM-199, SCRUM-209).",
+          "Голосовые сообщения, cursor pagination, виртуализация и индикаторы доставки и непрочитанных в мессенджере (SCRUM-307).",
+          "Разбиение кода по маршрутам, политика кэширования публичных страниц и чистка шрифтов (SCRUM-149, SCRUM-151, SCRUM-152).",
         ],
       },
       {
         slug: "admin-console",
-        title: "Admin Console",
-        eyebrow: "Кейс / Product UI",
+        title: "ICTROOT Super Admin",
+        eyebrow: "Кейс / Продуктовый UI",
         summary:
-          "Плотная admin-поверхность вокруг таблиц, фильтров, решений по статусам и предсказуемой повторяющейся работы.",
-        role: "Frontend Engineer",
-        stack: ["React", "TypeScript", "Radix UI"],
-        impact: "Ускорил admin-процессы и сделал UI-состояния безопаснее",
-        timeline: "Internal product delivery",
-        capabilities: ["UI Engineering", "Frontend Architecture", "Accessibility"],
+          "Внутренняя панель модерации на Next.js 16 и GraphQL, где я сделал оболочку приложения и типизированный GraphQL-фундамент, сценарии модерации пользователей и realtime-список постов.",
+        role: "Frontend-инженер",
+        stack: ["Next.js", "TypeScript", "Apollo Client", "GraphQL", "Zustand"],
+        impact: "Реализовал модерацию пользователей и realtime-список постов с поиском для администраторов",
+        timeline: "Спринтовая поставка, 2026",
+        capabilities: ["UI Engineering", "Frontend Architecture", "API Contracts"],
+        repositoryUrl: "https://github.com/ictroot70/super-admin-ictroot",
+        preview: {
+          src: "/projects/ictroot-super-admin.webp",
+          alt: "Список постов ICTROOT Super Admin с поиском и действиями модерации",
+        },
         sections: {
           problem: {
             title: "Проблема",
-            body: "Операционным пользователям нужно быстро сканировать, сравнивать, фильтровать и повторять действия. Даже визуально приятный admin screen не работает, если статусы, affordances и ошибки не считываются сразу.",
+            body: "Панель модерации даёт деструктивные действия и быстро меняющийся список постов. Ни то ни другое не должно быть лёгким для ошибки или трудным для просмотра.",
           },
           constraints: {
             title: "Ограничения",
-            body: "Интерфейс должен был поддерживать плотную информацию без визуального шума. Accessibility, keyboard flow, поведение таблиц и responsive layout должны были оставаться стабильными.",
+            body: "Меняющиеся GraphQL-контракты, спринтовая работа нескольких разработчиков с точками передачи и CI-проверки на каждом merge.",
           },
           solution: {
             title: "Решение",
-            body: "Реализация делала акцент на компактной иерархии, стабильных контролах, переиспользуемых UI-паттернах и ясном языке состояний для фильтров, таблиц, действий и статусов.",
+            body: "Я настроил структуру проекта и оболочку приложения (header, sidebar и токены UI-кита), добавил auth-guard по сессии, сделал типизированный GraphQL-фундамент с admin-мутациями, реализовал бан, разбан и удаление пользователей с модалками подтверждения, собрал список постов с поиском и infinite scroll написал контракт передачи для realtime-интеграции, а также добавил CI quality gates и конфигурацию деплоя: контейнер, nginx и pipeline.",
           },
           outcome: {
             title: "Результат",
-            body: "Admin-процессы стало проще сканировать и повторять, а UI-состояния стали безопаснее для будущих изменений.",
+            body: "Администраторы модерируют пользователей и просматривают посты через поиск, infinite scroll и realtime-обновления, а следующая задача получила письменный контракт, на который можно опереться.",
           },
         },
         decisions: [
           {
-            title: "Dense but calm layout",
+            title: "Типизированные GraphQL-документы",
             description:
-              "Использовать сдержанную визуальную иерархию, чтобы повторяющаяся операционная работа читалась быстро.",
+              "Использовать документы, сгенерированные через codegen, чтобы изменения запросов проявлялись как ошибки типов.",
           },
           {
-            title: "Accessible primitives",
+            title: "Подтверждение деструктивных действий",
             description:
-              "Опирался на Radix UI patterns для focus behavior, keyboard interactions и консистентных состояний.",
+              "Проводить бан, разбан и удаление через явные модалки подтверждения с типизированными id пользователей.",
           },
           {
-            title: "Reusable state patterns",
-            description: "Держать фильтры, status labels и action states предсказуемыми во всей admin-поверхности.",
+            title: "Письменные контракты передачи",
+            description:
+              "Документировать границу между UI постов и realtime-интеграцией, чтобы параллельная спринтовая работа не конфликтовала.",
           },
         ],
         proof: [
-          "Надежная поверхность таблиц и фильтров.",
-          "Status-driven UI decisions вместо декоративных карточек.",
-          "Прямая связь с UI Engineering и Accessibility capabilities.",
+          "Сценарии бана, разбана и удаления пользователей (SCRUM-259).",
+          "Список постов с поиском, infinite scroll и realtime-обновлениями (A6).",
+          "Типизированный GraphQL-фундамент с admin-мутациями.",
+          "Auth-guard по сессии, header и sidebar на токенах UI-кита.",
+          "Общие композиты Select и Carousel.",
+          "CI quality gates и проверки границы релиза (SCRUM-256), конфигурация деплоя: контейнер, nginx, pipeline.",
+          "README, CONTRIBUTING и спринтовая документация репозитория.",
         ],
       },
       {
         slug: "automation-tool",
         title: "Automation Tool",
-        eyebrow: "Кейс / Automation",
-        summary: "Интерфейс автоматизации процессов для повторяющихся delivery- и review-задач.",
-        role: "Product-minded Frontend Engineer",
+        eyebrow: "Кейс / Автоматизация",
+        summary: "Интерфейс автоматизации повторяющихся задач поставки и ревью.",
+        role: "Frontend-инженер с продуктовым мышлением",
         stack: ["TypeScript", "Node.js", "CI"],
         impact: "Меньше ручной работы и понятнее процесс релиза",
-        timeline: "Developer workflow improvement",
+        timeline: "Улучшение рабочего процесса разработчика",
         capabilities: ["Automation", "Testing & CI", "Product Delivery"],
         sections: {
           problem: {
             title: "Проблема",
-            body: "Повторяющиеся review и delivery задачи замедляют feedback loops, когда каждый шаг зависит от ручных проверок и разбросанного контекста.",
+            body: "Повторяющиеся задачи ревью и поставки замедляют циклы обратной связи, когда каждый шаг зависит от ручных проверок и разбросанного контекста.",
           },
           constraints: {
             title: "Ограничения",
-            body: "Flow должен был оставаться понятным, повторяемым и совместимым с существующими CI и review ожиданиями.",
+            body: "Сценарий должен был оставаться понятным, повторяемым и совместимым с существующими ожиданиями от CI и ревью.",
           },
           solution: {
             title: "Решение",
-            body: "Повторяющаяся работа была оформлена как понятный интерфейс с видимыми шагами, outputs и review signals.",
+            body: "Повторяющаяся работа была оформлена как понятный интерфейс с видимыми шагами, результатами и сигналами для ревью.",
           },
           outcome: {
             title: "Результат",
-            body: "Ручной работы стало меньше, а release flow стало проще объяснять, повторять и ревьюить.",
+            body: "Ручной работы стало меньше, а процесс релиза стало проще объяснять, повторять и проверять.",
           },
         },
         decisions: [
           {
-            title: "Make the process visible",
+            title: "Сделать процесс видимым",
             description:
-              "Показывать повторяющиеся workflow steps как явные UI-состояния, а не как скрытое знание команды.",
+              "Показывать повторяющиеся шаги рабочего процесса как явные UI-состояния, а не как скрытое знание команды.",
           },
           {
-            title: "Keep checks close to delivery",
-            description: "Связывать automation output с review signals, которым команда уже доверяет.",
+            title: "Держать проверки рядом с поставкой",
+            description: "Связывать результат автоматизации с сигналами ревью, которым команда уже доверяет.",
           },
           {
-            title: "Optimize for repeatability",
+            title: "Оптимизировать повторяемость",
             description:
-              "Выбирать понятные повторяемые пути вместо one-off scripts, которые понимает только один человек.",
+              "Выбирать понятные повторяемые пути вместо одноразовых скриптов, которые понимает только один человек.",
           },
         ],
         proof: [
-          "Delivery и review steps стали видимыми.",
-          "CI-adjacent signals связаны с product workflow.",
+          "Шаги поставки и ревью стали видимыми.",
+          "Сигналы рядом с CI связаны с продуктовым процессом.",
           "Кейс связан с Automation и Testing & CI.",
         ],
       },
@@ -927,99 +1014,102 @@ const localizedContent = {
         slug: "oauth-flow",
         title: "OAuth Flow",
         eyebrow: "Кейс / API Contracts",
-        summary: "Аудит auth-сценария и усиление callback scope вокруг social sign-in.",
-        role: "Frontend Engineer",
+        summary: "Аудит сценария авторизации и уточнение области обработки callback для входа через социальные сети.",
+        role: "Frontend-инженер",
         stack: ["Next.js", "TypeScript", "OpenAPI"],
-        impact: "Снизил неоднозначность auth-flow и интеграционные риски",
-        timeline: "Auth flow review",
+        impact: "Снизил неоднозначность сценария авторизации и интеграционные риски",
+        timeline: "Ревью сценария авторизации",
         capabilities: ["API Contracts", "Testing & CI", "Frontend Architecture"],
         sections: {
           problem: {
             title: "Проблема",
-            body: "Auth flows становятся рискованными, когда callback handling слишком широкий, ownership route неясен или frontend assumptions расходятся с backend behavior.",
+            body: "Сценарии авторизации становятся рискованными, когда обработка callback слишком широка, ответственный маршрут неясен или предположения frontend расходятся с поведением backend.",
           },
           constraints: {
             title: "Ограничения",
-            body: "Review должен был сохранить существующий app routing, но сделать auth boundary более явной и проще проверяемой.",
+            body: "Ревью должно было сохранить существующую маршрутизацию приложения, но сделать границу авторизации более явной и простой для проверки.",
           },
           solution: {
             title: "Решение",
-            body: "Работа была сфокусирована на сужении callback scope, уточнении auth route ownership и привязке frontend behavior к API expectations.",
+            body: "Работа была сфокусирована на сужении области callback, уточнении ответственности маршрута авторизации и привязке поведения frontend к ожиданиям API.",
           },
           outcome: {
             title: "Результат",
-            body: "Неоднозначность auth-flow снизилась, а integration risk стало проще увидеть до релиза изменений.",
+            body: "Неоднозначность сценария авторизации снизилась, а интеграционные риски стало проще увидеть до релиза изменений.",
           },
         },
         decisions: [
           {
-            title: "Scope callback handling",
+            title: "Ограничить обработку callback",
             description:
-              "Не делать глобальных предположений, если sensitive auth callback принадлежит конкретному route.",
+              "Не делать глобальных предположений, если чувствительный callback авторизации принадлежит конкретному маршруту.",
           },
           {
-            title: "Make API drift visible",
+            title: "Сделать расхождения API видимыми",
             description:
-              "Использовать typed contracts и OpenAPI context, чтобы снизить скрытый frontend/backend mismatch.",
+              "Использовать типизированные контракты и контекст OpenAPI, чтобы снизить скрытые расхождения между frontend и backend.",
           },
           {
-            title: "Review failure states",
-            description: "Рассматривать invalid, repeated и unexpected auth states как product behavior.",
+            title: "Проверять состояния ошибок",
+            description:
+              "Рассматривать недействительные, повторные и неожиданные состояния авторизации как поведение продукта.",
           },
         ],
         proof: [
-          "Auth callback scope проверен как route-level risk.",
-          "OpenAPI и TypeScript держат contract assumptions явными.",
+          "Область callback авторизации проверена как риск на уровне маршрута.",
+          "OpenAPI и TypeScript сохраняют предположения о контрактах явными.",
           "Кейс связан с API Contracts и Frontend Architecture.",
         ],
       },
       {
         slug: "ui-kit-scroll-area",
         title: "UI Kit Scroll Area",
-        eyebrow: "Кейс / UI Platform",
+        eyebrow: "Кейс / UI-платформа",
         summary:
-          "Улучшение scroll behavior, стабильности layout и responsive admin-поверхностей на уровне библиотеки без переписывания продуктовых экранов.",
-        role: "Frontend/UI Engineer",
+          "Улучшение прокрутки, стабильности компоновки и адаптивных административных поверхностей на уровне библиотеки без переписывания продуктовых экранов.",
+        role: "Frontend/UI-инженер",
         stack: ["React", "Radix UI", "TypeScript"],
-        impact: "Улучшил стабильность layout на продуктовых страницах",
-        timeline: "Design-system adjacent fix",
+        impact: "Улучшил стабильность компоновки продуктовых страниц",
+        timeline: "Исправление на границе дизайн-системы",
         capabilities: ["Frontend Architecture", "Accessibility", "UI Engineering"],
         sections: {
           problem: {
             title: "Проблема",
-            body: "Проблемы со scroll behavior проявлялись на продуктовых страницах, но устойчивое решение находилось ниже, в shared UI abstraction. Page-level CSS оставил бы тот же риск на других экранах.",
+            body: "Проблемы с прокруткой проявлялись на продуктовых страницах, но устойчивое решение находилось ниже — в общей UI-абстракции. CSS на уровне страницы оставил бы тот же риск на других экранах.",
           },
           constraints: {
             title: "Ограничения",
-            body: "Исправление должно было сохранить существующее использование и сделать axis behavior явным, стабильным и понятным на responsive layouts.",
+            body: "Исправление должно было сохранить существующее использование и сделать поведение осей явным, стабильным и понятным в адаптивной компоновке.",
           },
           solution: {
             title: "Решение",
-            body: "Shared scroll primitive был усилен вокруг более ясного orientation behavior и layout boundaries, чтобы consuming pages оставались сфокусированы на продуктовой композиции.",
+            body: "Общий примитив прокрутки был усилен более ясным поведением ориентации и границами компоновки, чтобы использующие его страницы оставались сфокусированы на продуктовой композиции.",
           },
           outcome: {
             title: "Результат",
-            body: "Responsive admin-страницы получили более стабильный layout через библиотечное улучшение, а не через повторяющиеся локальные патчи.",
+            body: "Адаптивные административные страницы получили более стабильную компоновку через библиотечное улучшение, а не через повторяющиеся локальные исправления.",
           },
         },
         decisions: [
           {
-            title: "Fix the owning abstraction",
-            description: "Перенести устойчивое scroll behavior в shared primitive вместо патчинга отдельных страниц.",
+            title: "Исправить ответственную абстракцию",
+            description:
+              "Перенести устойчивое поведение прокрутки в общий примитив вместо исправления отдельных страниц.",
           },
           {
-            title: "Preserve migration safety",
+            title: "Сохранить безопасность миграции",
             description:
               "Сохранить стабильное использование компонента, чтобы продуктовые экраны не требовали широкого переписывания.",
           },
           {
-            title: "Verify responsive behavior",
-            description: "Проверять narrow и desktop layouts, где scroll и overflow bugs обычно расходятся.",
+            title: "Проверить адаптивное поведение",
+            description:
+              "Проверять узкую и desktop-компоновку, где ошибки прокрутки и переполнения обычно проявляются по-разному.",
           },
         ],
         proof: [
-          "Shared UI primitive улучшен на library boundary.",
-          "Responsive layout stability решена без product rewrites.",
+          "Общий UI-примитив улучшен на границе библиотеки.",
+          "Стабильность адаптивной компоновки улучшена без переписывания продуктовых экранов.",
           "Поддерживает контролируемую будущую миграцию на дизайн-систему.",
         ],
       },
@@ -1028,64 +1118,64 @@ const localizedContent = {
       {
         id: "product-delivery",
         title: "Product Delivery",
-        description: "Delivery полного цикла: от продуктовой идеи до готового интерфейса.",
+        description: "Поставка полного цикла: от продуктовой идеи до готового интерфейса.",
         evidence:
           "Помогает доводить работу до результата через ясный объем задачи, циклы обратной связи и измеримые результаты.",
-        relatedProjects: ["Social Platform", "Admin Console"],
+        relatedProjects: ["ICTROOT Social Platform", "ICTROOT Super Admin"],
         type: "core",
       },
       {
         id: "frontend-architecture",
         title: "Frontend Architecture",
-        description: "Typed boundaries, переиспользуемые паттерны и предсказуемый поток данных.",
+        description: "Типизированные границы, переиспользуемые паттерны и предсказуемый поток данных.",
         evidence: "Задает масштабируемую структуру и UI-границы, устойчивые к регрессиям.",
-        relatedProjects: ["Social Platform", "UI Kit Scroll Area"],
+        relatedProjects: ["ICTROOT Social Platform", "UI Kit Scroll Area"],
         type: "core",
       },
       {
         id: "ui-engineering",
         title: "UI Engineering",
-        description: "Accessible и responsive интерфейсы с консистентными состояниями.",
+        description: "Доступные и адаптивные интерфейсы с согласованными состояниями.",
         evidence: "Строит поддерживаемые UI-поверхности и контракты компонентов.",
-        relatedProjects: ["Admin Console", "UI Kit Scroll Area"],
+        relatedProjects: ["ICTROOT Super Admin", "UI Kit Scroll Area"],
         type: "core",
       },
       {
         id: "api-contracts",
         title: "API Contracts",
-        description: "Стабильная client integration через типизированные и явные контракты.",
-        evidence: "Делает API drift видимым и адаптирует данные ответа на границах системы.",
-        relatedProjects: ["OAuth Flow", "Social Platform"],
+        description: "Стабильная клиентская интеграция через типизированные и явные контракты.",
+        evidence: "Делает расхождения API видимыми и адаптирует данные ответа на границах системы.",
+        relatedProjects: ["OAuth Flow", "ICTROOT Social Platform"],
         type: "core",
       },
       {
         id: "testing-ci",
         title: "Testing & CI",
-        description: "Автоматические проверки, которые защищают поведение продукта и процесс delivery.",
-        evidence: "Покрывает критические сценарии через unit-, smoke- и build-проверки.",
-        relatedProjects: ["Automation Tool", "Social Platform"],
+        description: "Автоматические проверки, которые защищают поведение продукта и процесс поставки.",
+        evidence: "Покрывает критические сценарии модульными, дымовыми и сборочными проверками.",
+        relatedProjects: ["Automation Tool", "ICTROOT Social Platform"],
         type: "core",
       },
       {
         id: "performance",
         title: "Performance",
-        description: "Решения по rendering и interaction, которые сохраняют продуктовые поверхности быстрыми.",
-        evidence: "Балансирует качество UX с runtime и build-ограничениями.",
-        relatedProjects: ["Operations Console", "Admin Console"],
+        description: "Решения по рендерингу и взаимодействию, которые сохраняют продуктовые поверхности быстрыми.",
+        evidence: "Балансирует качество UX с ограничениями runtime и сборки.",
+        relatedProjects: ["Operations Console", "ICTROOT Super Admin"],
         type: "supporting",
       },
       {
         id: "accessibility",
         title: "Accessibility",
-        description: "Keyboard, focus, semantic и contrast-aware UI implementation.",
-        evidence: "Использует accessible primitives и явные состояния взаимодействия.",
-        relatedProjects: ["UI Kit Scroll Area", "Admin Console"],
+        description: "Реализация UI с учётом клавиатуры, фокуса, семантики и контраста.",
+        evidence: "Использует доступные примитивы и явные состояния взаимодействия.",
+        relatedProjects: ["UI Kit Scroll Area"],
         type: "supporting",
       },
       {
         id: "automation",
         title: "Automation",
-        description: "Developer tooling и автоматизация delivery для повторяющихся процессов.",
+        description: "Инструменты разработчика и автоматизация поставки для повторяющихся процессов.",
         evidence: "Превращает ручной процесс в повторяемые проверки и циклы обратной связи.",
         relatedProjects: ["Automation Tool"],
         type: "supporting",
@@ -1094,33 +1184,36 @@ const localizedContent = {
     proofSignals: [
       {
         id: "typed-systems",
-        title: "Typed Systems",
-        description: "TypeScript-first архитектура для более безопасного и масштабируемого кода.",
+        title: "Типизированные системы",
+        description: "Архитектура на основе TypeScript для более безопасного и масштабируемого кода.",
       },
       {
         id: "resilient",
-        title: "Resilient by Default",
-        description: "Defensive patterns, graceful states и устойчивость к сбоям.",
+        title: "Надёжность по умолчанию",
+        description: "Защитные паттерны, корректные состояния и устойчивость к сбоям.",
       },
       {
         id: "product-thinking",
-        title: "Product Thinking",
+        title: "Продуктовое мышление",
         description:
           "Фокус на результатах, а не на объеме сделанного, с привязкой к реальным потребностям пользователей.",
       },
       {
         id: "ship-confidence",
-        title: "Ship with Confidence",
+        title: "Уверенная поставка",
         description: "Проверено, задокументировано и готово к production.",
       },
     ],
     sidebarProofSignals: [
-      { title: "Typed contracts", description: "Type safety на границах сервисов и schema validation." },
-      { title: "Optimistic UI", description: "Responsive-интерфейсы с rollback и фоновой синхронизацией." },
-      { title: "CI gates", description: "Качество поддерживается через automated tests, linting и policy checks." },
+      { title: "Типизированные контракты", description: "Типобезопасность на границах сервисов и проверка схем." },
+      { title: "Оптимистичный UI", description: "Отзывчивые интерфейсы с откатом и фоновой синхронизацией." },
       {
-        title: "Runtime verification",
-        description: "Критические сценарии защищены smoke checks и структурированными доказательствами.",
+        title: "Контрольные точки CI",
+        description: "Качество поддерживается автоматическими тестами, линтингом и проверками политик.",
+      },
+      {
+        title: "Проверка в runtime",
+        description: "Критические сценарии защищены дымовыми проверками и структурированными доказательствами.",
       },
     ],
   },
@@ -1160,7 +1253,7 @@ export function getLocalizedCaseStudies(locale: Locale) {
   return localizedContent[locale].caseStudies;
 }
 
-export function getLocalizedCaseStudy(locale: Locale, slug: string) {
+export function getLocalizedCaseStudy(locale: Locale, slug: string): CaseStudy | undefined {
   return localizedContent[locale].caseStudies.find((caseStudy) => caseStudy.slug === slug);
 }
 

@@ -41,7 +41,7 @@ export function CapabilityMap({ compact = false, locale = defaultLocale }: { com
   return (
     <Card className="relative min-h-[600px] overflow-hidden p-5 sm:p-6 lg:min-h-[680px]">
       <div className="absolute inset-0 opacity-35 [background-image:radial-gradient(var(--color-border)_1px,transparent_1px)] [background-size:18px_18px]" />
-      <div className="absolute inset-x-10 top-20 h-48 rounded-full bg-[radial-gradient(circle,rgb(125_211_176_/_0.11),transparent_68%)] blur-2xl" />
+      <div className="absolute inset-x-10 top-20 h-48 rounded-full bg-[radial-gradient(circle,var(--color-accent-tint),transparent_68%)] blur-2xl" />
 
       <div className="relative z-10 flex items-center justify-between gap-4">
         <div>
@@ -77,7 +77,7 @@ export function CapabilityMap({ compact = false, locale = defaultLocale }: { com
           ))}
         </svg>
 
-        <div className="absolute left-1/2 top-[58%] grid size-20 sm:top-[46%] sm:size-28 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-[22px] border border-[var(--color-border-active)] bg-[linear-gradient(145deg,rgb(125_211_176_/_0.16),rgb(17_19_18_/_0.92))] text-3xl font-semibold text-[var(--color-accent-primary)] shadow-[0_0_50px_rgb(125_211_176_/_0.13)]">
+        <div className="absolute left-1/2 top-[58%] grid size-20 sm:top-[46%] sm:size-28 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-[22px] border border-[var(--color-border-active)] bg-[linear-gradient(145deg,var(--color-accent-tint),var(--color-panel-glass))] text-3xl font-semibold text-[var(--color-accent-primary)] shadow-[var(--shadow-card)]">
           S
         </div>
 
@@ -87,7 +87,7 @@ export function CapabilityMap({ compact = false, locale = defaultLocale }: { com
           return (
             <div
               key={node.id}
-              className="absolute left-[var(--node-x-mobile)] top-[var(--node-y-mobile)] w-36 -translate-x-1/2 -translate-y-1/2 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[rgb(17_19_18_/_0.86)] p-3 shadow-[var(--shadow-card)] backdrop-blur transition-colors hover:border-[var(--color-accent-primary)] sm:left-[var(--node-x)] sm:top-[var(--node-y)] sm:w-[min(15.5rem,44vw)] sm:p-4"
+              className="absolute left-[var(--node-x-mobile)] top-[var(--node-y-mobile)] w-36 -translate-x-1/2 -translate-y-1/2 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-panel-glass)] p-3 shadow-[var(--shadow-card)] backdrop-blur transition-colors hover:border-[var(--color-accent-primary)] sm:left-[var(--node-x)] sm:top-[var(--node-y)] sm:w-[min(15.5rem,44vw)] sm:p-4"
               style={
                 {
                   "--node-x": `${node.x}%`,

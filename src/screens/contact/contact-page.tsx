@@ -1,5 +1,5 @@
 import { ArrowRight, Download, Mail } from "lucide-react";
-import { contactLinks } from "@/src/entities/contact";
+import { contactLinks, primaryEmail } from "@/src/entities/contact";
 import { defaultLocale, getDictionary, type Locale, withLocalePath } from "@/src/shared/i18n";
 import {
   Button,
@@ -31,7 +31,7 @@ export function ContactPage({ locale = defaultLocale }: { locale?: Locale }) {
             description={dictionary.contact.description}
           />
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Button href="mailto:hello@semen.dev" variant="primary">
+            <Button href={primaryEmail.href} variant="primary">
               <Icon icon={Mail} /> {dictionary.common.emailMe}
             </Button>
             <Button href={withLocalePath("/resume", locale)}>
@@ -63,7 +63,7 @@ export function ContactPage({ locale = defaultLocale }: { locale?: Locale }) {
               className="group rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-6 transition-colors hover:border-[var(--color-accent-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-primary)]"
             >
               <div className="flex items-center justify-between gap-4">
-                <div className="grid size-12 place-items-center rounded-[var(--radius-md)] bg-[rgb(125_211_176_/_0.12)] text-[var(--color-accent-primary)]">
+                <div className="grid size-12 place-items-center rounded-[var(--radius-md)] bg-[var(--color-accent-tint)] text-[var(--color-accent-primary)]">
                   <Icon icon={IconComponent} />
                 </div>
                 <Icon
@@ -72,7 +72,6 @@ export function ContactPage({ locale = defaultLocale }: { locale?: Locale }) {
                 />
               </div>
               <h3 className="mt-5 font-semibold text-[var(--color-text-primary)]">{link.label}</h3>
-              <p className="mt-1 text-sm text-[var(--color-text-secondary)]">{link.value}</p>
             </a>
           );
         })}

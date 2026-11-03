@@ -1,14 +1,5 @@
-import {
-  ArrowRight,
-  CheckCircle2,
-  Download,
-  FileText,
-  Languages,
-  Layers3,
-  Route,
-  ShieldCheck,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight, Download, FileText, Languages } from "lucide-react";
+import { resumePdfPath } from "@/src/shared/config/resume";
 import { defaultLocale, getDictionary, type Locale, withLocalePath } from "@/src/shared/i18n";
 import { Button, Card, Icon, SectionHeader, Tag } from "@/src/shared/ui";
 
@@ -26,16 +17,16 @@ export function ResumePage({ locale = defaultLocale }: { locale?: Locale }) {
             <Button href={withLocalePath("/contact", locale)} variant="primary">
               {dictionary.common.contactMe} <Icon icon={ArrowRight} />
             </Button>
-            <span className="inline-flex min-h-12 items-center justify-center gap-3 rounded-[var(--radius-md)] border border-[var(--color-border)] px-5 text-sm font-medium text-[var(--color-text-muted)] opacity-70">
-              <Icon icon={Download} /> {dictionary.common.pdfInNextVersion}
-            </span>
+            <Button href={resumePdfPath(locale)} target="_blank" rel="noopener noreferrer">
+              <Icon icon={Download} /> {dictionary.common.downloadResume}
+            </Button>
           </div>
         </div>
 
         <Card className="relative overflow-hidden p-8">
           <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(var(--color-border)_1px,transparent_1px)] [background-size:18px_18px]" />
           <div className="relative z-10">
-            <div className="grid size-16 place-items-center rounded-[var(--radius-md)] border border-[var(--color-border-active)] bg-[rgb(125_211_176_/_0.1)] text-[var(--color-accent-primary)]">
+            <div className="grid size-16 place-items-center rounded-[var(--radius-md)] border border-[var(--color-border-active)] bg-[var(--color-accent-tint)] text-[var(--color-accent-primary)]">
               <Icon icon={FileText} className="size-7" />
             </div>
             <dl className="mt-8 space-y-5">
@@ -116,7 +107,7 @@ export function ResumePage({ locale = defaultLocale }: { locale?: Locale }) {
             {dictionary.common.viewAllProjects} <Icon icon={ArrowRight} />
           </Button>
         </div>
-        <div className="grid gap-5 lg:grid-cols-3">
+        <div className="grid gap-5 lg:grid-cols-2">
           {resume.projectEvidence.map((item) => (
             <Card key={item.project} className="p-6">
               <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">{item.project}</h3>
@@ -128,6 +119,40 @@ export function ResumePage({ locale = defaultLocale }: { locale?: Locale }) {
                 <p className="mt-2 text-sm leading-6 text-[var(--color-text-primary)]">{item.outcome}</p>
               </div>
               <div className="mt-5 flex flex-wrap gap-2">
+                {item.tags.map((tag) => (
+                  <Tag key={tag}>{tag}</Tag>
+                ))}
+              </div>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-14">
+        <div className="mb-6">
+          <p className="font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-accent-primary)]">
+            {resume.inDevelopmentEyebrow}
+          </p>
+          <h2 className="mt-3 text-2xl font-semibold text-[var(--color-text-primary)]">{resume.inDevelopmentTitle}</h2>
+        </div>
+        <div className="grid gap-5 lg:grid-cols-2">
+          {resume.inDevelopment.map((item) => (
+            <Card key={item.project} className="p-6">
+              <div className="flex flex-wrap items-center gap-3">
+                <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">{item.project}</h3>
+                <Tag>{resume.inDevelopmentStatus}</Tag>
+              </div>
+              <p className="mt-3 text-sm leading-6 text-[var(--color-text-secondary)]">{item.description}</p>
+              <div className="mt-5 border-t border-[var(--color-border)] pt-5">
+                <p className="font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+                  {resume.inDevelopmentScopeLabel}
+                </p>
+                <p className="mt-2 text-sm leading-6 text-[var(--color-text-primary)]">{item.scope}</p>
+              </div>
+              <p className="mt-5 font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+                {resume.inDevelopmentStackLabel}
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
                 {item.tags.map((tag) => (
                   <Tag key={tag}>{tag}</Tag>
                 ))}
@@ -177,50 +202,7 @@ export function ResumePage({ locale = defaultLocale }: { locale?: Locale }) {
               {dictionary.common.viewProofThroughProjects} <Icon icon={ArrowRight} />
             </Button>
           </Card>
-
-          <Card className="mt-5 p-7">
-            <div className="grid size-12 place-items-center rounded-[var(--radius-md)] border border-[var(--color-border-active)] bg-[rgb(125_211_176_/_0.1)] text-[var(--color-accent-primary)]">
-              <Icon icon={Route} />
-            </div>
-            <h2 className="mt-5 text-xl font-semibold text-[var(--color-text-primary)]">{resume.workingModelTitle}</h2>
-            <div className="mt-5 space-y-4">
-              {resume.workingModel.map((item) => (
-                <div key={item.title}>
-                  <h3 className="flex items-center gap-2 text-sm font-semibold text-[var(--color-text-primary)]">
-                    <Icon icon={CheckCircle2} className="size-4 text-[var(--color-accent-primary)]" />
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">{item.description}</p>
-                </div>
-              ))}
-            </div>
-          </Card>
         </aside>
-      </section>
-
-      <section className="mt-14 grid gap-5 lg:grid-cols-[0.8fr_1.2fr]">
-        <Card className="p-7">
-          <div className="grid size-12 place-items-center rounded-[var(--radius-md)] border border-[var(--color-border-active)] bg-[rgb(125_211_176_/_0.1)] text-[var(--color-accent-primary)]">
-            <Icon icon={Layers3} />
-          </div>
-          <h2 className="mt-5 text-2xl font-semibold text-[var(--color-text-primary)]">{resume.pdfReadyTitle}</h2>
-          <p className="mt-4 text-sm leading-6 text-[var(--color-text-secondary)]">{resume.pdfReadyDescription}</p>
-        </Card>
-        <div className="grid gap-5 md:grid-cols-3">
-          {resume.pdfReadyItems.map((item, index) => {
-            const PdfIcon = [FileText, ShieldCheck, Sparkles][index] ?? FileText;
-
-            return (
-              <Card key={item.title} className="p-6">
-                <div className="grid size-10 place-items-center rounded-[var(--radius-sm)] border border-[var(--color-border-active)] text-[var(--color-accent-primary)]">
-                  <Icon icon={PdfIcon} className="size-5" />
-                </div>
-                <h3 className="mt-4 font-semibold text-[var(--color-text-primary)]">{item.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-[var(--color-text-secondary)]">{item.description}</p>
-              </Card>
-            );
-          })}
-        </div>
       </section>
     </main>
   );

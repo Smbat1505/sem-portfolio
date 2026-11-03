@@ -1,5 +1,6 @@
 import { ArrowRight, Download } from "lucide-react";
 import { defaultLocale, getDictionary, getLocalizedContent, type Locale, withLocalePath } from "@/src/shared/i18n";
+import { cn } from "@/src/shared/lib/cn";
 import { Button, Icon, SectionHeader } from "@/src/shared/ui";
 import { ContactOrbitCta } from "@/src/widgets/contact-orbit-cta";
 import { HomeSkillGraph } from "@/src/widgets/home-skill-graph";
@@ -11,16 +12,24 @@ export function HomePage({ locale = defaultLocale }: { locale?: Locale }) {
   const content = getLocalizedContent(locale);
 
   return (
-    <main className="mx-auto max-w-[var(--layout-page-max)] px-[var(--layout-page-padding)] py-16">
+    <main
+      lang={locale}
+      className="mx-auto max-w-[var(--layout-page-max)] px-[var(--layout-page-padding)] py-10 xl:py-8"
+    >
       <section className="mb-20 grid items-center gap-12 xl:min-h-[calc(100vh-8rem)] xl:grid-cols-[0.82fr_1.18fr] xl:gap-10">
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.32em] text-[var(--color-accent-primary)]">
             {dictionary.home.eyebrow}
           </p>
-          <h1 className="mt-8 max-w-[11ch] text-[clamp(3.1rem,5.25vw,5.4rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-[var(--color-text-primary)]">
+          <h1
+            className={cn(
+              "mt-8 max-w-[11ch] text-[clamp(3.1rem,4.7vw,5.4rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-[var(--color-text-primary)]",
+              locale === "en" && "xl:max-w-[9.6ch]",
+            )}
+          >
             {dictionary.home.title}
           </h1>
-          <p className="mt-7 max-w-2xl text-[length:var(--font-size-lead)] leading-[var(--line-body)] text-[var(--color-text-secondary)]">
+          <p className="mt-7 min-h-[5lh] max-w-2xl text-[length:var(--font-size-lead)] leading-[var(--line-body)] text-[var(--color-text-secondary)] sm:min-h-[4lh]">
             {dictionary.home.description}
           </p>
           <div className="mt-10 flex flex-col gap-5 sm:flex-row sm:gap-6">
@@ -38,6 +47,7 @@ export function HomePage({ locale = defaultLocale }: { locale?: Locale }) {
         <ProofStrip locale={locale} />
         <div className="flex items-end justify-between gap-6">
           <SectionHeader
+            level={2}
             title={dictionary.home.selectedWorkTitle}
             description={dictionary.home.selectedWorkDescription}
           />

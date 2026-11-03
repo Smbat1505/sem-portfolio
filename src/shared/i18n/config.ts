@@ -24,5 +24,10 @@ export function stripLocaleFromPathname(pathname: string) {
 
 export function withLocalePath(pathname: string, locale: Locale) {
   const cleanPath = stripLocaleFromPathname(pathname);
+
+  if (locale === defaultLocale) {
+    return cleanPath;
+  }
+
   return cleanPath === "/" ? `/${locale}` : `/${locale}${cleanPath}`;
 }
