@@ -95,7 +95,7 @@ export function Header() {
                   key={item.href}
                   href={href}
                   aria-current={active ? "page" : undefined}
-                  className="inline-flex min-h-11 min-w-20 items-center justify-center rounded-[var(--radius-sm)] px-2 transition-colors hover:text-[var(--color-accent-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-primary)] aria-[current=page]:text-[var(--color-accent-primary)] xl:min-w-24"
+                  className="inline-flex min-h-11 min-w-20 items-center justify-center rounded-[var(--radius-sm)] px-2 transition-colors hover:text-(--color-accent-primary) focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-accent-primary) aria-[current=page]:text-(--color-accent-primary) xl:min-w-24"
                 >
                   {dictionary.navigation[item.key]}
                 </Link>
@@ -135,7 +135,7 @@ export function Header() {
             className={styles.mobilePanel}
           >
             <div className={styles.panelGlow} aria-hidden="true" />
-            <div className="relative z-10 mx-auto max-w-[var(--layout-page-max)] px-[var(--layout-page-padding)] py-6">
+            <div className="relative z-10 mx-auto max-w-(--layout-page-max) px-(--layout-page-padding) py-6">
               <nav aria-label={dictionary.preferences.mobileMenu}>
                 <ul className="grid gap-2">
                   {navigationItems.map((item, index) => {
@@ -161,11 +161,11 @@ export function Header() {
                 </ul>
               </nav>
 
-              <div className="mt-7 grid gap-5 border-t border-[var(--color-border)] pt-6">
+              <div className="mt-7 grid gap-5 border-t border-(--color-border) pt-6">
                 <section aria-labelledby="mobile-language-label">
                   <h2
                     id="mobile-language-label"
-                    className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-text-muted)]"
+                    className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-(--color-text-muted)"
                   >
                     {dictionary.preferences.language}
                   </h2>

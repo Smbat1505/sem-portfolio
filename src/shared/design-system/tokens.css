@@ -37,6 +37,15 @@
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
+  --radius-xs: 10px;
+  --radius-xl: 15px;
+  --radius-2xl: 20px;
+  --radius-3xl: 25px;
+  --radius-4xl: 30px;
+  --radius-5xl: 35px;
+  --radius-6xl: 40px;
+  --radius-7xl: 45px;
+  --radius-8xl: 50px;
   --shadow-card: 0 18px 50px rgb(0 0 0 / 22%);
   --shadow-control: 0 5px 16px rgb(0 0 0 / 16%);
   --shadow-menu: 0 26px 60px rgb(0 0 0 / 32%);

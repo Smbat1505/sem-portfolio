@@ -67,7 +67,7 @@ export function ThemeSwitch({ locale, compact = false }: { locale: Locale; compa
       role="radiogroup"
       aria-label={dictionary.preferences.theme}
       className={cn(
-        "grid grid-cols-3 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-control-track)] p-1",
+        "grid grid-cols-3 rounded-[var(--radius-8xl)] border border-[var(--color-border)] bg-[var(--color-control-track)] p-1",
         compact ? "gap-0.5" : "gap-1",
       )}
     >
@@ -86,7 +86,7 @@ export function ThemeSwitch({ locale, compact = false }: { locale: Locale; compa
             title={compact ? label : undefined}
             onClick={() => selectTheme(theme)}
             className={cn(
-              "inline-flex min-h-11 items-center justify-center gap-2 rounded-[calc(var(--radius-md)-2px)] px-3 text-sm font-medium transition-[background,color,box-shadow] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-primary)]",
+              "inline-flex min-h-11 items-center justify-center gap-2 rounded-[calc(var(--radius-8xl)-2px)] px-3 text-sm font-medium transition-[background,color,box-shadow] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-primary)]",
               compact ? "min-w-11 px-0" : "w-full",
               selected
                 ? "bg-[var(--color-control-active)] text-[var(--color-text-primary)] shadow-[var(--shadow-control)]"

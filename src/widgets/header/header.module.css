@@ -154,6 +154,7 @@
   border-color: var(--color-accent-border);
   background: var(--color-accent-tint);
   color: var(--color-text-primary);
+  font-weight: 600;
 }
 
 .mobileLinkIndex {
