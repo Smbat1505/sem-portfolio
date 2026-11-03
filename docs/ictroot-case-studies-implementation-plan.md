@@ -43,10 +43,10 @@ Instagram или создавать впечатление аффилиации 
 
 Использовать можно следующее:
 
-| Кейс | Подтверждаемые направления | Стек |
-| --- | --- | --- |
-| ICTROOT Social Platform | профиль, подписки, уведомления, публичный SSR, скелетоны, текстовые и голосовые сообщения, realtime-состояния | Next.js, React, TypeScript, Redux Toolkit/RTK Query, Socket.IO |
-| ICTROOT Super Admin | управление пользователями, ban/unban/delete, управление постами, поиск, infinite scroll, realtime-обновления | Next.js, React, TypeScript, GraphQL, Apollo Client, Zustand, React Hook Form, Zod |
+| Кейс                    | Подтверждаемые направления                                                                                    | Стек                                                                              |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| ICTROOT Social Platform | профиль, подписки, уведомления, публичный SSR, скелетоны, текстовые и голосовые сообщения, realtime-состояния | Next.js, React, TypeScript, Redux Toolkit/RTK Query, Socket.IO                    |
+| ICTROOT Super Admin     | управление пользователями, ban/unban/delete, управление постами, поиск, infinite scroll, realtime-обновления  | Next.js, React, TypeScript, GraphQL, Apollo Client, Zustand, React Hook Form, Zod |
 
 Перед публикацией новых формулировок проверять их через `git log`, конкретные
 изменения и README исходных репозиториев. Не указывать скорость, проценты, число

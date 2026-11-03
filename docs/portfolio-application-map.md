@@ -5,31 +5,31 @@
 
 ## Быстрый выбор точки правки
 
-| Нужно изменить | Основной путь | Что важно помнить |
-| --- | --- | --- |
-| Текст, проекты, кейсы, компетенции | `src/shared/i18n/content.ts` | Главный источник локализованного контента EN/RU |
-| Резюме, меню, home, контактные тексты | `src/shared/i18n/dictionaries.ts` | Всегда менять обе локали |
-| Email, GitHub, LinkedIn, Telegram | `src/entities/contact/contact.data.ts` | Используется страницей контактов |
-| Маршруты и SEO | `src/shared/config/seo.ts` | Менять после проверки canonical, sitemap и hreflang |
-| Страница кейса | `src/screens/case-study/case-study-page.tsx` | Общий шаблон для всех project slugs |
-| Карточка проекта | `src/widgets/project-grid/project-card.tsx` | Не вкладывать ссылку внутрь другой ссылки |
-| Проекты с фильтрами | `src/features/project-filter/project-filter.tsx` | Фильтрация выполняется на клиенте |
-| Главная страница | `src/screens/home/home-page.tsx` | Показывает первые три проекта из контента |
-| Внешний вид/токены | `src/shared/design-system/` и `app/globals.css` | Сначала использовать существующие CSS variables |
+| Нужно изменить                        | Основной путь                                    | Что важно помнить                                   |
+| ------------------------------------- | ------------------------------------------------ | --------------------------------------------------- |
+| Текст, проекты, кейсы, компетенции    | `src/shared/i18n/content.ts`                     | Главный источник локализованного контента EN/RU     |
+| Резюме, меню, home, контактные тексты | `src/shared/i18n/dictionaries.ts`                | Всегда менять обе локали                            |
+| Email, GitHub, LinkedIn, Telegram     | `src/entities/contact/contact.data.ts`           | Используется страницей контактов                    |
+| Маршруты и SEO                        | `src/shared/config/seo.ts`                       | Менять после проверки canonical, sitemap и hreflang |
+| Страница кейса                        | `src/screens/case-study/case-study-page.tsx`     | Общий шаблон для всех project slugs                 |
+| Карточка проекта                      | `src/widgets/project-grid/project-card.tsx`      | Не вкладывать ссылку внутрь другой ссылки           |
+| Проекты с фильтрами                   | `src/features/project-filter/project-filter.tsx` | Фильтрация выполняется на клиенте                   |
+| Главная страница                      | `src/screens/home/home-page.tsx`                 | Показывает первые три проекта из контента           |
+| Внешний вид/токены                    | `src/shared/design-system/` и `app/globals.css`  | Сначала использовать существующие CSS variables     |
 
 ## Маршруты
 
-| URL | Файл маршрута | Экран |
-| --- | --- | --- |
-| `/` | `app/page.tsx` | `src/screens/home/home-page.tsx` |
-| `/projects` | `app/projects/page.tsx` | `src/screens/projects/projects-page.tsx` |
-| `/projects/[slug]` | `app/projects/[slug]/page.tsx` | `src/screens/case-study/case-study-page.tsx` |
-| `/capabilities` | `app/capabilities/page.tsx` | `src/screens/capabilities/capabilities-page.tsx` |
-| `/resume` | `app/resume/page.tsx` | `src/screens/resume/resume-page.tsx` |
-| `/contact` | `app/contact/page.tsx` | `src/screens/contact/contact-page.tsx` |
-| `/ru/...` | `app/[locale]/...` | Те же экраны с locale `ru` |
-| `/sitemap.xml` | `app/sitemap.ts` | Список URL из SEO-конфигурации |
-| `/robots.txt` | `app/robots.ts` | Robots-конфигурация |
+| URL                | Файл маршрута                  | Экран                                            |
+| ------------------ | ------------------------------ | ------------------------------------------------ |
+| `/`                | `app/page.tsx`                 | `src/screens/home/home-page.tsx`                 |
+| `/projects`        | `app/projects/page.tsx`        | `src/screens/projects/projects-page.tsx`         |
+| `/projects/[slug]` | `app/projects/[slug]/page.tsx` | `src/screens/case-study/case-study-page.tsx`     |
+| `/capabilities`    | `app/capabilities/page.tsx`    | `src/screens/capabilities/capabilities-page.tsx` |
+| `/resume`          | `app/resume/page.tsx`          | `src/screens/resume/resume-page.tsx`             |
+| `/contact`         | `app/contact/page.tsx`         | `src/screens/contact/contact-page.tsx`           |
+| `/ru/...`          | `app/[locale]/...`             | Те же экраны с locale `ru`                       |
+| `/sitemap.xml`     | `app/sitemap.ts`               | Список URL из SEO-конфигурации                   |
+| `/robots.txt`      | `app/robots.ts`                | Robots-конфигурация                              |
 
 Английский язык является дефолтным: `/en/...` не должен существовать как отдельный
 публичный URL, а перенаправляется на путь без префикса. Русский использует `/ru`.
@@ -75,16 +75,16 @@
 
 ## UI и стили
 
-| Компонент | Путь | Назначение |
-| --- | --- | --- |
-| Header | `src/widgets/header/header.tsx` | Навигация, языки, мобильное меню, тема |
-| Footer | `src/widgets/footer/footer.tsx` | Низ сайта |
-| Button | `src/shared/ui/button/button.tsx` | Все кнопки и внутренние ссылки |
-| Card | `src/shared/ui/card/card.tsx` | Базовая карточка |
-| Project Card | `src/widgets/project-grid/project-card.tsx` | Карточка в списке проектов |
-| Case Study | `src/screens/case-study/case-study-page.tsx` | Полная страница кейса |
-| Theme Switch | `src/features/theme-switch/theme-switch.tsx` | Светлая, тёмная, системная темы |
-| Locale Switch | `src/features/locale-switch/locale-switch.tsx` | Переключение EN/RU |
+| Компонент     | Путь                                           | Назначение                             |
+| ------------- | ---------------------------------------------- | -------------------------------------- |
+| Header        | `src/widgets/header/header.tsx`                | Навигация, языки, мобильное меню, тема |
+| Footer        | `src/widgets/footer/footer.tsx`                | Низ сайта                              |
+| Button        | `src/shared/ui/button/button.tsx`              | Все кнопки и внутренние ссылки         |
+| Card          | `src/shared/ui/card/card.tsx`                  | Базовая карточка                       |
+| Project Card  | `src/widgets/project-grid/project-card.tsx`    | Карточка в списке проектов             |
+| Case Study    | `src/screens/case-study/case-study-page.tsx`   | Полная страница кейса                  |
+| Theme Switch  | `src/features/theme-switch/theme-switch.tsx`   | Светлая, тёмная, системная темы        |
+| Locale Switch | `src/features/locale-switch/locale-switch.tsx` | Переключение EN/RU                     |
 
 Стили проекта основаны на Tailwind utility classes и переменных из:
 
@@ -111,16 +111,16 @@
 
 ## Тесты и проверки
 
-| Проверка | Путь/команда | Что покрывает |
-| --- | --- | --- |
-| Модели проектов | `src/entities/project/projects.test.ts` | Структура и фильтрация данных |
-| Компетенции | `src/entities/capability/capabilities.test.ts` | Схема capability-данных |
-| SEO | `src/shared/config/seo.test.ts` | Canonical, hreflang, sitemap, robots |
-| Локализация | `src/shared/i18n/config.test.ts` | Построение путей EN/RU |
-| Интерактивный граф | `src/widgets/home-skill-graph/home-skill-graph.test.tsx` | Поведение графа навыков |
-| E2E | `tests/e2e/navigation.spec.ts` | Основная навигация |
-| Полная проверка | `npm run check` | TypeScript, ESLint, Vitest |
-| Сборка | `npm run build` | Production-сборка для Cloudflare/Vinext |
+| Проверка           | Путь/команда                                             | Что покрывает                           |
+| ------------------ | -------------------------------------------------------- | --------------------------------------- |
+| Модели проектов    | `src/entities/project/projects.test.ts`                  | Структура и фильтрация данных           |
+| Компетенции        | `src/entities/capability/capabilities.test.ts`           | Схема capability-данных                 |
+| SEO                | `src/shared/config/seo.test.ts`                          | Canonical, hreflang, sitemap, robots    |
+| Локализация        | `src/shared/i18n/config.test.ts`                         | Построение путей EN/RU                  |
+| Интерактивный граф | `src/widgets/home-skill-graph/home-skill-graph.test.tsx` | Поведение графа навыков                 |
+| E2E                | `tests/e2e/navigation.spec.ts`                           | Основная навигация                      |
+| Полная проверка    | `npm run check`                                          | TypeScript, ESLint, Vitest              |
+| Сборка             | `npm run build`                                          | Production-сборка для Cloudflare/Vinext |
 
 ## Что не менять без отдельной задачи
 
